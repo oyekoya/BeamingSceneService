@@ -1,0 +1,35 @@
+################################################
+#
+# Cal3d cfg File
+#
+################################################
+
+scale=1.0
+
+################# Skeleton #################
+skeleton=Skeleton.XSF
+
+################# Meshes #################
+mesh=hero_body.XMF
+mesh=hero_head.XMF
+
+################# Animations #################
+
+################# Materials #################
+material=hero_body_1.XRF
+material=hero_body_2.XRF
+material=hero_body_3.XRF
+material=hero_body_4.XRF
+material=hero_body_5.XRF
+material=hero_body_6.XRF
+material=hero_body_7.XRF
+material=hero_body_8.XRF
+material=hero_head_1.XRF
+material=hero_head_2.XRF
+material=hero_head_3.XRF
+material=hero_head_4.XRF
+material=hero_head_5.XRF
+material=hero_head_6.XRF
+material=hero_head_7.XRF
+material=hero_head_8.XRF
+

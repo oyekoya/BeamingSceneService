@@ -1,0 +1,61 @@
+\hypertarget{structt__process_info}{
+\section{t\_\-processInfo Struct Reference}
+\label{structt__process_info}\index{t\_\-processInfo@{t\_\-processInfo}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__process_info_a2221096a6ef57600bdeea1c991e7a606}{t\_\-processInfo} (bool init=false)
+\item 
+\hyperlink{structt__process_info_a9a759605078c5913be327d250f2dcdc7}{$\sim$t\_\-processInfo} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structt__process_info_afe747425ed47a260d12c1e347344ea16}{
+AauBinFilter $\ast$ {\bfseries binaural}}
+\label{structt__process_info_afe747425ed47a260d12c1e347344ea16}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 32 of file sceneinterface.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structt__process_info_a2221096a6ef57600bdeea1c991e7a606}{
+\index{t\_\-processInfo@{t\_\-processInfo}!t\_\-processInfo@{t\_\-processInfo}}
+\index{t\_\-processInfo@{t\_\-processInfo}!t_processInfo@{t\_\-processInfo}}
+\subsubsection[{t\_\-processInfo}]{\setlength{\rightskip}{0pt plus 5cm}t\_\-processInfo::t\_\-processInfo (
+\begin{DoxyParamCaption}
+\item[{bool}]{init = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}
+\label{structt__process_info_a2221096a6ef57600bdeea1c991e7a606}
+Constructor for the processing struct init determines if the processing class should be initialized or not when not initializing, the class must be instantiated elsewhere and set 
+
+Definition at line 22 of file sceneinterface.cpp.
+
+\hypertarget{structt__process_info_a9a759605078c5913be327d250f2dcdc7}{
+\index{t\_\-processInfo@{t\_\-processInfo}!$\sim$t\_\-processInfo@{$\sim$t\_\-processInfo}}
+\index{$\sim$t\_\-processInfo@{$\sim$t\_\-processInfo}!t_processInfo@{t\_\-processInfo}}
+\subsubsection[{$\sim$t\_\-processInfo}]{\setlength{\rightskip}{0pt plus 5cm}t\_\-processInfo::$\sim$t\_\-processInfo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{structt__process_info_a9a759605078c5913be327d250f2dcdc7}
+Destructor for the processing struct If the processing class is instantiated, it will be properly deleted 
+
+Definition at line 34 of file sceneinterface.cpp.
+
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/sceneinterface.h\item 
+Classes/sceneinterface.cpp\end{DoxyCompactItemize}

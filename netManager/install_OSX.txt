@@ -1,0 +1,40 @@
+Mac OS X Instructions
+------------------
+How to install Raknet, libclient on OsX.
+
+-RakNet
+
+NOTE: Use preferably GNU gcc to compile. to do so, set an environmental var before each CMAKE call:
+CC=gcc CXX=g++ cmake (...)
+
+NOTE2: There's no __int32 on mac, on $RAKNET/Source/NativeTypes.h add
+#if defined(__APPLE__)
+typedef int __int32;
+#endif
+
+1) cd into the raknet root directory (external_libs/rakent). cd into the Source dir, 
+    and change NativeTypes.h with NativeTypes_OSX.h (by physically renaming the files).
+2) if you've cmake GUI, run it and disable the dependencies. Otherwise type
+	cmake .
+3) cmake will tell you that the dependencies can't be found. Please do run again cmake 
+    with the flag to disable them (cmake will tell you the flag)
+	cmake -FLAG_CMAKE_SUGGESTS .
+4) type make
+5) make will fail on about 75%. We don't care, we already have the static library. 
+    Is in Lib/LibStatic/libRakNetStatic.a
+6) copy it in /usr/lib/
+	sudo cp Lib/LibStatic/libRakNetStatic.a /usr/lib/
+7) you are done.
+
+-LibClient
+
+1) cd into netManager
+2) run osx_build
+	./osx_build
+3) you should get everything working fine. If not, check the paths in osx_build.
+4) copy libclient (netClent/libclient.a) into /usr/lib/
+	sudo cp netClent/libclient.a /usr/lib/
+5) you are done.
+
+Now you can build the app. Make sure you've Qt installed!
+

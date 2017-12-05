@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" href="$audiointerface_8cpp.html" title="Implements the interface for asynchronous communicating between audio modules." alt="" coords="5,80,181,107"/>
+<area shape="rect" href="$audioio_8h.html" title="Handles audio input and output through the AudioInterface, and also uses the SceneInterface to contro..." alt="" coords="205,80,328,107"/>
+<area shape="rect" href="$rakcli_8h.html" title="Defines the RakCli class containing the overall interface for connecting and identifying to an Audio ..." alt="" coords="359,80,473,107"/>
+<area shape="rect" href="$audioio_8cpp_source.html" title="Classes/audioio.cpp" alt="" coords="193,155,332,181"/>
+<area shape="rect" href="$rakcli_8cpp.html" title="Implements the RakCli class containing the overall interface for connecting and identifying to an Aud..." alt="" coords="356,155,484,181"/>
+</map>

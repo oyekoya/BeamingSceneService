@@ -1,0 +1,199 @@
+#ifndef AVATARS_S3D
+#define AVATARS_S3D
+var Avatars;
+var skinShader;
+
+// #define DEBUGAVATARS
+
+
+function InitAvatars()
+{
+
+#ifdef DEBUGAVATARS
+Avatars = CVmExternDLL( "HALCAWin32_d.dll" );
+OutPutLn("Loaded Avatars debug dll");
+#else
+Avatars = CVmExternDLL( "HALCAWin32.dll" );
+#endif
+
+	Avatars.__AddFunction( C_VOID, "Idle");	//updates animations
+	Avatars.__AddFunction( C_VOID, "IdleOne",C_INT);	//updates animation of character with AvatarID
+	Avatars.__AddFunction( C_VOID, "setLocalDir",C_PCHAR,C_PCHAR,C_PCHAR);
+	Avatars.__AddFunction( C_INT, "addCharacter",C_PCHAR,C_PCHAR);	// adds a new character first parameter directory, second, cfg name
+	Avatars.__AddFunction( C_INT, "loadShaders",C_PCHAR, C_PCHAR, C_PCHAR, C_PCHAR);//loads fragment geometry and vertex shader and returns shader linker log	
+	Avatars.__AddFunction( C_VOID, "Draw",C_FLOAT); //draws all avatars
+	Avatars.__AddFunction( C_VOID, "DrawExtShader"); //draws all avatars with External shader
+	Avatars.__AddFunction( C_VOID, "DrawExtShaderOne",C_INT); //draws avatar with the given avatarID using the external shader
+	Avatars.__AddFunction( C_VOID, "drawBoundsAndSkeleton"); //draws skeleton and bounding boxes of all avatars, useful when using external shader.
+	Avatars.__AddFunction( C_INT, "getProgramID"); //Gets the ID of the current shader program
+	Avatars.__AddFunction( C_VOID, "loadUniAndAttrIDs",C_INT); //Gets the ID of the current shader program
+	Avatars.__AddFunction( C_VOID, "setDT",C_FLOAT); //set delta t for animations
+	Avatars.__AddFunction( C_VOID, "setAccumulativeRoot",C_INT,C_INT); //set root node to accumulate animation changes
+
+	Avatars.__AddFunction( C_FLOAT, "getAnimationDuration",C_INT,C_INT);// AvatarID, AnimationID returns the duration of the specified animation in seconds
+	Avatars.__AddFunction( C_INT, "getAnimationCount",C_INT);// AvatarID, returns the number of animations that the avatar AvatarID has loaded.
+	Avatars.__AddFunction( C_PCHAR, "getAnimationFilename",C_INT,C_INT);// AvatarID, AnimationID, returns the filename of the animation specified by AvatarIDn and AnimationID
+	Avatars.__AddFunction( C_PCHAR, "getAnimationName",C_INT,C_INT);// AvatarID, AnimationID, returns the name of the animation specified by AvatarIDn and AnimationID
+	Avatars.__AddFunction( C_INT, "getAnimationId",C_INT,C_PCHAR);// AvatarID, AnimationID, returns the id of the animation specified by AvatarIDn and AnimationName
+	Avatars.__AddFunction( C_FLOAT, "getAnimationTime",C_INT,C_INT);// AvatarID, AnimationID, returns the time at which point the specified animation is currently played
+	
+	Avatars.__AddFunction( C_VOID, "useTextureUnit",C_INT); //specifies the texture Unit that the avatar rendering use for diffues and alpha textures specified in their materials
+
+	
+	Avatars.__AddFunction( C_VOID, "setDTOne",C_INT, C_FLOAT); //AvatarId, DeltaT, sets deltaT for individual Avatar 
+	Avatars.__AddFunction( C_FLOAT, "getDTOne",C_INT); //AvatarId, returns currently set DeltaT for this Avatar 
+
+	Avatars.__AddFunction( C_VOID, "ShutDown"); //removes all characters and animations etc.
+	Avatars.__AddFunction( C_VOID, "exeAct",C_INT,C_INT,C_FLOAT,C_FLOAT,C_FLOAT, C_INT);// AvatarID, AnimationID, inTime, outTime, weight, lock
+	Avatars.__AddFunction( C_VOID, "exeActAt",C_INT,C_INT,C_FLOAT,C_FLOAT,C_FLOAT, C_INT,C_FLOAT);// AvatarID, AnimationID, inTime, outTime, weight, lock, startTime
+	Avatars.__AddFunction( C_VOID, "exeActPart",C_INT,C_INT,C_FLOAT,C_FLOAT,C_FLOAT, C_INT,C_FLOAT,C_FLOAT);// AvatarID, AnimationID, inTime, outTime, weight, lock, startTime
+	Avatars.__AddFunction( C_VOID, "removeAct",C_INT,C_INT);// AvatarID, AnimationID
+	Avatars.__AddFunction( C_INT, "isExecuting",C_INT,C_INT);// AvatarID, AnimationID, 
+	
+
+	Avatars.__AddFunction( C_VOID, "setCycleAsync",C_INT,C_INT,C_FLOAT); // sets a cycling animation's state to asychronous AvatarID,AnimationID, Delay
+	Avatars.__AddFunction( C_VOID, "blendCycle",C_INT,C_INT,C_FLOAT,C_FLOAT); // Blends in an animation with the parameters:AvatarID, AnimationID,Weight, Delay
+	Avatars.__AddFunction( C_VOID, "blendCycleN",C_INT,C_INT,C_FLOAT,C_FLOAT,C_INT); // Blends in an animation with the parameters:AvatarID, AnimationID,Weight, Delay, number of cycles
+	Avatars.__AddFunction( C_VOID, "blendCycleNMask",C_INT,C_INT,C_PFLOAT,C_FLOAT,C_INT); // Blends in an animation with the parameters:AvatarID, AnimationID,Weight, Delay, number of cycles
+	Avatars.__AddFunction( C_VOID, "clearCycle",C_INT,C_INT); // Removes an Animation from the currently bleded ones with the Parameters: AvatarID, AnimationID
+	Avatars.__AddFunction( C_INT, "isCycling",C_INT,C_INT);	// Returns if the animation with parameres AvatarID, AnimationID is blended in at the moment
+	Avatars.__AddFunction( C_INT, "setMorph",C_INT,C_INT,C_FLOAT);	// sets the animation AnimationID of character AvatarID to morph value
+	Avatars.__AddFunction( C_INT, "incMorph",C_INT,C_INT,C_FLOAT);	// increases the animation AnimationID of character AvatarID by morph value
+	Avatars.__AddFunction( C_INT, "addMorph",C_INT,C_INT);	// adds animationID of character AvatarID to Morphable animations.
+	Avatars.__AddFunction( C_INT, "removeMorph",C_INT,C_INT);	// removes animationID of character AvatarID from morphable animations.
+	
+	
+	Avatars.__AddFunction( C_INT, "setModel",C_INT);	// sets an external Cal3D Model to give control to an external application 
+
+	Avatars.__AddFunction( C_VOID, "setWireFrame",C_INT,C_INT);	//AvatarID, 0/1, renders the character in wireframe. only possible with TransformType VertexArray at the moment
+	Avatars.__AddFunction( C_VOID, "showSkel",C_INT); // visualise all characters' skeleton
+	Avatars.__AddFunction( C_VOID, "showBody",C_INT); // visualise all characters' body
+	Avatars.__AddFunction( C_VOID, "showBB",C_INT); // visualise all characters' bounding boxes
+	Avatars.__AddFunction( C_VOID, "setRotation",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation as quaternion
+	Avatars.__AddFunction( C_VOID, "setRotationMatrixAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation as quaternion
+	Avatars.__AddFunction( C_VOID, "setRotationAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation as quaternion, rotation is done absolute using parent bones inverse
+	Avatars.__AddFunction( C_VOID, "addRotationMatrix",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation as 3x3 matrx, rotation is done taking multiplying with the current rotation
+	Avatars.__AddFunction( C_VOID, "addRotationEuler",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation as Euler angles, rotation is done taking multiplying with the current rotation
+	Avatars.__AddFunction( C_VOID, "addRotation",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation quaternion, rotation is done taking multiplying with the current rotation
+
+	Avatars.__AddFunction( C_VOID, "addRotationAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation quaternion, rotation is done taking multiplying with the current rotation
+
+
+	Avatars.__AddFunction( C_VOID, "setRotationEuler",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation as Euler
+	Avatars.__AddFunction( C_VOID, "setRotationEulerAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, rotation as Euler, rotation is done absolute using parent bones inverse
+	
+	Avatars.__AddFunction( C_VOID, "getRotation",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, relative rotation as quaternion using xyzw
+	Avatars.__AddFunction( C_VOID, "getRotationAA",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, relative rotation as angle axis
+	Avatars.__AddFunction( C_VOID, "getRotationEuler",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, relative rotation as Euler angles
+	Avatars.__AddFunction( C_VOID, "getRotationAAAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, absolute rotation as angle axis
+	Avatars.__AddFunction( C_VOID, "getRotationEulerAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, absolute rotation as Euler angle
+	Avatars.__AddFunction( C_VOID, "getRotationAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, absolute rotation as quaternion using xyzw
+	Avatars.__AddFunction( C_VOID, "getRotationMatrixAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, absolute rotation as 3x3 rotation Matrix
+	Avatars.__AddFunction( C_VOID, "getBoneBB",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, 24 vector containing positions of 8 corner points
+	Avatars.__AddFunction( C_VOID, "updateBoneBB",C_INT,C_INT);// AvatarID, JointID, updates the bounding box of the specified bone
+
+	Avatars.__AddFunction( C_PCHAR, "getBoneName",C_INT,C_INT);// AvatarID, JointID, string containing the name of the bone
+
+	Avatars.__AddFunction( C_PCHAR, "getBoneChildIds",C_INT,C_INT);// AvatarID, JointID, string containing the ids of the bone children
+	Avatars.__AddFunction( C_INT, "getBoneParentId",C_INT,C_INT);// AvatarID, JointID, int containing bone parentId
+	Avatars.__AddFunction( C_VOID, "setVertexWeightThreshold",C_INT,C_FLOAT);// AvatarID, weight threshold
+	Avatars.__AddFunction( C_INT, "getNumGPUMeshes",C_INT);// AvatarID
+	Avatars.__AddFunction( C_VOID, "setMaxBonesPerMesh",C_INT);// maxBonesPerMesh for all avatars
+	Avatars.__AddFunction( C_VOID, "selectMesh",C_INT,C_INT);// AvatarID, MeshID	
+	
+	Avatars.__AddFunction( C_INT, "isPointInside",C_INT,C_PFLOAT);// AvatarID, Vec3, returns Joint id of bone that has the position of vec3 inside. if no bone bounding box has it inside -1 is returned
+	Avatars.__AddFunction( C_INT, "isPointInsideCyl",C_INT,C_PFLOAT,C_FLOAT);// // AvatarID, Vec3, SphereRadius returns Joint id of bone that has the position of vec3 with radius SpherRadius inside. if no bone bounding cylinder has it inside -1 is returnedreturned
+	Avatars.__AddFunction( C_FLOAT, "getBoneBoundingCylinderRadius",C_INT,C_INT);// AvatarID, JointID, returns Returns radius of specified bone -1 if bone or avatarid is invalid.
+	Avatars.__AddFunction( C_FLOAT, "distanceToBoundingCylinder",C_INT,C_INT);// AvatarID, JointID, returns distance between specified bone and point.
+
+	Avatars.__AddFunction( C_VOID, "setModelScale",C_INT,C_PFLOAT);// AvatarID, Vec3, changes the scale of the avatar.
+	Avatars.__AddFunction( C_PFLOAT_3, "getModelScale",C_INT);// AvatarID retrieves the current scale of the avatar.
+	
+	Avatars.__AddFunction( C_VOID, "setAllBoneState",C_INT,C_PFLOAT);// AvatarID, Vec3, changes the scale of the avatar.
+	Avatars.__AddFunction( C_VOID, "getAllBoneState",C_INT,C_PFLOAT);// AvatarID retrieves the current scale of the avatar.
+	
+
+
+
+	Avatars.__AddFunction( C_VOID, "getRotationAAbs",C_INT,C_INT,C_PFLOAT);// AvatarID, JointID, bone space rotation as angle axis
+	Avatars.__AddFunction( C_VOID, "lookAt",C_INT,C_INT,C_PFLOAT,C_PFLOAT);// AvatarID, JointID, from Vec3, to Vec3
+	Avatars.__AddFunction( C_INT, "getBoneId",C_INT,C_PCHAR);// AvatarID, substring of bone name, returns boneID
+	Avatars.__AddFunction( C_VOID, "getInverseParentRotation",C_INT,C_INT,C_PFLOAT);// AvatarID, boneId, returns 3x3 transposed matrix of absolute parent rotation
+	Avatars.__AddFunction( C_VOID, "setTranslation",C_INT,C_INT,C_PFLOAT);// sets the translation with the parameters: AvatarID, JointID, set relative translation Vec3
+	Avatars.__AddFunction( C_VOID, "getTranslation",C_INT,C_INT,C_PFLOAT);// gets the translation with the parameters: AvatarID, JointID, get relative translation Vec3
+	Avatars.__AddFunction( C_VOID, "getTranslationAbs",C_INT,C_INT,C_PFLOAT);// gets the translation with the parameters:AvatarID, JointID, get absolute translation Vec3
+	Avatars.__AddFunction( C_VOID, "getTranslationOGL",C_INT,C_INT,C_PFLOAT); // AvatarID, JointID, get relative translation Vec3 OpenGL space
+	Avatars.__AddFunction( C_VOID, "getTranslationAbsOGL",C_INT,C_INT,C_PFLOAT); // AvatarID, JointID, get absolute translation Vec3 OpenGL space
+	Avatars.__AddFunction( C_INT, "getNumBone",C_INT);// Returns the number of bones if the Avatar with AvatarID 
+	Avatars.__AddFunction( C_INT, "numCharacters");// Returns the number of Avatars loaded
+	Avatars.__AddFunction( C_INT, "loadAnimation",C_INT,C_PCHAR);// loads an animation to AvatarID with the filename specified
+	Avatars.__AddFunction( C_VOID, "setTransformType",C_INT); //which type of transformations is sent to the GPU ? 0 Vertex Array, 1 Matrix, 2 rotmat&transmat, 3 Quaternion, encoded quaternion?
+	Avatars.__AddFunction( C_VOID, "exeMorph",C_INT,C_INT,C_FLOAT,C_FLOAT);//Executes a morph animation AvatarID, MorphID,seconds,delay
+	Avatars.__AddFunction( C_VOID, "clearMorph",C_INT,C_INT,C_FLOAT);//Removes a morph animation AvatarID, MorphID,delay
+	Avatars.__AddFunction( C_VOID, "loadEnvMap",C_PCHAR);//loads an environment map that can be used in shaders to render characters
+	Avatars.__AddFunction( C_VOID, "DrawGrid");	// draws a grid for debugging purpose.
+	Avatars.__AddFunction( C_VOID, "doIK",C_INT,C_INT,C_INT,C_PFLOAT,C_FLOAT,C_INT);	// Inverse Kinematics with parameters: AvatarID, startBoneId, endBoneId, targetPos, tolerance, iterations
+	Avatars.__AddFunction( C_VOID, "PointAt",C_INT,C_INT,C_PFLOAT);	// PointAt behaviour with the parameters: AvatarID, startBoneId, targetPos
+	Avatars.__AddFunction( C_VOID, "ogreLookAt",C_INT,C_INT,C_PFLOAT,C_INT);	// LookAt Behaviour with the paramteres: AvatarID, startBoneId, targetPos, opposite direction(0/1)
+	Avatars.__AddFunction( C_VOID, "setUpIK3",C_INT,C_INT,C_INT,C_PFLOAT,C_FLOAT,C_INT);	// Setup Inverse Kinematics from Maya with the paramters: AvatarID, startBoneId, endBoneId, targetPos, tolerance, iterations
+	Avatars.__AddFunction( C_VOID, "doIK3",C_INT,C_INT,C_INT,C_PFLOAT,C_FLOAT,C_INT);	// Setup Inverse Kinematics from Maya with the paramters: AvatarID, startBoneId, endBoneId, targetPos, tolerance, iterations
+	Avatars.__AddFunction( C_VOID, "doIKCCD",C_INT,C_INT,C_INT,C_PFLOAT,C_FLOAT,C_INT);	// Inverse Kinematics  using ICCD with the paramters: AvatarID, startBoneId, endBoneId, targetPos, tolerance, iterations
+
+	Avatars.__AddFunction( C_VOID, "lockBone",C_INT,C_INT);// AvatarID, JointID, locks the bone so that it can be edited manually
+	Avatars.__AddFunction( C_VOID, "resetBone",C_INT,C_INT);// AvatarID, JointID, locks the bone so that it can be edited manually
+
+
+	Avatars.__AddFunction( C_INT, "FileOpen",C_PCHAR);	// open file
+	Avatars.__AddFunction( C_VOID, "FileWrite",C_PCHAR);	// write to file
+	Avatars.__AddFunction( C_VOID, "FileClose");	// close file
+	
+	Avatars.__AddFunction( C_VOID, "writeFrameAsJpeg",C_PCHAR,C_INT);	// FIlename, imagequality, writes the current OpenGL framebuffer to a jpg image with given filename and quality
+
+
+	Avatars.__AddFunction(C_VOID,"setUseTBO",C_INT); //if set to 1 a texture buffer object is used for morph targets
+	
+	Avatars.showBB(0);
+	Avatars.showSkel(0);
+	Avatars.showBody(1);	
+
+
+	Var shaderlog=space(1024);
+
+#ifdef VA_TRANS
+    Avatars.setTransformType(0); //which type of transformations is sent to the GPU ? 0 Vertex Array, 1 Matrix, 2 rotmat&transmat, 3 Quaternion, encoded quaternion?
+#endif
+
+#ifdef DQUAT_TRANSF
+	Avatars.setTransformType(6);
+	var logf=space(1024);//dquat.geom
+	Avatars.loadShaders("dquat.vert","dquat.geom","dquat.frag",logf);
+	outputln(logf);
+#endif
+
+
+#ifdef DQUAT_TRANSF_XVRSHADER
+    Avatars.setTransformType(6); //which type of transformations is sent to the GPU ? 0 Vertex Array, 1 Matrix, 2 rotmat&transmat, 3 Quaternion, encoded quaternion?
+	Avatars.setMaxBonesPerMesh(30);//should reflect the number of dual quaternions in the shader
+	skinShader=loadShader("skinshDQuat.sh");
+//	skinShaderNoShadows=loadShader("skinshNoShadows.sh");
+	skinShader.start();
+//	Avatars.setUniAndAttrIDs(4,1,2,3,15,45,75,9012);
+	Avatars.loadUniAndAttrIDs(0);
+	skinShader.stop();
+#endif
+
+#ifdef TM_TRANSF_XVRSHADER
+    Avatars.setTransformType(1); //which type of transformations is sent to the GPU ? 0 Vertex Array, 1 Matrix, 2 rotmat&transmat, 3 Quaternion, encoded quaternion?
+	Avatars.setMaxBonesPerMesh(30);//should reflect the number of transforms in the shader
+#ifdef ENVMAPON
+    skinShader=loadShader("skinshTMEnv.sh");
+#else
+    skinShader=loadShader("skinshTM.sh");
+#endif
+	skinShader.start();
+	Avatars.loadUniAndAttrIDs(0);
+	skinShader.stop();
+#endif
+}
+
+#endif

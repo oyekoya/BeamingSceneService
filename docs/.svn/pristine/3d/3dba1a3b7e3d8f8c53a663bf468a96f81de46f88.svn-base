@@ -1,0 +1,131 @@
+\hypertarget{structt__audio_devinfo}{
+\section{t\_\-audioDevinfo Struct Reference}
+\label{structt__audio_devinfo}\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}}
+}
+
+
+struct for communication relevant info about the available audio devices  
+
+
+
+
+{\ttfamily \#include $<$audioio.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__audio_devinfo_a19bc76b4c4cb381a9fd3fd3b184639e9}{t\_\-audioDevinfo} (QString \hyperlink{structt__audio_devinfo_a30c93d9526c1b00aaee10a4a7c4442e5}{name}=\char`\"{}\char`\"{}, int \hyperlink{structt__audio_devinfo_a6fa832814bf8219522e8a87ae7de7bfa}{in}=0, int \hyperlink{structt__audio_devinfo_aae35268467cac9068297b7d722d569de}{out}=0, QString \hyperlink{structt__audio_devinfo_a278cf8ce1cbde913cff67042940f3c44}{api}=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em constructor enabling direct initialization \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QString \hyperlink{structt__audio_devinfo_a30c93d9526c1b00aaee10a4a7c4442e5}{name}
+\begin{DoxyCompactList}\small\item\em Name of the audio device as reported by the operating system. \item\end{DoxyCompactList}\item 
+int \hyperlink{structt__audio_devinfo_a6fa832814bf8219522e8a87ae7de7bfa}{in}
+\begin{DoxyCompactList}\small\item\em Number of available input channels. \item\end{DoxyCompactList}\item 
+int \hyperlink{structt__audio_devinfo_aae35268467cac9068297b7d722d569de}{out}
+\begin{DoxyCompactList}\small\item\em Number of available output channels. \item\end{DoxyCompactList}\item 
+QString \hyperlink{structt__audio_devinfo_a278cf8ce1cbde913cff67042940f3c44}{api}
+\begin{DoxyCompactList}\small\item\em Name of the API, which portaudio will use to communicate with the device. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct for communication relevant info about the available audio devices 
+
+Definition at line 55 of file audioio.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structt__audio_devinfo_a19bc76b4c4cb381a9fd3fd3b184639e9}{
+\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}!t\_\-audioDevinfo@{t\_\-audioDevinfo}}
+\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}!t_audioDevinfo@{t\_\-audioDevinfo}}
+\subsubsection[{t\_\-audioDevinfo}]{\setlength{\rightskip}{0pt plus 5cm}t\_\-audioDevinfo::t\_\-audioDevinfo (
+\begin{DoxyParamCaption}
+\item[{QString}]{name = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{int}]{in = {\ttfamily 0}, }
+\item[{int}]{out = {\ttfamily 0}, }
+\item[{QString}]{api = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}
+\label{structt__audio_devinfo_a19bc76b4c4cb381a9fd3fd3b184639e9}
+
+
+constructor enabling direct initialization 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the audio device as reported by the operating system \\
+\hline
+{\em in} & Number of available input channels \\
+\hline
+{\em out} & Number of available output channels \\
+\hline
+{\em api} & Name of the API, which portaudio will use to communicate with the device \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file audioio.cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structt__audio_devinfo_a278cf8ce1cbde913cff67042940f3c44}{
+\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}!api@{api}}
+\index{api@{api}!t_audioDevinfo@{t\_\-audioDevinfo}}
+\subsubsection[{api}]{\setlength{\rightskip}{0pt plus 5cm}QString {\bf t\_\-audioDevinfo::api}}}
+\label{structt__audio_devinfo_a278cf8ce1cbde913cff67042940f3c44}
+
+
+Name of the API, which portaudio will use to communicate with the device. 
+
+
+
+Definition at line 69 of file audioio.h.
+
+\hypertarget{structt__audio_devinfo_a6fa832814bf8219522e8a87ae7de7bfa}{
+\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}!in@{in}}
+\index{in@{in}!t_audioDevinfo@{t\_\-audioDevinfo}}
+\subsubsection[{in}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf t\_\-audioDevinfo::in}}}
+\label{structt__audio_devinfo_a6fa832814bf8219522e8a87ae7de7bfa}
+
+
+Number of available input channels. 
+
+
+
+Definition at line 65 of file audioio.h.
+
+\hypertarget{structt__audio_devinfo_a30c93d9526c1b00aaee10a4a7c4442e5}{
+\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}!name@{name}}
+\index{name@{name}!t_audioDevinfo@{t\_\-audioDevinfo}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}QString {\bf t\_\-audioDevinfo::name}}}
+\label{structt__audio_devinfo_a30c93d9526c1b00aaee10a4a7c4442e5}
+
+
+Name of the audio device as reported by the operating system. 
+
+
+
+Definition at line 63 of file audioio.h.
+
+\hypertarget{structt__audio_devinfo_aae35268467cac9068297b7d722d569de}{
+\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}!out@{out}}
+\index{out@{out}!t_audioDevinfo@{t\_\-audioDevinfo}}
+\subsubsection[{out}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf t\_\-audioDevinfo::out}}}
+\label{structt__audio_devinfo_aae35268467cac9068297b7d722d569de}
+
+
+Number of available output channels. 
+
+
+
+Definition at line 67 of file audioio.h.
+
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{audioio_8h}{audioio.h}\item 
+Classes/audioio.cpp\end{DoxyCompactItemize}

@@ -1,0 +1,155 @@
+\hypertarget{struct_rak_serv_1_1t_client_info}{
+\section{RakServ::tClientInfo Struct Reference}
+\label{struct_rak_serv_1_1t_client_info}\index{RakServ::tClientInfo@{RakServ::tClientInfo}}
+}
+
+
+Struct used for dealing with the relevant client information.  
+
+
+
+
+{\ttfamily \#include $<$rakserv.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_rak_serv_1_1t_client_info_a03bac537f882c0fbf94e319a25bb53a4}{tClientInfo} (RakNetGUID idin=UNASSIGNED\_\-RAKNET\_\-GUID, RakNetGUID otherIdin=UNASSIGNED\_\-RAKNET\_\-GUID, QString namein=\char`\"{}\char`\"{}, \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} typein=AUDIO\_\-VISITOR)
+\begin{DoxyCompactList}\small\item\em The struct is initialized with relevant information for \char`\"{}no connected client\char`\"{}. \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a73ae24756a17c31483da4f9b12d9ac0b}{operator==} (const \hyperlink{struct_rak_serv_1_1t_client_info}{tClientInfo} \&other) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a full struct. \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a137c3d3194d8fc2b27056027c967f9de}{operator==} (const RakNetGUID \&otherid) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a RakNet ID (our client-\/server connection) \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a34920e02d198358ce3add9f2ac032f74}{operator==} (const QString \&othername) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a name (ID on the Scene) \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a3b6dd4384e8bba997500e6d13c638972}{operator==} (const \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} \&othertype) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a type. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{struct_rak_serv_1_1t_client_info_a3aed64a4f3917a999813f7072719c5dd}{
+RakNetGUID {\bfseries id}}
+\label{struct_rak_serv_1_1t_client_info_a3aed64a4f3917a999813f7072719c5dd}
+
+\item 
+\hypertarget{struct_rak_serv_1_1t_client_info_abfc1a53faf84914a8e5380aaca2003c2}{
+RakNetGUID {\bfseries otherId}}
+\label{struct_rak_serv_1_1t_client_info_abfc1a53faf84914a8e5380aaca2003c2}
+
+\item 
+\hypertarget{struct_rak_serv_1_1t_client_info_a6fdc01a600555cf48f33a62c318dc8c1}{
+QString {\bfseries name}}
+\label{struct_rak_serv_1_1t_client_info_a6fdc01a600555cf48f33a62c318dc8c1}
+
+\item 
+\hypertarget{struct_rak_serv_1_1t_client_info_aef482d29b311861590457ff12df84e43}{
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} {\bfseries type}}
+\label{struct_rak_serv_1_1t_client_info_aef482d29b311861590457ff12df84e43}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Struct used for dealing with the relevant client information. The comparison operators are necessary to enable searching in lists and hash-\/tables 
+
+Definition at line 36 of file rakserv.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{struct_rak_serv_1_1t_client_info_a03bac537f882c0fbf94e319a25bb53a4}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!tClientInfo@{tClientInfo}}
+\index{tClientInfo@{tClientInfo}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{tClientInfo}]{\setlength{\rightskip}{0pt plus 5cm}RakServ::tClientInfo::tClientInfo (
+\begin{DoxyParamCaption}
+\item[{RakNetGUID}]{idin = {\ttfamily UNASSIGNED\_\-RAKNET\_\-GUID}, }
+\item[{RakNetGUID}]{otherIdin = {\ttfamily UNASSIGNED\_\-RAKNET\_\-GUID}, }
+\item[{QString}]{namein = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{{\bf tClientType}}]{typein = {\ttfamily AUDIO\_\-VISITOR}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a03bac537f882c0fbf94e319a25bb53a4}
+
+
+The struct is initialized with relevant information for \char`\"{}no connected client\char`\"{}. 
+
+
+
+Definition at line 38 of file rakserv.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{struct_rak_serv_1_1t_client_info_a73ae24756a17c31483da4f9b12d9ac0b}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf tClientInfo} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a73ae24756a17c31483da4f9b12d9ac0b}
+
+
+Comparison operator for a full struct. 
+
+
+
+Definition at line 51 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_a3b6dd4384e8bba997500e6d13c638972}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf tClientType} \&}]{othertype}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a3b6dd4384e8bba997500e6d13c638972}
+
+
+Comparison operator for a type. 
+
+
+
+Definition at line 66 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_a34920e02d198358ce3add9f2ac032f74}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{othername}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a34920e02d198358ce3add9f2ac032f74}
+
+
+Comparison operator for a name (ID on the Scene) 
+
+
+
+Definition at line 61 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_a137c3d3194d8fc2b27056027c967f9de}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const RakNetGUID \&}]{otherid}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a137c3d3194d8fc2b27056027c967f9de}
+
+
+Comparison operator for a RakNet ID (our client-\/server connection) 
+
+
+
+Definition at line 56 of file rakserv.h.
+
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{rakserv_8h}{rakserv.h}\end{DoxyCompactItemize}

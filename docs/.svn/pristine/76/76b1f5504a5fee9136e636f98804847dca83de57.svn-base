@@ -1,0 +1,77 @@
+\hypertarget{structt__process_info}{
+\section{t\_\-processInfo Struct Reference}
+\label{structt__process_info}\index{t\_\-processInfo@{t\_\-processInfo}}
+}
+
+
+Struct for managing a the directional rendering of a particular stream.  
+
+
+
+
+{\ttfamily \#include $<$sceneinterface.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__process_info_a2221096a6ef57600bdeea1c991e7a606}{t\_\-processInfo} (bool init=false)
+\begin{DoxyCompactList}\small\item\em constructor with indication of whether to initialize the filtering \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+AauBinFilter $\ast$ \hyperlink{structt__process_info_afe747425ed47a260d12c1e347344ea16}{binaural}
+\begin{DoxyCompactList}\small\item\em Pointer to instance of binaural filtering class. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Struct for managing a the directional rendering of a particular stream. 
+
+Definition at line 51 of file sceneinterface.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structt__process_info_a2221096a6ef57600bdeea1c991e7a606}{
+\index{t\_\-processInfo@{t\_\-processInfo}!t\_\-processInfo@{t\_\-processInfo}}
+\index{t\_\-processInfo@{t\_\-processInfo}!t_processInfo@{t\_\-processInfo}}
+\subsubsection[{t\_\-processInfo}]{\setlength{\rightskip}{0pt plus 5cm}t\_\-processInfo::t\_\-processInfo (
+\begin{DoxyParamCaption}
+\item[{bool}]{init = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}
+\label{structt__process_info_a2221096a6ef57600bdeea1c991e7a606}
+
+
+constructor with indication of whether to initialize the filtering 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init} & determines if the processing class should be initialized or not. When not initializing, the class must be instantiated and set elsewhere. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file sceneinterface.cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structt__process_info_afe747425ed47a260d12c1e347344ea16}{
+\index{t\_\-processInfo@{t\_\-processInfo}!binaural@{binaural}}
+\index{binaural@{binaural}!t_processInfo@{t\_\-processInfo}}
+\subsubsection[{binaural}]{\setlength{\rightskip}{0pt plus 5cm}AauBinFilter$\ast$ {\bf t\_\-processInfo::binaural}}}
+\label{structt__process_info_afe747425ed47a260d12c1e347344ea16}
+
+
+Pointer to instance of binaural filtering class. 
+
+
+
+Definition at line 58 of file sceneinterface.h.
+
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{sceneinterface_8h}{sceneinterface.h}\item 
+Classes/sceneinterface.cpp\end{DoxyCompactItemize}

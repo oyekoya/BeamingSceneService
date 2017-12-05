@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_beaming_user.html" title="User Replica." alt="" coords="6,107,106,133"/>
+<area shape="rect" id="node3" href="$class_beaming_avatar_joint_replica.html" title="Avatar Joint Replica." alt="" coords="155,5,333,32"/>
+<area shape="rect" id="node5" href="$class_beaming_emotion_replica.html" title="Emotion Replica &#45; Affective State." alt="" coords="162,56,326,83"/>
+<area shape="rect" id="node7" href="$class_beaming_facial_replica.html" title="Facial Replica." alt="" coords="169,107,319,133"/>
+<area shape="rect" id="node9" href="$class_beaming_robot_replica.html" title="Kali&#45;Type Robot Replica." alt="" coords="169,157,319,184"/>
+<area shape="rect" id="node11" href="$class_beaming_tactile_replica.html" title="Tactile Replica." alt="" coords="167,208,321,235"/>
+</map>

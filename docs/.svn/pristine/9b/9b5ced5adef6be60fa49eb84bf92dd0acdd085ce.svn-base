@@ -1,0 +1,39 @@
+\hypertarget{rakcli_8h}{
+\section{Classes/rakcli.h File Reference}
+\label{rakcli_8h}\index{Classes/rakcli.h@{Classes/rakcli.h}}
+}
+
+
+Defines the \hyperlink{class_rak_cli}{RakCli} class containing the overall interface for connecting and identifying to an Audio Server.  
+
+
+{\ttfamily \#include $<$QThread$>$}\par
+{\ttfamily \#include \char`\"{}rakinfo.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}audiointerface.h\char`\"{}}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{rakcli_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_rak_cli}{RakCli}
+\begin{DoxyCompactList}\small\item\em class containing the overall interface for connecting and identifying to an Audio Server. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines the \hyperlink{class_rak_cli}{RakCli} class containing the overall interface for connecting and identifying to an Audio Server. \begin{DoxyAuthor}{Author}
+Aalborg University, Esben Madsen
+\end{DoxyAuthor}
+In order to connect to an Audio Server, the following steps must be taken:
+\begin{DoxyItemize}
+\item create an \hyperlink{class_audio_interface}{AudioInterface} object
+\item create a \hyperlink{class_rak_cli}{RakCli} object with a reference to the interface
+\item call the member function \hyperlink{class_rak_cli_a1e92e491f024d0add9b772fd97342461}{RakCli::ConnectToServer()} with relevant parameters Additional settings and functionality of the class can be found in the documentation for the \hyperlink{class_audio_interface}{AudioInterface} and \hyperlink{class_rak_cli}{RakCli} classes. 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{rakcli_8h_source}{rakcli.h}.
+

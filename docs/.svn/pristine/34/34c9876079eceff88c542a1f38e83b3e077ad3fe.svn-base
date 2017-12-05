@@ -1,0 +1,57 @@
+\hypertarget{audioio_8h}{
+\section{Classes/audioio.h File Reference}
+\label{audioio_8h}\index{Classes/audioio.h@{Classes/audioio.h}}
+}
+{\ttfamily \#include $<$QObject$>$}\par
+{\ttfamily \#include $<$QFile$>$}\par
+{\ttfamily \#include $<$QTextStream$>$}\par
+{\ttfamily \#include $<$QStringList$>$}\par
+{\ttfamily \#include \char`\"{}portaudiocpp/PortAudioCpp.hxx\char`\"{}}\par
+{\ttfamily \#include \char`\"{}audiointerface.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}sceneinterface.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo}
+\item 
+class \hyperlink{class_audio_i_o}{AudioIO}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{audioio_8h_a02d0a79952653ca74660ad2fe89776d2}{PA\_\-FS}~48000
+\item 
+\#define \hyperlink{audioio_8h_a32cc90b2d2e2f3e8da20d6b661a06562}{PA\_\-FORMAT}~portaudio::INT16
+\item 
+\#define \hyperlink{audioio_8h_a8c9b73b246cd9117997d5761720890a4}{PA\_\-BUFLEN}~256
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{audioio_8h_a8c9b73b246cd9117997d5761720890a4}{
+\index{audioio.h@{audioio.h}!PA\_\-BUFLEN@{PA\_\-BUFLEN}}
+\index{PA\_\-BUFLEN@{PA\_\-BUFLEN}!audioio.h@{audioio.h}}
+\subsubsection[{PA\_\-BUFLEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define PA\_\-BUFLEN~256}}
+\label{audioio_8h_a8c9b73b246cd9117997d5761720890a4}
+
+
+Definition at line 16 of file audioio.h.
+
+\hypertarget{audioio_8h_a32cc90b2d2e2f3e8da20d6b661a06562}{
+\index{audioio.h@{audioio.h}!PA\_\-FORMAT@{PA\_\-FORMAT}}
+\index{PA\_\-FORMAT@{PA\_\-FORMAT}!audioio.h@{audioio.h}}
+\subsubsection[{PA\_\-FORMAT}]{\setlength{\rightskip}{0pt plus 5cm}\#define PA\_\-FORMAT~portaudio::INT16}}
+\label{audioio_8h_a32cc90b2d2e2f3e8da20d6b661a06562}
+
+
+Definition at line 15 of file audioio.h.
+
+\hypertarget{audioio_8h_a02d0a79952653ca74660ad2fe89776d2}{
+\index{audioio.h@{audioio.h}!PA\_\-FS@{PA\_\-FS}}
+\index{PA\_\-FS@{PA\_\-FS}!audioio.h@{audioio.h}}
+\subsubsection[{PA\_\-FS}]{\setlength{\rightskip}{0pt plus 5cm}\#define PA\_\-FS~48000}}
+\label{audioio_8h_a02d0a79952653ca74660ad2fe89776d2}
+
+
+Definition at line 14 of file audioio.h.
+

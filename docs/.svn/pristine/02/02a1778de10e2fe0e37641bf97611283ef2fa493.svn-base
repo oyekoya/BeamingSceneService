@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$client_8cpp.html" title="netClient/client.cpp" alt="" coords="5,80,139,107"/>
+<area shape="rect" id="node5" href="$php_client_8cpp.html" title="netClient/phpClient.cpp" alt="" coords="163,80,319,107"/>
+<area shape="rect" id="node7" href="$sample_client_8cpp.html" title="netClient/sampleClient.cpp" alt="" coords="343,80,520,107"/>
+<area shape="rect" id="node9" href="$echo_client_8cpp.html" title="xmppClient/echoClient.cpp" alt="" coords="545,80,721,107"/>
+</map>

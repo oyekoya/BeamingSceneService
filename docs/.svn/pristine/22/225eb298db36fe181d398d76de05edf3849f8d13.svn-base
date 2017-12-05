@@ -1,0 +1,357 @@
+\hypertarget{class_rak_serv}{
+\section{RakServ Class Reference}
+\label{class_rak_serv}\index{RakServ@{RakServ}}
+}
+
+
+Class containing the Audio Server functionality and interface.  
+
+
+
+
+{\ttfamily \#include $<$rakserv.h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_rak_serv_1_1t_client_info}{tClientInfo}
+\begin{DoxyCompactList}\small\item\em Struct used for dealing with the relevant client information. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_rak_serv_ad24690e318fe12ebba1c8d3a05c04684}{kickClient} (QString guid)
+\begin{DoxyCompactList}\small\item\em Slot/function that can be used from an external program to disconnect a connected client. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_rak_serv_a7247b83301c66e974172f39f34fca90f}{clientInfo} (bool connected, int type, QString sceneID, QString guid)
+\begin{DoxyCompactList}\small\item\em a Qt Signal emitted when a client changes status \item\end{DoxyCompactList}\item 
+void \hyperlink{class_rak_serv_afbb9fa516f8722fcf64d56e24af7c8d1}{message} (QString text, bool err=0)
+\begin{DoxyCompactList}\small\item\em A Qt Signal for a general message interface. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_rak_serv_aa73c807b377d9a3ebea0e3d9b2a98d94}{RakServ} (QObject $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructor of the class. \item\end{DoxyCompactList}\item 
+\hyperlink{class_rak_serv_ac3162dd4b5f6ea01dde25850994cafb8}{$\sim$RakServ} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_rak_serv_ac57e6640a0622a2f9972ee40d49aa3e4}{StartServer} (unsigned short maxconn=20, unsigned short port=0, QString publicAddress=\char`\"{}\char`\"{}, QString sceneAddress=\char`\"{}\char`\"{}, int scenePort=0)
+\begin{DoxyCompactList}\small\item\em Start the server. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_rak_serv_af217795bed31c82f9f92f64d98e5c419}{StopServer} ()
+\begin{DoxyCompactList}\small\item\em Stop the currently running server. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_rak_serv_a442febed7a21d90e1d4acecc785465ee}{isRunning} ()
+\begin{DoxyCompactList}\small\item\em Test if the server is currently running. \item\end{DoxyCompactList}\item 
+unsigned short \hyperlink{class_rak_serv_a798e36c5a3efd76074b3711d8a00ea6c}{serverPort} ()
+\begin{DoxyCompactList}\small\item\em Get the port, which the servere is listening on. \item\end{DoxyCompactList}\item 
+unsigned short \hyperlink{class_rak_serv_ab3ec5cc0fb25df253387c6910258d023}{nConnections} ()
+\begin{DoxyCompactList}\small\item\em Get the number of clients that are currently connected. \item\end{DoxyCompactList}\item 
+unsigned short \hyperlink{class_rak_serv_a12314453963575c40667bf9131b69fae}{maxConnections} ()
+\begin{DoxyCompactList}\small\item\em Get the highest number of concurrent connections. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_rak_serv_a08111039f9cfcd53c1ddc1956aaee222}{setMaxConnections} (unsigned short numAllowed)
+\begin{DoxyCompactList}\small\item\em Get the highest number of concurrent connections. \item\end{DoxyCompactList}\item 
+QList$<$ \hyperlink{struct_rak_serv_1_1t_client_info}{tClientInfo} $>$ \hyperlink{class_rak_serv_a6dc20891b8b106654975833b997d15ef}{connectedClients} ()
+\begin{DoxyCompactList}\small\item\em Get a list of all the connected clients. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class containing the Audio Server functionality and interface. This class should be used from any program wishing to start an Audio Server. To start a server, it is enough to create an instance of the \hyperlink{class_rak_serv}{RakServ} class and call the function \hyperlink{class_rak_serv_ac57e6640a0622a2f9972ee40d49aa3e4}{RakServ::StartServer()}, though you probably want to add parameters to define the port number to listen on. Additional settings and functionality of the class can be found in the documentation of individual functions. 
+
+Definition at line 29 of file rakserv.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_rak_serv_aa73c807b377d9a3ebea0e3d9b2a98d94}{
+\index{RakServ@{RakServ}!RakServ@{RakServ}}
+\index{RakServ@{RakServ}!RakServ@{RakServ}}
+\subsubsection[{RakServ}]{\setlength{\rightskip}{0pt plus 5cm}RakServ::RakServ (
+\begin{DoxyParamCaption}
+\item[{QObject $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_aa73c807b377d9a3ebea0e3d9b2a98d94}
+
+
+Constructor of the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & A pointer to the parent may be given, but is not used for anything. It is merely a requirement of inheriting QThread. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 11 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_ac3162dd4b5f6ea01dde25850994cafb8}{
+\index{RakServ@{RakServ}!$\sim$RakServ@{$\sim$RakServ}}
+\index{$\sim$RakServ@{$\sim$RakServ}!RakServ@{RakServ}}
+\subsubsection[{$\sim$RakServ}]{\setlength{\rightskip}{0pt plus 5cm}RakServ::$\sim$RakServ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_ac3162dd4b5f6ea01dde25850994cafb8}
+
+
+Destructor. 
+
+Stops listening for packets and cleans up RakNet 
+
+Definition at line 20 of file rakserv.cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_rak_serv_a7247b83301c66e974172f39f34fca90f}{
+\index{RakServ@{RakServ}!clientInfo@{clientInfo}}
+\index{clientInfo@{clientInfo}!RakServ@{RakServ}}
+\subsubsection[{clientInfo}]{\setlength{\rightskip}{0pt plus 5cm}void RakServ::clientInfo (
+\begin{DoxyParamCaption}
+\item[{bool}]{connected, }
+\item[{int}]{type, }
+\item[{QString}]{sceneID, }
+\item[{QString}]{guid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_rak_serv_a7247b83301c66e974172f39f34fca90f}
+
+
+a Qt Signal emitted when a client changes status 
+
+
+\begin{DoxyParams}{Parameters}
+{\em connected} & {\bfseries true} if the client has just connected, {\bfseries false} if the client is no longer connected. \\
+\hline
+{\em type} & defines the client type according to the \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} enum (an enum cannot be emitted in a signal, so it is cast to int) \\
+\hline
+{\em sceneID} & is the ID which the client has given -\/ this will generally be a Beaming Scene ID \\
+\hline
+{\em guid} & is the unique identifier for this particular client, that can also be used to kick the client using \hyperlink{class_rak_serv_ad24690e318fe12ebba1c8d3a05c04684}{kickClient()}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_rak_serv_a6dc20891b8b106654975833b997d15ef}{
+\index{RakServ@{RakServ}!connectedClients@{connectedClients}}
+\index{connectedClients@{connectedClients}!RakServ@{RakServ}}
+\subsubsection[{connectedClients}]{\setlength{\rightskip}{0pt plus 5cm}QList$<$ {\bf RakServ::tClientInfo} $>$ RakServ::connectedClients (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_a6dc20891b8b106654975833b997d15ef}
+
+
+Get a list of all the connected clients. 
+
+\begin{DoxyReturn}{Returns}
+List of all connected clients with their information. 
+\end{DoxyReturn}
+
+
+Definition at line 394 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_a442febed7a21d90e1d4acecc785465ee}{
+\index{RakServ@{RakServ}!isRunning@{isRunning}}
+\index{isRunning@{isRunning}!RakServ@{RakServ}}
+\subsubsection[{isRunning}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::isRunning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_a442febed7a21d90e1d4acecc785465ee}
+
+
+Test if the server is currently running. 
+
+\begin{DoxyReturn}{Returns}
+{\bfseries true} if the server is running, {\bfseries false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 367 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_ad24690e318fe12ebba1c8d3a05c04684}{
+\index{RakServ@{RakServ}!kickClient@{kickClient}}
+\index{kickClient@{kickClient}!RakServ@{RakServ}}
+\subsubsection[{kickClient}]{\setlength{\rightskip}{0pt plus 5cm}void RakServ::kickClient (
+\begin{DoxyParamCaption}
+\item[{QString}]{guid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_rak_serv_ad24690e318fe12ebba1c8d3a05c04684}
+
+
+Slot/function that can be used from an external program to disconnect a connected client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em guid} & The GUID of the client to disconnect. This can be read by listening for the \hyperlink{class_rak_serv_a7247b83301c66e974172f39f34fca90f}{clientInfo()} signal. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 409 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_a12314453963575c40667bf9131b69fae}{
+\index{RakServ@{RakServ}!maxConnections@{maxConnections}}
+\index{maxConnections@{maxConnections}!RakServ@{RakServ}}
+\subsubsection[{maxConnections}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short RakServ::maxConnections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_a12314453963575c40667bf9131b69fae}
+
+
+Get the highest number of concurrent connections. 
+
+\begin{DoxyReturn}{Returns}
+the number of connections that are allowed. 
+\end{DoxyReturn}
+
+
+Definition at line 386 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_afbb9fa516f8722fcf64d56e24af7c8d1}{
+\index{RakServ@{RakServ}!message@{message}}
+\index{message@{message}!RakServ@{RakServ}}
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}void RakServ::message (
+\begin{DoxyParamCaption}
+\item[{QString}]{text, }
+\item[{bool}]{err = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_rak_serv_afbb9fa516f8722fcf64d56e24af7c8d1}
+
+
+A Qt Signal for a general message interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & A message text emitted from the class. \\
+\hline
+{\em err} & {\bfseries true} if the message is an error, {\bfseries false} otherwise. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_rak_serv_ab3ec5cc0fb25df253387c6910258d023}{
+\index{RakServ@{RakServ}!nConnections@{nConnections}}
+\index{nConnections@{nConnections}!RakServ@{RakServ}}
+\subsubsection[{nConnections}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short RakServ::nConnections (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_ab3ec5cc0fb25df253387c6910258d023}
+
+
+Get the number of clients that are currently connected. 
+
+\begin{DoxyReturn}{Returns}
+the number of connected clients -\/ including those who have not yet identified themselves 
+\end{DoxyReturn}
+
+
+Definition at line 379 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_a798e36c5a3efd76074b3711d8a00ea6c}{
+\index{RakServ@{RakServ}!serverPort@{serverPort}}
+\index{serverPort@{serverPort}!RakServ@{RakServ}}
+\subsubsection[{serverPort}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short RakServ::serverPort (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_a798e36c5a3efd76074b3711d8a00ea6c}
+
+
+Get the port, which the servere is listening on. 
+
+\begin{DoxyReturn}{Returns}
+returns the port if the server is running -\/ otherwise returns 0 
+\end{DoxyReturn}
+
+
+Definition at line 371 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_a08111039f9cfcd53c1ddc1956aaee222}{
+\index{RakServ@{RakServ}!setMaxConnections@{setMaxConnections}}
+\index{setMaxConnections@{setMaxConnections}!RakServ@{RakServ}}
+\subsubsection[{setMaxConnections}]{\setlength{\rightskip}{0pt plus 5cm}void RakServ::setMaxConnections (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{numAllowed}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_a08111039f9cfcd53c1ddc1956aaee222}
+
+
+Get the highest number of concurrent connections. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numAllowed} & the maximum number of connections that should be allowed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 390 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_ac57e6640a0622a2f9972ee40d49aa3e4}{
+\index{RakServ@{RakServ}!StartServer@{StartServer}}
+\index{StartServer@{StartServer}!RakServ@{RakServ}}
+\subsubsection[{StartServer}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::StartServer (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{maxconn = {\ttfamily 20}, }
+\item[{unsigned short}]{port = {\ttfamily 0}, }
+\item[{QString}]{publicAddress = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{QString}]{sceneAddress = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{int}]{scenePort = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_ac57e6640a0622a2f9972ee40d49aa3e4}
+
+
+Start the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maxconn} & is the maximum number of total connections the server will accept. The maximum number of connections can be read with \hyperlink{class_rak_serv_a12314453963575c40667bf9131b69fae}{maxConnections()} This can be changed later with \hyperlink{class_rak_serv_a08111039f9cfcd53c1ddc1956aaee222}{setMaxConnections()}. Default is 20 simultaneous connections \\
+\hline
+{\em port} & The port number which you wish to listen on. The port used can be read with \hyperlink{class_rak_serv_a798e36c5a3efd76074b3711d8a00ea6c}{serverPort()}. Default is 0 meaning a random available port. \\
+\hline
+{\em publicAddress} & BEAMING Scene: The public address where this server can be reached \\
+\hline
+{\em sceneAddress} & BEAMING Scene: The address (ip or hostname) of the BEAMING Scene server to use \\
+\hline
+{\em scenePort} & BEAMING Scene: The port of the BEAMING Scene server to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\bfseries true} if the initialization is successful, {\bfseries false} otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file rakserv.cpp.
+
+\hypertarget{class_rak_serv_af217795bed31c82f9f92f64d98e5c419}{
+\index{RakServ@{RakServ}!StopServer@{StopServer}}
+\index{StopServer@{StopServer}!RakServ@{RakServ}}
+\subsubsection[{StopServer}]{\setlength{\rightskip}{0pt plus 5cm}void RakServ::StopServer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_serv_af217795bed31c82f9f92f64d98e5c419}
+
+
+Stop the currently running server. 
+
+All clients are disconnected and the server stops listening for new connections 
+
+Definition at line 352 of file rakserv.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{rakserv_8h}{rakserv.h}\item 
+Classes/\hyperlink{rakserv_8cpp}{rakserv.cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,26 @@
+var class_c_quat =
+[
+    [ "CQuat", "class_c_quat.html#aa8497e624cd8c83814ee708beed80be8", null ],
+    [ "CQuat", "class_c_quat.html#a084fbfc45cb9949e0f772d984837a334", null ],
+    [ "CQuat", "class_c_quat.html#aa86fe104810e3ac34e2f3be37451f5bd", null ],
+    [ "AimZAxis", "class_c_quat.html#a1966aa88a575cfe59b834695a5c4566f", null ],
+    [ "Dot", "class_c_quat.html#aff5dfb7edc051e43fc7dcfdbd4fc0ee9", null ],
+    [ "FromEuler", "class_c_quat.html#abfba9079074f47df6ade39371b1e056d", null ],
+    [ "Invert", "class_c_quat.html#ad05b064953c18b149be7d09129ea09a0", null ],
+    [ "IsIdentity", "class_c_quat.html#a4c796a4c91eafcf6781ac5d571897525", null ],
+    [ "NLerp", "class_c_quat.html#a19ed39ca57e61dba65f5e5a3b8cce597", null ],
+    [ "Normalize", "class_c_quat.html#a04f035c775d5e8b7b609382a03e08f5a", null ],
+    [ "operator*", "class_c_quat.html#a8e9a19587da769aaf1b8fd481f5d39ad", null ],
+    [ "operator*", "class_c_quat.html#a2a593813380a230c89d023ff41efe532", null ],
+    [ "operator*", "class_c_quat.html#aed9beb8b6323f910a78f7d1fcdf9a07a", null ],
+    [ "operator+", "class_c_quat.html#a10a2065456a7b029df816c9976bcc076", null ],
+    [ "operator==", "class_c_quat.html#a938ee9edfcc0149085fcfcfc818ca2da", null ],
+    [ "Reset", "class_c_quat.html#ae8d5d86c4b7d053981a8302433235fa5", null ],
+    [ "SetAxis", "class_c_quat.html#a87fef37cc3b0bc37b1022aedd1691ce2", null ],
+    [ "Slerp", "class_c_quat.html#acf66f5060b9887f230232609cf646b80", null ],
+    [ "ToMatrix", "class_c_quat.html#a340812469b1447b3406aec3cf35d94a7", null ],
+    [ "w", "class_c_quat.html#a58e4f7e62b3c122a8afe3d39205dff6d", null ],
+    [ "x", "class_c_quat.html#aebcbc6890d3ecebfcbcb0bdc08a6f9e9", null ],
+    [ "y", "class_c_quat.html#a22cd9ef388782b02552f2de77ba8ea51", null ],
+    [ "z", "class_c_quat.html#aaf17f567347789a7a50a31638b755e4d", null ]
+];

@@ -1,0 +1,36 @@
+\hypertarget{rakserv_8h}{
+\section{Classes/rakserv.h File Reference}
+\label{rakserv_8h}\index{Classes/rakserv.h@{Classes/rakserv.h}}
+}
+
+
+Defines the \hyperlink{class_rak_serv}{RakServ} class containing the overall interface for controlling the Audio Server.  
+
+
+{\ttfamily \#include $<$QThread$>$}\par
+{\ttfamily \#include $<$QMultiHash$>$}\par
+{\ttfamily \#include \char`\"{}rakinfo.h\char`\"{}}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{rakserv_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_rak_serv}{RakServ}
+\begin{DoxyCompactList}\small\item\em Class containing the Audio Server functionality and interface. \item\end{DoxyCompactList}\item 
+struct \hyperlink{struct_rak_serv_1_1t_client_info}{RakServ::tClientInfo}
+\begin{DoxyCompactList}\small\item\em Struct used for dealing with the relevant client information. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines the \hyperlink{class_rak_serv}{RakServ} class containing the overall interface for controlling the Audio Server. \begin{DoxyAuthor}{Author}
+Aalborg University
+\end{DoxyAuthor}
+In order to start an instance of the Audio Server, you only need to create an instance of the \hyperlink{class_rak_serv}{RakServ} class and call the function \hyperlink{class_rak_serv_ac57e6640a0622a2f9972ee40d49aa3e4}{RakServ::StartServer()}. Additional settings and functionality of the class can be found in the \hyperlink{class_rak_serv}{RakServ} class documentation. 
+
+Definition in file \hyperlink{rakserv_8h_source}{rakserv.h}.
+

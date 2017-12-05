@@ -1,0 +1,8 @@
+cd netClient
+g++ -c -Wall -I../ -I../../external_libs/raknet/Source/ client.cpp -L../../external_libs/raknet/Lib/LibStatic/libRakNetStatic.a
+ar rc libclient.a client.o 
+ranlib libclient.a 
+g++ -Wall -I../ -I../../external_libs/raknet/Source ../../external_libs/raknet/Lib/LibStatic/libRakNetStatic.a  sampleClient.cpp client.o -lpthread -o sampleclient
+cd ../netServer
+g++ -Wall -I../ -I../../external_libs/raknet/Source server.cpp ../../external_libs/raknet/Lib/LibStatic/libRakNetStatic.a -lpthread -o server
+cd ..

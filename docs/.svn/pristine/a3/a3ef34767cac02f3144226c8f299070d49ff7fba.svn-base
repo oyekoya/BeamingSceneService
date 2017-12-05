@@ -1,0 +1,22 @@
+\hypertarget{rakserv_8cpp}{
+\section{Classes/rakserv.cpp File Reference}
+\label{rakserv_8cpp}\index{Classes/rakserv.cpp@{Classes/rakserv.cpp}}
+}
+
+
+Implements the \hyperlink{class_rak_serv}{RakServ} class containing the overall interface for controlling the Audio Server.  
+
+
+{\ttfamily \#include \char`\"{}rakserv.h\char`\"{}}\par
+{\ttfamily \#include $<$RakNetworkFactory.h$>$}\par
+{\ttfamily \#include \char`\"{}client.h\char`\"{}}\par
+
+
+\subsection{Detailed Description}
+Implements the \hyperlink{class_rak_serv}{RakServ} class containing the overall interface for controlling the Audio Server. \begin{DoxyAuthor}{Author}
+Aalborg University 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{rakserv_8cpp_source}{rakserv.cpp}.
+

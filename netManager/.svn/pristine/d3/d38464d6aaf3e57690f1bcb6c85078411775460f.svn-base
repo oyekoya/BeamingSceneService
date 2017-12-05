@@ -1,0 +1,704 @@
+/* Include s3d symbols */
+#include <Script3d.h>
+//#define DQUAT_TRANSF_XVRSHADER
+//#define VA_TRANS
+#define TM_TRANSF_XVRSHADER
+#include "Common.s3d"
+#include "avatars.s3d"
+#include "dictxvr.h.s3d"
+
+// Function declarations
+extern function NewLight;
+//extern function GetTrackerPos;
+//extern function GetTrackerRot;
+//extern function GetTrackerJoy;
+//extern function GetTrackerButtons;
+function CameraMouseMove();
+function CameraMoveWand();
+function KeyStatus(keycode);
+function KeyBoardManager();
+function AxisAngleToQuat(a1,q1);
+function matrixToAngles(m, a);
+function DrawBoneAxes(avId,boneId);
+function CheckAndGetData();
+function updateRemoteClients();
+function avatarLookAt(av_id,bone_id,target);
+function shortestArc(from, to);
+function slerp(qa, qb, t);
+
+// Scene parameters (Field of view, near clipping plane, far clipping plane)
+SET SCENE_FOV = 60;
+SET SCENE_NEAR = 0.1;
+SET SCENE_FAR = 500;
+
+#define DEGTORAD (3.141596/180)
+#define RADTODEG (180/3.141596)
+#define CLIENT ("UCL") //define your client name here e.g. UCL, UB, etc
+#define CLIENTTYPE ("AVATAR") //define your client type here e.g. AVATAR, ROOM, etc
+var viewer_mode = 0; //change to 1 if running in viewer-only mode - no avatar will be created
+//#define CAVEMODE	//comment this line if running on desktop with just mouse control
+
+static var cave_half_width = 1.5;
+static var cave_half_height = 1.1;
+// Variables to manage camera
+var CamPos = [0,1.7,2];			//camera position
+// Variables to manage light
+var Luce1;
+var PosL1 = [0.0,10.0,0.0]	;	//default light position  
+// Variables for 3d geometry
+var m_mesh1;	// Variables for meshes 
+var m_obj1;	// Variables for objects
+var m_avatar;	// Variables for objects
+var m_cam; //variable for camera
+var m_mesh;
+var index = 0;
+var avatarArray = {};
+var angolo = 0.0;
+var sens = 0.01;
+var key_offset = 0.1;
+var prev_key = "";
+var morphval=vector(10);
+var normalinfl=0.0;
+var translation=vector(2);
+var clientdll;
+var my_avatarId;
+var my_avatar = "m016";
+var y_pos = 0;
+var rightarm_quat = [0,0,0,0];
+var leftarm_quat = [0,0,0,0];
+var rightleg_quat = [0,0,0,0];
+var leftleg_quat = [0,0,0,0];
+var root_quat = [0,0,0,0];
+var rotSwitch = true;
+var angleX = 0;
+var avatarmap;
+var animationPlaying = false;
+var resetleg = true;
+
+function OnDownload(params)
+{
+}
+
+function OnInit(params)
+{
+ 	//Font settings
+	ConsoleFont("Lucida Console",20);
+	ConsoleColor(0,1,0);
+
+	SetLocalDir();
+    clientdll = CVmExternDll("..\\netClient\\Release\\netClient.dll");
+    clientdll.__AddFunction(C_VOID, "startclient", C_PCHAR, C_INT, C_PCHAR, C_PCHAR, C_PCHAR, C_INT, C_INT, C_INT, C_INT);
+    clientdll.__AddFunction(C_VOID, "check");
+    clientdll.__AddFunction(C_VOID, "addRocketBoxAvatar", C_PCHAR,C_PSTR);
+     clientdll.__AddFunction(C_VOID, "deleteRocketBoxAvatar", C_PCHAR);
+   clientdll.__AddFunction(C_VOID, "setAvatarName", C_PCHAR,C_PCHAR,C_PCHAR);
+    clientdll.__AddFunction(C_VOID, "updateRocketBoxAvatar", C_PCHAR, C_PCHAR, C_FLOAT, C_FLOAT, C_FLOAT, C_FLOAT, C_FLOAT, C_FLOAT, C_FLOAT);
+    clientdll.__AddFunction(C_VOID, "removeAllNodes");
+    clientdll.__AddFunction(C_VOID, "stop");
+    clientdll.__AddFunction(C_INT, "getAvatarSpecificData", C_PSTR, C_PSTR, C_PSTR, C_PFLOAT);
+    clientdll.__AddFunction(C_INT, "getAvatarData", C_PSTR, C_PSTR, C_PSTR, C_PFLOAT);
+    clientdll.__AddFunction(C_INT, "getPeersID", C_PSTR);
+    clientdll.__AddFunction(C_INT, "getNodesInfo", C_PSTR, C_PSTR);
+    clientdll.__AddFunction(C_VOID, "getAvatarName", C_PCHAR,C_PCHAR,C_PCHAR,C_PCHAR);
+    clientdll.startclient("127.0.0.1"/*"128.16.7.66"*//*"193.205.82.196"*/, 12050, CLIENT, CLIENTTYPE, my_avatar+".cfg", viewer_mode, 2, 1, 30); 
+    
+	//initialise avatars
+	SetLocalDir();
+	initAvatars();
+	
+    // Setup Camera
+	//CameraSetPosition(CamPos);	
+
+	// Setup First Light
+	Luce1 = CVmLight();
+	Luce1.SetDiffuse(1,1,1);
+	Luce1.Enable();		
+	//Setup Initial Position
+	Luce1.SetPosition(PosL1);
+
+    SetLocalDir(".\\misc");
+    
+	m_mesh1 = CVmNewMesh("uclquad.AAM");
+	m_mesh1.Normalize(200);
+	m_mesh1.CenterBoundingBox();
+	var mesh_bounds = m_mesh1.GetBoundingBox();
+	m_obj1 = CVmObj();
+	m_obj1.LinkToMesh(m_mesh1);	
+	m_obj1.SetPosition(0,mesh_bounds[4]-2.5,0);
+	m_obj1.Rotate(45,0,1,0);
+	//m_obj1.SetScale(10,1,10);
+	
+	m_mesh = CVmNewMesh("dummy.AAM");
+	m_mesh.Normalize(0.1);
+	//m_mesh.HideAll();
+	m_cam = CVmObj();
+	m_cam.LinkToMesh(m_mesh);
+	m_cam.SetPosition(0,0,0);
+
+    SetLocalDir("");
+
+	if (viewer_mode == 0)
+	{
+		//initialise a dummy/invisible avatar for my client locally
+		my_avatarId = Avatars.addCharacter(my_avatar,my_avatar+".cfg");
+		Avatars.IdleOne(my_avatarId);
+		clientdll.addRocketBoxAvatar("ucl_avatar","m016.cfg");
+		clientdll.setAvatarName("ucl_avatar","John","Doe");
+		Avatars.getRotation(my_avatarId,66,&leftarm_quat);
+		Avatars.getRotation(my_avatarId,90,&rightarm_quat);
+		Avatars.getRotation(my_avatarId,113,&leftleg_quat);
+		Avatars.getRotation(my_avatarId,118,&rightleg_quat);
+	}
+	avatarmap = Hashtable();
+	//CameraSetBounds(m_mesh1.GetBoundingBox());
+	
+				
+#ifdef CAVEMODE
+	SceneSetParam(VR_HEADTRACKER,1);
+#endif
+}
+
+function OnFrame()
+{
+	#ifdef CAVEMODE
+		CameraMoveWand();	// Manage camera movement with wand
+	#else
+		CameraMouseMove();	// Manage camera movement with mouse
+		CameraSetPosition(CamPos);	
+	#endif
+	KeyboardManager();
+	Luce1.SetPosition(CameraGetPosition(0).x,CameraGetPosition(0).y,CameraGetPosition(0).z);
+	//get camera rotation matrix
+	var rot_mat4 = CameraGetRotationMatrix();
+	//extract rotation matrix as 3x3 matrix
+	var rot_mat3 = [rot_mat4[0], rot_mat4[1], rot_mat4[2], rot_mat4[4], rot_mat4[5], rot_mat4[6], rot_mat4[8], rot_mat4[9], rot_mat4[10]];
+	var rot_euler = [0,0,0];
+	matrixToAngles(rot_mat3, &rot_euler);
+	//output yaw, taking both head orientation and world orientation into account
+#ifdef CAVEMODE //cave w is doubled - issue with glRotate rotating by 360 when w=180
+	root_quat = AxisAngleToQuaternion([0,1,0,DEGTORAD*((2*(RADTODEG*rot_euler[1]))-GetTrackerRot(0).y)]);
+	//AxisAngleToQuat([0,1,0,DEGTORAD*(GetTrackerRot(0).y-(2*(RADTODEG*rot_euler[1])))],&rot_quat);
+#else
+	root_quat = AxisAngleToQuaternion([0,1,0,DEGTORAD*((RADTODEG*rot_euler[1])-GetTrackerRot(0).y)]);
+	//AxisAngleToQuat([0,1,0,DEGTORAD*(GetTrackerRot(0).y-(RADTODEG*rot_euler[1]))],&rot_quat);
+#endif
+	ConsoleText(0.04,0.50, str(GetTrackerRot(0).y+(/*2**/(RADTODEG*rot_euler[1]))));
+	
+	Avatars.Idle();
+	if (viewer_mode == 0)
+	{
+		/*
+		//update root's position and orientation locally
+		Avatars.setRotation(my_avatarId,0,root_quat); //set local-coord orientation of local avatar
+		Avatars.setTranslation(my_avatarId,0,[CameraGetPosition(0).x, y_pos, CameraGetPosition(0).z]);//set local-coord position of local avatar
+		var tmpquat = [0,0,0,0];
+		AxisAngleToQuat([0,1,0,DEGTORAD*-90],&tmpquat);
+		Avatars.addRotation(my_avatarId,0,tmpquat);
+		ConsoleText(0.04,0.20,str(CameraGetPosition(0)));
+		
+		//To-do: set angleX based on change in translation rather than mouse movement 
+		//do this also for remote avatars in CheckAndGetData()
+		Avatars.setRotation(my_avatarId,66,leftarm_quat);
+		Avatars.addRotation(my_avatarId,66,AxisAngleToQuaternion([0,0,1,DEGTORAD*85]));
+		Avatars.addRotation(my_avatarId,66,AxisAngleToQuaternion([0,1,0,DEGTORAD*-angleX]));
+		Avatars.setRotation(my_avatarId,90,rightarm_quat);
+		Avatars.addRotation(my_avatarId,90,AxisAngleToQuaternion([0,0,1,DEGTORAD*-85]));
+		Avatars.addRotation(my_avatarId,90,AxisAngleToQuaternion([0,1,0,DEGTORAD*angleX]));
+		Avatars.setRotation(my_avatarId,113,leftleg_quat);
+		Avatars.addRotation(my_avatarId,113,AxisAngleToQuaternion([0,0,1,DEGTORAD*-2.5]));
+		Avatars.addRotation(my_avatarId,113,AxisAngleToQuaternion([0,1,0,DEGTORAD*-angleX]));
+		Avatars.setRotation(my_avatarId,118,rightleg_quat);
+		Avatars.addRotation(my_avatarId,118,AxisAngleToQuaternion([0,0,1,DEGTORAD*2.5]));
+		Avatars.addRotation(my_avatarId,118,AxisAngleToQuaternion([0,1,0,DEGTORAD*angleX]));
+		//output(angleX," ");
+		*/
+		//remote updates - reads local position and orientation and updates remote clients 
+		updateRemoteClients();
+	}
+
+	clientdll.check(); //checks for incoming connections
+	
+    SceneBegin(VR_STEREO_LEFT);
+	glPushMatrix();
+	glDisable(GL_CULL_FACE);
+
+	DrawGrid([0.5, 0.5, 0.5], 100);
+
+	CheckAndGetData(); //check for updates to remote avatars/objects
+
+	// put drawing code here
+	//m_cam.Draw();
+
+#ifdef CAVEMODE
+	//var direzione=GetTrackerPos(0);
+	var posizione = CameraGetPosition();
+/*	glTranslate(posizione + [0, 0, 1.5]);
+	glRotate(angolo, 0, 1, 0);
+	glTranslate(-posizione - [0, 0, 1.5]);*/
+	glRotate(angolo, 0, 1, 0);
+	glTranslate(-posizione - [cave_half_width, cave_half_height,0]);
+#endif	
+	//m_cam.Draw();
+	m_obj1.Draw();
+	glPopMatrix();
+    SceneEnd();
+	
+}
+
+function updateRemoteClients()
+{
+	var tmpquat = [0,0,0,0];
+	var translate[3], rotate[4];
+	for (var i=0; i<=122; i++)
+	{
+		//get current position/orientation
+		Avatars.getTranslation(my_avatarId,i,&translate); //local-coord position
+		Avatars.getRotation(my_avatarId,i,&rotate); //local-coord orientation
+		//inform remote clients 
+	   	clientdll.updateRocketBoxAvatar("ucl_avatar", str(i), translate[0], translate[1], translate[2],rotate[0],rotate[1],rotate[2],rotate[3]); 
+	}
+}
+
+
+function CheckAndGetData()
+{
+    var new_clients = space(1024);
+    var allnodes = space(1024);
+    var new_avatar = space(128);
+    var client_type = space(128);
+    var client_name = space(128);
+    var avatar_name = space(128);
+    //get newly added client avatars
+	var avatarArray = {};
+    var client_count = clientdll.getPeersID(&new_clients);//,&client_type, &client_name, &avatar_name
+    var guids = split(new_clients,";");
+	if (client_count>0) //if there are connected clients
+	{
+	    foreach(var id in guids)
+		{
+			var node_count = clientdll.getNodesInfo(id,&allnodes);
+			var nodes_info = split(allnodes,";");
+		    foreach(var node in nodes_info)
+		    {
+				var node_details = split(node,",");
+				if ( len(node_details) > 2 )
+				{
+					if (/*(x==3) &&*/ (node_details[2] == "AVATAR"))
+					{
+						var avatar_id=space(64);
+						var avatar_cfg=space(32);
+					    var fname = space(32);
+					    var lname = space(32);
+						avatar_id = node_details[0];
+						//avatar_type = details[2];
+						avatar_cfg = node_details[3];
+						//output("\t\tAvatar:");
+						var avatar_data = Vector(7*123);
+						var joints = space(3*123);
+						//print out root position
+						//clientdll.getAvatarSpecificData(id,avatar_id,"0",&avatar_data);
+						clientdll.getAvatarData(id,avatar_id,&joints,&avatar_data);
+						clientdll.getAvatarName(id,avatar_id,&fname,&lname);
+						//update and draw remote avatars, see commented code below
+						var halcaId = avatarmap.get(id+avatar_id);
+						//ConsoleText(0.04,0.20,str(halcaId));
+						if (halcaId==Void)
+						{
+							ConsoleText(0.04,0.10,str(avatar_data));
+							OutputLN("Adding ", id, ": ", node);
+							OutputLN("\t", avatar_id, ": ",/* str(avatar_data),*/ fname," ", lname);
+							halcaId = Avatars.addCharacter(left(avatar_cfg,(len(avatar_cfg)-4)),avatar_cfg);//("m016","m016.cfg");
+							avatarmap.put(id+avatar_id,halcaId);
+							Avatars.IdleOne(halcaId);
+						}
+						var c = 0;
+						var joints_info = split(joints,",");
+						foreach (var joint in joints_info)
+						{
+							if (c==0) {
+								Avatars.setTranslation(halcaId,0,[avatar_data[0],0.9,avatar_data[2]]); //position update
+							} else {
+								Avatars.setTranslation(halcaId,c,[avatar_data[0+(c*7)],avatar_data[1+(c*7)],avatar_data[2+(c*7)]]); //position update
+							}
+							var my_quat = [avatar_data[3+(c*7)],avatar_data[4+(c*7)],avatar_data[5+(c*7)],avatar_data[6+(c*7)]];
+							if ((c==113 || c==118) && (resetleg))
+							{
+								Avatars.resetBone(halcaId,c);
+								Avatars.addRotation(halcaId,c,my_quat);
+							}
+							else 
+							{	
+								Avatars.setRotation(halcaId,c,my_quat); //orientation update
+							}
+							if (c==0)
+							{
+								AxisAngleToQuat([0,1,0,DEGTORAD*-90],my_quat);
+								Avatars.addRotation(halcaId,2,my_quat);
+							}
+							c++;
+						}
+						#ifdef VA_TRANS
+							Avatars.Draw(0);
+						#else
+							skinshader.start();
+							skinshader.setParameter("normalinfl",normalinfl);
+							
+							Avatars.DrawExtShaderOne(halcaId);
+							skinshader.stop();
+						#endif
+					}
+				}
+			}
+		}   
+	}
+}
+
+
+function shortestArc(from, to)
+{ //not sure if this is correct - hint: normalise axis part of the result
+	var cross = from ^ to ; //Compute vector cross product
+	var dot   = from * to ; //Compute dot product
+    
+    dot = sqrt( 2*(dot+1) ) ; //We will use this equation twice
+    cross /= dot ; //Get the x, y, z components
+
+	//Return with the w component (Note that w is inverted because Cal3D has left-handed rotations
+	return [cross[0], cross[1], cross[2], dot/2];
+}
+
+//call this function to draw the axes of one bone
+function DrawBoneAxes(avId,boneId)
+{
+	Var bTrans=Vector(3);
+	Var xAx=Vector(3);
+	Var yAx=Vector(3);
+	Var zAx=Vector(3);
+	Var bMat=Vector(9);
+
+	Avatars.getTranslationAbs(avId,boneId,&bTrans);
+	Avatars.getRotationMatrixAbs(avId,boneId,&bMat);
+	xAx[0]=bMat[0];xAx[1]=bMat[3];xAx[2]=bMat[6];
+	yAx[0]=bMat[1];yAx[1]=bMat[4];yAx[2]=bMat[7];
+	zAx[0]=bMat[2];zAx[1]=bMat[5];zAx[2]=bMat[8];
+	DrawAxes(bTrans,xAx,yAx,zAx);
+}
+
+function slerp(qa, qb, t) 
+{
+	// quaternion to return
+	var qm = Vector(4);
+	// Calculate angle between them.
+	var  cosHalfTheta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
+	// if qa=qb or qa=-qb then theta = 0 and we can return qa
+	if (abs(cosHalfTheta) >= 1.0){
+		qm.w = qa.w;qm.x = qa.x;qm.y = qa.y;qm.z = qa.z;
+		return qm;
+	}
+	// Calculate temporary values.
+	var halfTheta = acos(cosHalfTheta);
+	var sinHalfTheta = sqrt(1.0 - cosHalfTheta*cosHalfTheta);
+	// if theta = 180 degrees then result is not fully defined
+	// we could rotate around any axis normal to qa or qb
+	if (abs(sinHalfTheta) < 0.001){ // fabs is floating point absolute
+		qm.w = (qa.w * 0.5 + qb.w * 0.5);
+		qm.x = (qa.x * 0.5 + qb.x * 0.5);
+		qm.y = (qa.y * 0.5 + qb.y * 0.5);
+		qm.z = (qa.z * 0.5 + qb.z * 0.5);
+		return qm;
+	}
+	var ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
+	var ratioB = sin(t * halfTheta) / sinHalfTheta; 
+	//calculate Quaternion.
+	qm.w = (qa.w * ratioA + qb.w * ratioB);
+	qm.x = (qa.x * ratioA + qb.x * ratioB);
+	qm.y = (qa.y * ratioA + qb.y * ratioB);
+	qm.z = (qa.z * ratioA + qb.z * ratioB);
+	return qm;
+}
+
+function AxisAngleToQuat(a1, q1) {
+  var s = sin(a1[3]/2);
+  q1[0] = a1[0] * s;
+  q1[1] = a1[1] * s;
+  q1[2] = a1[2] * s;
+  q1[3] = cos(a1[3]/2);
+}
+
+// return euler angles in radians from a rotation matrix
+function matrixToAngles(m, a){
+	if(abs(m[1]) >= 0.9999)
+	{
+		a[0] = atan2(-m[4],m[8]);
+		a[1] = 0;
+		a[2] = PI/2;
+		return a;	
+	}
+	a[0] = atan2(-m[9], m[5]);
+	a[1] = atan2(-m[2], m[0]);
+	a[2] = asin(m[1]);
+	return a;
+}
+
+function OnExit()
+{
+	clientdll.deleteRocketBoxAvatar("ucl_avatar");
+	clientdll.removeAllNodes();
+    clientdll.stop();
+	Avatars.ShutDown();
+}
+
+//-------------------------------------------------------------
+// I/O management
+//-------------------------------------------------------------
+function CameraMoveWand(){
+	var wand_xrot, wand_yrot;
+	var WandFrontVector[3];
+	var cos_wand_xrot;
+	var button_mask; //buttonmask: red 1, yellow 2, green 4, blue 8, joystick button 16, trigger 32
+	
+	static var joystick_move_sensitivity = 0.2;
+	static var joystick_rotate_sensitivity = 2.0;
+	static var joystick_dead_zone = 0.2;
+	
+	wand_xrot = GetTrackerRot(1).x;
+	wand_yrot = GetTrackerRot(1).y;
+	cos_wand_xrot = cos(DEGTORAD*wand_xrot);
+	button_mask = GetTrackerButtons(1); 
+	var joy_x = GetTrackerJoy(1).x;
+	if(abs(joy_x) >joystick_dead_zone){
+		angolo += joystick_rotate_sensitivity*joy_x;
+	}
+	
+	var joy_y = GetTrackerJoy(1).y;
+	if(abs(joy_y) > joystick_dead_zone){
+		CamPos = CameraGetPosition();
+		var temp = [0,0,-joy_y];
+		norm(temp);
+		temp = VectorRotate(-angolo, [0,1,0], temp);
+		temp = VectorRotate(wand_xrot, [1,0,0], temp);
+		temp = VectorRotate(wand_yrot, [0,1,0], temp);
+		CameraSetPosition(CamPos + temp.x0z*joystick_move_sensitivity);
+	}
+	
+	CameraSetRotation(angolo,0,1,0);
+}
+
+
+function KeyboardManager()
+{
+	if (KeyStatus("S") == 1)
+	{
+			output("key press \"S\"\n");
+	}
+	var key = keyboard();
+	if (key != ""){
+	output("key is *", key, "*\n");
+		CamPos = CameraGetPosition();
+		if (key == "q"){
+			/*Avatars.ShutDown();
+			clientdll.removeAllNodes();
+		    clientdll.stop();
+			Quit();*/
+		}
+		if (key == "r"){
+			resetleg = !resetleg;
+		}
+		if (key == "h"){
+			CamPos[0] -= key_offset;
+		}
+		if (key == "l"){
+			CamPos[0] += key_offset;
+		}
+		if (key == "j"){
+			CamPos[1] -= key_offset;
+		}
+		if (key == "k"){
+			CamPos[1] += key_offset;
+		}
+		if (key == "a"){
+			CamPos[2] -= key_offset;
+		}
+		if (key == "c"){
+			clientdll.addRocketBoxAvatar("avatar_name","m016.cfg");
+		}
+		if (key == "d"){
+			clientdll.removeAllNodes();
+		}
+		if (key == "s") 
+		{
+		}	
+		if (key == "z"){
+			//CamPos[2] -= key_offset;
+			//testing
+/*			output(m_mesh1.GetSubsetNumber(),"\n");
+			output(m_mesh.GetSubsetsFromName("",false),"\n");
+			output(m_mesh1.GetSubsetsFromName("",false),"\n");
+			var rad = 0;
+			var bb_center[3];
+			var translate[3];
+			var rotate[4];
+			//obtain positions of all subsets in mesh - safe to assume rotation is fixed
+			for (var i=0; i<m_mesh1.GetSubsetNumber(); i++)
+			{
+				if (!m_mesh1.IsHidden(i))
+				{
+					m_mesh1.SubsetGetBoundingSphere(i,&rad,&bb_center);
+					//output(m_mesh1.SubsetGetDescription(i), " ", bb_center, "\n");
+				}
+			}
+			//only gives rotation of joints only (no translation values)
+			var allbones = vector(3+4*Avatars.getNumBone(0));
+			Avatars.getAllBoneState(0, &allbones);
+			//output(len(allbones), " ", allbones);
+			//get translation and rotation values of animated avatar 
+			for (var i=0; i<Avatars.getNumBone(0); i++)
+			{
+				Avatars.getTranslationAbs(0,i,&translate); //tested - gets world coord
+				Avatars.getRotationAA(0,i,&rotate); //local rotation values
+				var ind = 3+4*i;
+				if (i==0)
+				{
+					output(i, " ", translate, " ", rotate, "\n");
+					//output(i, " ", translate, " ", QuaternionToAxisAngle([allbones[ind],allbones[ind+1],allbones[ind+2],allbones[ind+3]]), "\n");
+				}
+			}*/
+		}
+		CameraSetPosition(CamPos);
+	}
+	prev_key = key;
+}
+
+
+// Camera manager (using mouse)
+// Right button (and not Left) -> Translation on X and Z axis
+// Right and Left Button -> Translation on Y axis 
+// Left button (and not Right) -> Camera rotation
+function CameraMouseMove()
+{
+	static var InMouseR = false, InMouseL = false;				
+	static var PrecX = 0, PrecY = 0;			
+	// Change these values to modify the mouse sensitivity
+	var TR_SENSITIVITY  = 0.001;
+	var ROT_SENSITIVITY = 0.01;
+	// Mouse manager
+
+	if(Mouse.ButtonL && !Mouse.ButtonR)
+	{
+		//====  Left Button: Camera rotation  ====//
+		//output("camera rotation\n");
+		if (InMouseL )
+		{			
+			CameraRotate(( Mouse.X-PrecX)*ROT_SENSITIVITY,0,1,0);
+			//CameraRotateABS((Mouse.Y-PrecY)*ROT_SENSITIVITY,1,0,0);		
+		}
+		else
+		{
+			PrecX = Mouse.X;
+			PrecY = Mouse.Y;
+		}
+		InMouseL = true;
+		InMouseR = false;
+	}
+	else
+	if(Mouse.ButtonR)
+	{
+		//====  Right Button: Camera translation  ====//
+		if (InMouseR)
+		{
+			var CameraMatrix = CameraGetMatrix();
+			CamPos = CameraGetPosition();
+			if (!Mouse.ButtonL)
+			//====  Translation on X and Z axis ====//
+			{
+				//output("camera translation in X and Z\n");
+				CamPos += CameraGetZAxis() * (Mouse.y-PrecY)*TR_SENSITIVITY + CameraGetXAxis() * (Mouse.X- PrecX)*TR_SENSITIVITY;
+				if (rotSwitch)
+					angleX-=0.5;
+				else if (!rotSwitch)
+					angleX+=0.5;
+				if (angleX > 20)
+					rotSwitch = true;
+				if (angleX < -20)
+					rotSwitch = false;
+			}
+			else
+			//====  Right + Left Button: Translation on Y axis ====//
+			{
+				CamPos -= CameraGetYAxis() * (Mouse.y-PrecY)*TR_SENSITIVITY;
+			}
+			CameraSetPosition(CamPos);		
+		}
+		else
+		{
+			PrecX = Mouse.X;
+			PrecY = Mouse.Y;
+		}
+		InMouseR = true;
+		InMouseL = false;
+	}	
+	else
+	{
+		InMouseR = false;
+		InMouseL = false;
+		if ((angleX != 0)&&(angleX > 0))
+			angleX-=0.5;
+		if ((angleX != 0)&&(angleX < 0))
+			angleX+=0.5;
+	}
+}
+
+
+function KeyStatus(keycode)
+{
+//	output("Keystatus(", keycode, ")\n");
+
+	if (valtype(keycode) == "S")
+	{
+		keycode = asc(keycode);
+	}
+		
+	static var keys_stati = vector(255);
+	if (KeyPressed(keycode))
+	{	
+		if (keys_stati[keycode] == 0.0)
+		{
+			keys_stati[keycode] = 1.0;
+			return 1;
+		}
+	}
+	else
+	{
+		keys_stati[keycode] = 0.0;
+		return 0;
+	}
+	return -1;		
+}
+
+function OnTimer()
+{
+	/*for (var i=0;i<Avatars.numCharacters();i++)
+	{
+	if(animationPlaying == true)
+	{
+		var animationId = Avatars.GetAnimationId(my_avatarId,"m016Standing");
+		//blendCycle (int modelnum, int aninum, float weight, float delay)
+		Avatars.blendCycle(my_avatarId, animationId, 0.0, 1.0);	
+		animationPlaying = false;
+	}
+	else
+	{
+		var animationId = Avatars.GetAnimationId(i,"m016Standing");
+		//blendCycle (int modelnum, int aninum, float weight, float delay)
+		Avatars.blendCycle(i, animationId, 1.0, 1.0);
+		//animationPlaying = true;		
+	//}
+	}*/
+}
+
+function OnEvent()
+{
+}
+
+function OnError()
+{
+}

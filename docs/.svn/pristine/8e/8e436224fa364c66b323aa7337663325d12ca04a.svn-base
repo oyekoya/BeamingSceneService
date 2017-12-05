@@ -1,0 +1,53 @@
+\hypertarget{kbhit__mod_8h}{
+\section{Classes/kbhit\_\-mod.h File Reference}
+\label{kbhit__mod_8h}\index{Classes/kbhit\_\-mod.h@{Classes/kbhit\_\-mod.h}}
+}
+
+
+Slightly modified version of the Kbhit.h-\/file found in RakNet used for reimplementing the kbhit() and getch() functions from conio.h on unix.  
+
+
+{\ttfamily \#include $<$sys/time.h$>$}\par
+{\ttfamily \#include $<$termios.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{kbhit__mod_8h_ab6a0eb9d27a9bae96d5e488bcb77b5ed}{
+static void {\bfseries cooked} (void)}
+\label{kbhit__mod_8h_ab6a0eb9d27a9bae96d5e488bcb77b5ed}
+
+\item 
+\hypertarget{kbhit__mod_8h_a91dd97230ebe40e2387a9f9b1eee7258}{
+static void {\bfseries raw} (void)}
+\label{kbhit__mod_8h_a91dd97230ebe40e2387a9f9b1eee7258}
+
+\item 
+\hypertarget{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}{
+static int {\bfseries kbhit} (void)}
+\label{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}
+
+\item 
+\hypertarget{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}{
+static int {\bfseries getch} (void)}
+\label{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{kbhit__mod_8h_a9cb11cfdb0ccedf4d1100363933eaf1a}{
+static struct termios {\bfseries g\_\-old\_\-kbd\_\-mode}}
+\label{kbhit__mod_8h_a9cb11cfdb0ccedf4d1100363933eaf1a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Slightly modified version of the Kbhit.h-\/file found in RakNet used for reimplementing the kbhit() and getch() functions from conio.h on unix. Modification is required to be able to use stdin normally after invocation 
+
+Definition in file \hyperlink{kbhit__mod_8h_source}{kbhit\_\-mod.h}.
+

@@ -1,0 +1,232 @@
+\hypertarget{class_rak_cli}{
+\section{RakCli Class Reference}
+\label{class_rak_cli}\index{RakCli@{RakCli}}
+}
+
+
+class containing the overall interface for connecting and identifying to an Audio Server.  
+
+
+
+
+{\ttfamily \#include $<$rakcli.h$>$}
+
+
+
+Collaboration diagram for RakCli:
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_rak_cli_a0c0030c980346a7b7334bbcac75b66a3}{clientInfo} (bool connected, int type, QString sceneID)
+\begin{DoxyCompactList}\small\item\em A Qt Signal emitted when there is new information about a client connection from the server (eg. new locals connected that the visitor should listen to). \item\end{DoxyCompactList}\item 
+void \hyperlink{class_rak_cli_a26034a0d56aa197fe2328001f5692da6}{message} (QString text, bool err=0)
+\begin{DoxyCompactList}\small\item\em A Qt Signal for a general message interface. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_rak_cli_acf69a9a30fea432df3a6a3a6d7a2cb9f}{disconnected} ()
+\begin{DoxyCompactList}\small\item\em A Qt Signal emitted when the client has been disconnected. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_rak_cli_a00bdaed2aca425e1c1f387059db736f6}{RakCli} (\hyperlink{class_audio_interface}{AudioInterface} $\ast$interface, QObject $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructor of the Audio Client class. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_rak_cli_a1e92e491f024d0add9b772fd97342461}{ConnectToServer} (\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} type, const char $\ast$host=\char`\"{}127.0.0.1\char`\"{}, unsigned short port=12345, QString name=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Connect to a server -\/ the main function required to use this class. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_rak_cli_adb9ce1989d290b2eb16dff0ba8bd1f28}{Disconnect} ()
+\begin{DoxyCompactList}\small\item\em Disconnect from server we are connected to. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_rak_cli_aded7a39a959da8d8041d54db95f7d45e}{isConnected} ()
+\begin{DoxyCompactList}\small\item\em Test if we are currently connected to an Audio Server. \item\end{DoxyCompactList}\item 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} \hyperlink{class_rak_cli_a7e216105226b643c182137b6d77f0bc9}{clientType} ()
+\begin{DoxyCompactList}\small\item\em Test which client type we are connected as. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class containing the overall interface for connecting and identifying to an Audio Server. This class should be used by any program wishing to connect to an Audio streaming server 
+
+Definition at line 29 of file rakcli.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_rak_cli_a00bdaed2aca425e1c1f387059db736f6}{
+\index{RakCli@{RakCli}!RakCli@{RakCli}}
+\index{RakCli@{RakCli}!RakCli@{RakCli}}
+\subsubsection[{RakCli}]{\setlength{\rightskip}{0pt plus 5cm}RakCli::RakCli (
+\begin{DoxyParamCaption}
+\item[{{\bf AudioInterface} $\ast$}]{interface, }
+\item[{QObject $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_cli_a00bdaed2aca425e1c1f387059db736f6}
+
+
+Constructor of the Audio Client class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interface} & Reference to an already instantiated \hyperlink{class_audio_interface}{AudioInterface} \\
+\hline
+{\em parent} & A pointer to the parent may be given, but is not used for anything. It is merely a requirement of inheriting QThread. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file rakcli.cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_rak_cli_a0c0030c980346a7b7334bbcac75b66a3}{
+\index{RakCli@{RakCli}!clientInfo@{clientInfo}}
+\index{clientInfo@{clientInfo}!RakCli@{RakCli}}
+\subsubsection[{clientInfo}]{\setlength{\rightskip}{0pt plus 5cm}void RakCli::clientInfo (
+\begin{DoxyParamCaption}
+\item[{bool}]{connected, }
+\item[{int}]{type, }
+\item[{QString}]{sceneID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_rak_cli_a0c0030c980346a7b7334bbcac75b66a3}
+
+
+A Qt Signal emitted when there is new information about a client connection from the server (eg. new locals connected that the visitor should listen to). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em connected} & {\bfseries true} if a client has connected {\bfseries false} for disconnect \\
+\hline
+{\em type} & defines the client type according to the \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} enum (an enum cannot be emitted in a signal, so it is cast to int) \\
+\hline
+{\em sceneID} & is the ID which the client has given -\/ this will generally be a Beaming Scene ID, but can be any string \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_rak_cli_a7e216105226b643c182137b6d77f0bc9}{
+\index{RakCli@{RakCli}!clientType@{clientType}}
+\index{clientType@{clientType}!RakCli@{RakCli}}
+\subsubsection[{clientType}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tClientType} RakCli::clientType (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_cli_a7e216105226b643c182137b6d77f0bc9}
+
+
+Test which client type we are connected as. 
+
+\begin{DoxyReturn}{Returns}
+The enum value of the client type we are connected as. If the client is not connected, this is the type of the last connection. 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file rakcli.cpp.
+
+\hypertarget{class_rak_cli_a1e92e491f024d0add9b772fd97342461}{
+\index{RakCli@{RakCli}!ConnectToServer@{ConnectToServer}}
+\index{ConnectToServer@{ConnectToServer}!RakCli@{RakCli}}
+\subsubsection[{ConnectToServer}]{\setlength{\rightskip}{0pt plus 5cm}bool RakCli::ConnectToServer (
+\begin{DoxyParamCaption}
+\item[{{\bf tClientType}}]{type, }
+\item[{const char $\ast$}]{host = {\ttfamily \char`\"{}127.0.0.1\char`\"{}}, }
+\item[{unsigned short}]{port = {\ttfamily 12345}, }
+\item[{QString}]{name = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_cli_a1e92e491f024d0add9b772fd97342461}
+
+
+Connect to a server -\/ the main function required to use this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Defines the client type according to the \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} enum. \\
+\hline
+{\em host} & The ip or hostname of the server to connect to. \\
+\hline
+{\em port} & The port to connect to. \\
+\hline
+{\em name} & An identifier for this particular client. In general this should be the unique Beaming Scene ID, where additional information about this client can be found.\par
+ For the special case of a client of the type \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca023a6a8a9abd2e44fa1322d64b9fe005}{AUDIO\_\-GUID\_\-LISTENER}, this should be the Scene ID of the client one wish to listen to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether RakNet connection was successful 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file rakcli.cpp.
+
+\hypertarget{class_rak_cli_adb9ce1989d290b2eb16dff0ba8bd1f28}{
+\index{RakCli@{RakCli}!Disconnect@{Disconnect}}
+\index{Disconnect@{Disconnect}!RakCli@{RakCli}}
+\subsubsection[{Disconnect}]{\setlength{\rightskip}{0pt plus 5cm}void RakCli::Disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_cli_adb9ce1989d290b2eb16dff0ba8bd1f28}
+
+
+Disconnect from server we are connected to. 
+
+
+
+Definition at line 59 of file rakcli.cpp.
+
+\hypertarget{class_rak_cli_acf69a9a30fea432df3a6a3a6d7a2cb9f}{
+\index{RakCli@{RakCli}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!RakCli@{RakCli}}
+\subsubsection[{disconnected}]{\setlength{\rightskip}{0pt plus 5cm}void RakCli::disconnected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_rak_cli_acf69a9a30fea432df3a6a3a6d7a2cb9f}
+
+
+A Qt Signal emitted when the client has been disconnected. 
+
+This may be either because we disconnected ourselves or because the server kicked us off. \hypertarget{class_rak_cli_aded7a39a959da8d8041d54db95f7d45e}{
+\index{RakCli@{RakCli}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!RakCli@{RakCli}}
+\subsubsection[{isConnected}]{\setlength{\rightskip}{0pt plus 5cm}bool RakCli::isConnected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_rak_cli_aded7a39a959da8d8041d54db95f7d45e}
+
+
+Test if we are currently connected to an Audio Server. 
+
+\begin{DoxyReturn}{Returns}
+{\bfseries true} if we are connected to a server, {\bfseries false} otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file rakcli.cpp.
+
+\hypertarget{class_rak_cli_a26034a0d56aa197fe2328001f5692da6}{
+\index{RakCli@{RakCli}!message@{message}}
+\index{message@{message}!RakCli@{RakCli}}
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}void RakCli::message (
+\begin{DoxyParamCaption}
+\item[{QString}]{text, }
+\item[{bool}]{err = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_rak_cli_a26034a0d56aa197fe2328001f5692da6}
+
+
+A Qt Signal for a general message interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & A message text emitted from the class. \\
+\hline
+{\em err} & {\bfseries true} if the message is an error, {\bfseries false} otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{rakcli_8h}{rakcli.h}\item 
+Classes/\hyperlink{rakcli_8cpp}{rakcli.cpp}\end{DoxyCompactItemize}

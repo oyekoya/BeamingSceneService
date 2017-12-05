@@ -1,0 +1,27 @@
+\label{todo__todo000003}
+\hypertarget{todo__todo000003}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca2e394db8fadb9012b09142a0de7ffcef}{AUDIO\_\-AR\_\-LOCAL} ]the AR-\/Local is currently not implemented on the \hyperlink{class_rak_serv}{Server}. 
+\end{DoxyDescription}
+
+\label{todo__todo000005}
+\hypertarget{todo__todo000005}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca10c640771ca6b67327fd79fd10577c1d}{AUDIO\_\-CUSTOM} ]The Custom client is currently not implemented on the \hyperlink{class_rak_serv}{Server}. 
+\end{DoxyDescription}
+
+\label{todo__todo000004}
+\hypertarget{todo__todo000004}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca45fdad03ce6b227ee2e0377af19693af}{AUDIO\_\-SPECTATOR} ]The spectator is currently not implemented on the \hyperlink{class_rak_serv}{Server}. 
+\end{DoxyDescription}
+
+\label{todo__todo000002}
+\hypertarget{todo__todo000002}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} ]The current system is only implemented for one connection of each type (server side), except for the ::GUID\_\-LISTENER. 
+\end{DoxyDescription}

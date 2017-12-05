@@ -1,0 +1,42 @@
+\hypertarget{rakcli_8cpp}{
+\section{Classes/rakcli.cpp File Reference}
+\label{rakcli_8cpp}\index{Classes/rakcli.cpp@{Classes/rakcli.cpp}}
+}
+
+
+Implements the \hyperlink{class_rak_cli}{RakCli} class containing the overall interface for connecting and identifying to an Audio Server.  
+
+
+{\ttfamily \#include \char`\"{}rakcli.h\char`\"{}}\par
+{\ttfamily \#include $<$RakNetworkFactory.h$>$}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rakcli_8cpp_a5faf1a47d0611ceea03904443d37f280}{AAU\_\-MAX\_\-PACKETSIZE}~1024
+\begin{DoxyCompactList}\small\item\em The maximum size of a packet that should be sent. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implements the \hyperlink{class_rak_cli}{RakCli} class containing the overall interface for connecting and identifying to an Audio Server. \begin{DoxyAuthor}{Author}
+Aalborg University 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{rakcli_8cpp_source}{rakcli.cpp}.
+
+
+
+\subsection{Define Documentation}
+\hypertarget{rakcli_8cpp_a5faf1a47d0611ceea03904443d37f280}{
+\index{rakcli.cpp@{rakcli.cpp}!AAU\_\-MAX\_\-PACKETSIZE@{AAU\_\-MAX\_\-PACKETSIZE}}
+\index{AAU\_\-MAX\_\-PACKETSIZE@{AAU\_\-MAX\_\-PACKETSIZE}!rakcli.cpp@{rakcli.cpp}}
+\subsubsection[{AAU\_\-MAX\_\-PACKETSIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define AAU\_\-MAX\_\-PACKETSIZE~1024}}
+\label{rakcli_8cpp_a5faf1a47d0611ceea03904443d37f280}
+
+
+The maximum size of a packet that should be sent. 
+
+If the transmitted packages are too large, the effect of packet loss will be easily audible, so we set a maximum size. Using a power of 2 fits with the size of buffers used in \hyperlink{class_audio_interface}{AudioInterface}. 
+
+Definition at line 184 of file rakcli.cpp.
+

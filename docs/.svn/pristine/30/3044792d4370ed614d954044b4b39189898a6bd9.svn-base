@@ -1,0 +1,75 @@
+\hypertarget{structt__scene_info_data}{
+\section{t\_\-sceneInfoData Struct Reference}
+\label{structt__scene_info_data}\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}}
+}
+
+
+{\ttfamily \#include $<$sceneinterface.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__scene_info_data_ad32854fb07b92e491f75af898a3a15c3}{t\_\-sceneInfoData} (double gain=1, double azimuth=0, double elevation=0, float x=0, float y=0, float z=0)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structt__scene_info_data_ae67bb2550a64547fad8ffccfedfe2c3a}{
+double {\bfseries gain}}
+\label{structt__scene_info_data_ae67bb2550a64547fad8ffccfedfe2c3a}
+
+\item 
+\hypertarget{structt__scene_info_data_a26a79da5a2e36e6785ad6f031d16d4a1}{
+short {\bfseries sgain}}
+\label{structt__scene_info_data_a26a79da5a2e36e6785ad6f031d16d4a1}
+
+\item 
+\hypertarget{structt__scene_info_data_a199a8b6a0a61f01ec9be31a11d42faf9}{
+double {\bfseries azimuth}}
+\label{structt__scene_info_data_a199a8b6a0a61f01ec9be31a11d42faf9}
+
+\item 
+\hypertarget{structt__scene_info_data_aac464c2957aaedac5972c9eb57c43cc6}{
+double {\bfseries elevation}}
+\label{structt__scene_info_data_aac464c2957aaedac5972c9eb57c43cc6}
+
+\item 
+\hypertarget{structt__scene_info_data_ace4be49c4f94d9900543199dc12e96f5}{
+CVec3 {\bfseries translation}}
+\label{structt__scene_info_data_ace4be49c4f94d9900543199dc12e96f5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class contains information regarding the Beaming Scene, whis is accessed by using the Beaming Scene GUID. The data will automatically grow when data about new clients are added. 
+
+Definition at line 22 of file sceneinterface.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structt__scene_info_data_ad32854fb07b92e491f75af898a3a15c3}{
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!t\_\-sceneInfoData@{t\_\-sceneInfoData}}
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!t_sceneInfoData@{t\_\-sceneInfoData}}
+\subsubsection[{t\_\-sceneInfoData}]{\setlength{\rightskip}{0pt plus 5cm}t\_\-sceneInfoData::t\_\-sceneInfoData (
+\begin{DoxyParamCaption}
+\item[{double}]{igain = {\ttfamily 1}, }
+\item[{double}]{iazimuth = {\ttfamily 0}, }
+\item[{double}]{ielevation = {\ttfamily 0}, }
+\item[{float}]{ix = {\ttfamily 0}, }
+\item[{float}]{iy = {\ttfamily 0}, }
+\item[{float}]{iz = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{structt__scene_info_data_ad32854fb07b92e491f75af898a3a15c3}
+constructor of the data struct, ensuring sensible default values of all data 
+
+Definition at line 8 of file sceneinterface.cpp.
+
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/sceneinterface.h\item 
+Classes/sceneinterface.cpp\end{DoxyCompactItemize}

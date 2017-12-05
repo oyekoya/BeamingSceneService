@@ -1,0 +1,58 @@
+\hypertarget{sceneinterface_8h}{
+\section{Classes/sceneinterface.h File Reference}
+\label{sceneinterface_8h}\index{Classes/sceneinterface.h@{Classes/sceneinterface.h}}
+}
+{\ttfamily \#include $<$QString$>$}\par
+{\ttfamily \#include $<$QStringList$>$}\par
+{\ttfamily \#include $<$QHash$>$}\par
+{\ttfamily \#include $<$QVector$>$}\par
+{\ttfamily \#include $<$QObject$>$}\par
+{\ttfamily \#include $<$QReadLocker$>$}\par
+{\ttfamily \#include $<$QWriteLocker$>$}\par
+{\ttfamily \#include $<$QThread$>$}\par
+{\ttfamily \#include \char`\"{}aaubinfilter.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}utilMath.h\char`\"{}}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{sceneinterface_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}
+\item 
+struct \hyperlink{structt__process_info}{t\_\-processInfo}
+\item 
+class \hyperlink{class_scene_interface}{SceneInterface}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sceneinterface_8h_a9979baadc14889cd5265952aa72efb58}{GAIN\_\-SHIFT}~13
+\item 
+\#define \hyperlink{sceneinterface_8h_a571596f8318cc9002b4effff7e3efc31}{GAIN\_\-SCALE}~8192
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{sceneinterface_8h_a571596f8318cc9002b4effff7e3efc31}{
+\index{sceneinterface.h@{sceneinterface.h}!GAIN\_\-SCALE@{GAIN\_\-SCALE}}
+\index{GAIN\_\-SCALE@{GAIN\_\-SCALE}!sceneinterface.h@{sceneinterface.h}}
+\subsubsection[{GAIN\_\-SCALE}]{\setlength{\rightskip}{0pt plus 5cm}\#define GAIN\_\-SCALE~8192}}
+\label{sceneinterface_8h_a571596f8318cc9002b4effff7e3efc31}
+
+
+Definition at line 30 of file sceneinterface.h.
+
+\hypertarget{sceneinterface_8h_a9979baadc14889cd5265952aa72efb58}{
+\index{sceneinterface.h@{sceneinterface.h}!GAIN\_\-SHIFT@{GAIN\_\-SHIFT}}
+\index{GAIN\_\-SHIFT@{GAIN\_\-SHIFT}!sceneinterface.h@{sceneinterface.h}}
+\subsubsection[{GAIN\_\-SHIFT}]{\setlength{\rightskip}{0pt plus 5cm}\#define GAIN\_\-SHIFT~13}}
+\label{sceneinterface_8h_a9979baadc14889cd5265952aa72efb58}
+
+
+Definition at line 29 of file sceneinterface.h.
+

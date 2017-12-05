@@ -1,0 +1,119 @@
+\hypertarget{class_audio_i_o}{
+\section{AudioIO Class Reference}
+\label{class_audio_i_o}\index{AudioIO@{AudioIO}}
+}
+
+
+Collaboration diagram for AudioIO:
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_audio_i_o_a0160bda178c733b5a34ca82084ee7a1d}{
+void {\bfseries muteMic} (bool)}
+\label{class_audio_i_o_a0160bda178c733b5a34ca82084ee7a1d}
+
+\item 
+\hypertarget{class_audio_i_o_a1ea8d3fd4525355a27ef10ac237f21a3}{
+void {\bfseries enablePostFilter} (bool)}
+\label{class_audio_i_o_a1ea8d3fd4525355a27ef10ac237f21a3}
+
+\item 
+\hypertarget{class_audio_i_o_aca51519b328983b7f3280d52bffaf2db}{
+void {\bfseries loadPostFilter} (QString filename)}
+\label{class_audio_i_o_aca51519b328983b7f3280d52bffaf2db}
+
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_audio_i_o_a95cc7af8edbd303ecc211194c3a68890}{
+void {\bfseries message} (QString text, bool err=0)}
+\label{class_audio_i_o_a95cc7af8edbd303ecc211194c3a68890}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_audio_i_o_a64df8b70f276cc1f25f1b4aea7e1f28e}{
+{\bfseries AudioIO} (\hyperlink{class_audio_interface}{AudioInterface} $\ast$audio, void $\ast$scene=0, void $\ast$hptf=0, bool init=false, QObject $\ast$parent=0)}
+\label{class_audio_i_o_a64df8b70f276cc1f25f1b4aea7e1f28e}
+
+\item 
+\hypertarget{class_audio_i_o_a2f4c27592985ed796e1b5cf17c10ba23}{
+bool {\bfseries init} (int inDevIdx=-\/1, int inChn=-\/1, int outDevIdx=-\/1, int outChn=-\/1)}
+\label{class_audio_i_o_a2f4c27592985ed796e1b5cf17c10ba23}
+
+\item 
+\hypertarget{class_audio_i_o_a822e929714c61c212422bf69f56974f0}{
+bool {\bfseries initIn} (int devIdx=-\/1, int nChn=-\/1)}
+\label{class_audio_i_o_a822e929714c61c212422bf69f56974f0}
+
+\item 
+\hypertarget{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}{
+bool {\bfseries initOut} (int devIdx=-\/1, int nChn=-\/1)}
+\label{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}
+
+\item 
+\hypertarget{class_audio_i_o_aa5dd3333572985ca56ac7cfbdce7820e}{
+void {\bfseries start} ()}
+\label{class_audio_i_o_aa5dd3333572985ca56ac7cfbdce7820e}
+
+\item 
+\hypertarget{class_audio_i_o_a48f9696dd9463cabda08d4c4f1a458bf}{
+void {\bfseries stop} ()}
+\label{class_audio_i_o_a48f9696dd9463cabda08d4c4f1a458bf}
+
+\item 
+\hypertarget{class_audio_i_o_a67a5ec8fac60d8ae96dbcf8014e46839}{
+bool {\bfseries isrunning} ()}
+\label{class_audio_i_o_a67a5ec8fac60d8ae96dbcf8014e46839}
+
+\item 
+\hypertarget{class_audio_i_o_afd595ae99d2e465bf75f74819f1de973}{
+bool {\bfseries isMuted} ()}
+\label{class_audio_i_o_afd595ae99d2e465bf75f74819f1de973}
+
+\item 
+\hypertarget{class_audio_i_o_a202e09e054514a17d31c33ce650fc3a8}{
+bool {\bfseries isPostFilterEnabled} ()}
+\label{class_audio_i_o_a202e09e054514a17d31c33ce650fc3a8}
+
+\item 
+\hypertarget{class_audio_i_o_a4518c227826f7ff33c6da02a7571eead}{
+bool {\bfseries isPostFilterLoaded} ()}
+\label{class_audio_i_o_a4518c227826f7ff33c6da02a7571eead}
+
+\item 
+\hypertarget{class_audio_i_o_a50f5361c2b3f65c002bd6e22838e2a31}{
+int {\bfseries nChnIn} ()}
+\label{class_audio_i_o_a50f5361c2b3f65c002bd6e22838e2a31}
+
+\item 
+\hypertarget{class_audio_i_o_a3e5c8cd951b8e418fedd92bb43f53c84}{
+int {\bfseries nChnOut} ()}
+\label{class_audio_i_o_a3e5c8cd951b8e418fedd92bb43f53c84}
+
+\item 
+\hypertarget{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}{
+QVector$<$ \hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo} $>$ {\bfseries deviceInfo} ()}
+\label{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}
+
+\item 
+\hypertarget{class_audio_i_o_adc839d9f117ea39db71d22aa43a57d86}{
+\hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo} {\bfseries deviceInfo} (int devIdx)}
+\label{class_audio_i_o_adc839d9f117ea39db71d22aa43a57d86}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 47 of file audioio.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/audioio.h\item 
+Classes/audioio.cpp\end{DoxyCompactItemize}

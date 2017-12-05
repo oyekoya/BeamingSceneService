@@ -1,0 +1,152 @@
+\hypertarget{structt__scene_info_data}{
+\section{t\_\-sceneInfoData Struct Reference}
+\label{structt__scene_info_data}\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}}
+}
+
+
+struct datatype containing all information about a particular \char`\"{}ID\char`\"{}  
+
+
+
+
+{\ttfamily \#include $<$sceneinterface.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structt__scene_info_data_ad32854fb07b92e491f75af898a3a15c3}{t\_\-sceneInfoData} (double \hyperlink{structt__scene_info_data_ae67bb2550a64547fad8ffccfedfe2c3a}{gain}=1, double \hyperlink{structt__scene_info_data_a199a8b6a0a61f01ec9be31a11d42faf9}{azimuth}=0, double \hyperlink{structt__scene_info_data_aac464c2957aaedac5972c9eb57c43cc6}{elevation}=0, float x=0, float y=0, float z=0)
+\begin{DoxyCompactList}\small\item\em costructor providing default values \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{structt__scene_info_data_ae67bb2550a64547fad8ffccfedfe2c3a}{gain}
+\begin{DoxyCompactList}\small\item\em floating point gain value \item\end{DoxyCompactList}\item 
+short \hyperlink{structt__scene_info_data_a26a79da5a2e36e6785ad6f031d16d4a1}{sgain}
+\begin{DoxyCompactList}\small\item\em integer type gain value \item\end{DoxyCompactList}\item 
+double \hyperlink{structt__scene_info_data_a199a8b6a0a61f01ec9be31a11d42faf9}{azimuth}
+\begin{DoxyCompactList}\small\item\em Azimuth of this ID. \item\end{DoxyCompactList}\item 
+double \hyperlink{structt__scene_info_data_aac464c2957aaedac5972c9eb57c43cc6}{elevation}
+\begin{DoxyCompactList}\small\item\em Elevation of this ID. \item\end{DoxyCompactList}\item 
+CVec3 \hyperlink{structt__scene_info_data_ace4be49c4f94d9900543199dc12e96f5}{translation}
+\begin{DoxyCompactList}\small\item\em Translation of this ID. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct datatype containing all information about a particular \char`\"{}ID\char`\"{} 
+
+Definition at line 25 of file sceneinterface.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structt__scene_info_data_ad32854fb07b92e491f75af898a3a15c3}{
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!t\_\-sceneInfoData@{t\_\-sceneInfoData}}
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!t_sceneInfoData@{t\_\-sceneInfoData}}
+\subsubsection[{t\_\-sceneInfoData}]{\setlength{\rightskip}{0pt plus 5cm}t\_\-sceneInfoData::t\_\-sceneInfoData (
+\begin{DoxyParamCaption}
+\item[{double}]{gain = {\ttfamily 1}, }
+\item[{double}]{azimuth = {\ttfamily 0}, }
+\item[{double}]{elevation = {\ttfamily 0}, }
+\item[{float}]{x = {\ttfamily 0}, }
+\item[{float}]{y = {\ttfamily 0}, }
+\item[{float}]{z = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{structt__scene_info_data_ad32854fb07b92e491f75af898a3a15c3}
+
+
+costructor providing default values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gain} & The gain to apply to the stream of this ID \\
+\hline
+{\em azimuth} & Azimuth of the ID to use for directional rendering \\
+\hline
+{\em elevation} & Elevation of the ID to use for directional rendering \\
+\hline
+{\em x} & Translation of this ID along the X-\/axis \\
+\hline
+{\em y} & Translation of this ID along the Y-\/axis \\
+\hline
+{\em z} & Translation of this ID along the Z-\/axis \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 6 of file sceneinterface.cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structt__scene_info_data_a199a8b6a0a61f01ec9be31a11d42faf9}{
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!azimuth@{azimuth}}
+\index{azimuth@{azimuth}!t_sceneInfoData@{t\_\-sceneInfoData}}
+\subsubsection[{azimuth}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf t\_\-sceneInfoData::azimuth}}}
+\label{structt__scene_info_data_a199a8b6a0a61f01ec9be31a11d42faf9}
+
+
+Azimuth of this ID. 
+
+
+
+Definition at line 39 of file sceneinterface.h.
+
+\hypertarget{structt__scene_info_data_aac464c2957aaedac5972c9eb57c43cc6}{
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!elevation@{elevation}}
+\index{elevation@{elevation}!t_sceneInfoData@{t\_\-sceneInfoData}}
+\subsubsection[{elevation}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf t\_\-sceneInfoData::elevation}}}
+\label{structt__scene_info_data_aac464c2957aaedac5972c9eb57c43cc6}
+
+
+Elevation of this ID. 
+
+
+
+Definition at line 41 of file sceneinterface.h.
+
+\hypertarget{structt__scene_info_data_ae67bb2550a64547fad8ffccfedfe2c3a}{
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!gain@{gain}}
+\index{gain@{gain}!t_sceneInfoData@{t\_\-sceneInfoData}}
+\subsubsection[{gain}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf t\_\-sceneInfoData::gain}}}
+\label{structt__scene_info_data_ae67bb2550a64547fad8ffccfedfe2c3a}
+
+
+floating point gain value 
+
+
+
+Definition at line 35 of file sceneinterface.h.
+
+\hypertarget{structt__scene_info_data_a26a79da5a2e36e6785ad6f031d16d4a1}{
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!sgain@{sgain}}
+\index{sgain@{sgain}!t_sceneInfoData@{t\_\-sceneInfoData}}
+\subsubsection[{sgain}]{\setlength{\rightskip}{0pt plus 5cm}short {\bf t\_\-sceneInfoData::sgain}}}
+\label{structt__scene_info_data_a26a79da5a2e36e6785ad6f031d16d4a1}
+
+
+integer type gain value 
+
+
+
+Definition at line 37 of file sceneinterface.h.
+
+\hypertarget{structt__scene_info_data_ace4be49c4f94d9900543199dc12e96f5}{
+\index{t\_\-sceneInfoData@{t\_\-sceneInfoData}!translation@{translation}}
+\index{translation@{translation}!t_sceneInfoData@{t\_\-sceneInfoData}}
+\subsubsection[{translation}]{\setlength{\rightskip}{0pt plus 5cm}CVec3 {\bf t\_\-sceneInfoData::translation}}}
+\label{structt__scene_info_data_ace4be49c4f94d9900543199dc12e96f5}
+
+
+Translation of this ID. 
+
+
+
+Definition at line 43 of file sceneinterface.h.
+
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{sceneinterface_8h}{sceneinterface.h}\item 
+Classes/sceneinterface.cpp\end{DoxyCompactItemize}

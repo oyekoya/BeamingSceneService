@@ -1,0 +1,241 @@
+\hypertarget{struct_rak_serv_1_1t_client_info}{
+\section{RakServ::tClientInfo Struct Reference}
+\label{struct_rak_serv_1_1t_client_info}\index{RakServ::tClientInfo@{RakServ::tClientInfo}}
+}
+
+
+Struct used for dealing with the relevant client information.  
+
+
+
+
+{\ttfamily \#include $<$rakserv.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_rak_serv_1_1t_client_info_a03bac537f882c0fbf94e319a25bb53a4}{tClientInfo} (RakNetGUID idin=UNASSIGNED\_\-RAKNET\_\-GUID, RakNetGUID otherIdin=UNASSIGNED\_\-RAKNET\_\-GUID, QString namein=\char`\"{}\char`\"{}, \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} typein=AUDIO\_\-VISITOR)
+\begin{DoxyCompactList}\small\item\em The struct is default initialized with relevant information for \char`\"{}no connected client\char`\"{}. \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a73ae24756a17c31483da4f9b12d9ac0b}{operator==} (const \hyperlink{struct_rak_serv_1_1t_client_info}{tClientInfo} \&other) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a full struct. \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a137c3d3194d8fc2b27056027c967f9de}{operator==} (const RakNetGUID \&otherid) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a RakNet ID (our client-\/server connection) \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a34920e02d198358ce3add9f2ac032f74}{operator==} (const QString \&othername) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a name (ID on the Scene) \item\end{DoxyCompactList}\item 
+bool \hyperlink{struct_rak_serv_1_1t_client_info_a3b6dd4384e8bba997500e6d13c638972}{operator==} (const \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} \&othertype) const 
+\begin{DoxyCompactList}\small\item\em Comparison operator for a type. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+RakNetGUID \hyperlink{struct_rak_serv_1_1t_client_info_a3aed64a4f3917a999813f7072719c5dd}{id}
+\begin{DoxyCompactList}\small\item\em The RakNet GUID from the client-\/server connection. \item\end{DoxyCompactList}\item 
+RakNetGUID \hyperlink{struct_rak_serv_1_1t_client_info_abfc1a53faf84914a8e5380aaca2003c2}{otherId}
+\begin{DoxyCompactList}\small\item\em The RakNet GUID, which is somehow tied to this client (eg. visitor-\/avatar, proxy-\/visitor etc.) \item\end{DoxyCompactList}\item 
+QString \hyperlink{struct_rak_serv_1_1t_client_info_a6fdc01a600555cf48f33a62c318dc8c1}{name}
+\begin{DoxyCompactList}\small\item\em the name which the client identified with -\/ generally this would be the BEAMING Scene ID \item\end{DoxyCompactList}\item 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} \hyperlink{struct_rak_serv_1_1t_client_info_aef482d29b311861590457ff12df84e43}{type}
+\begin{DoxyCompactList}\small\item\em which type the client has identified as \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Struct used for dealing with the relevant client information. 
+
+Definition at line 34 of file rakserv.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{struct_rak_serv_1_1t_client_info_a03bac537f882c0fbf94e319a25bb53a4}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!tClientInfo@{tClientInfo}}
+\index{tClientInfo@{tClientInfo}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{tClientInfo}]{\setlength{\rightskip}{0pt plus 5cm}RakServ::tClientInfo::tClientInfo (
+\begin{DoxyParamCaption}
+\item[{RakNetGUID}]{idin = {\ttfamily UNASSIGNED\_\-RAKNET\_\-GUID}, }
+\item[{RakNetGUID}]{otherIdin = {\ttfamily UNASSIGNED\_\-RAKNET\_\-GUID}, }
+\item[{QString}]{namein = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{{\bf tClientType}}]{typein = {\ttfamily AUDIO\_\-VISITOR}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a03bac537f882c0fbf94e319a25bb53a4}
+
+
+The struct is default initialized with relevant information for \char`\"{}no connected client\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idin} & RakNet GUID of this client -\/ defaults to UNASSIGNED\_\-RAKNET\_\-GUID \\
+\hline
+{\em otherIdin} & RakNet GUID of a client that is somehow connected to this one -\/ defaults to UNASSIGNED\_\-RAKNET\_\-GUID \\
+\hline
+{\em namein} & name of this client \\
+\hline
+{\em typein} & type of this client \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file rakserv.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{struct_rak_serv_1_1t_client_info_a73ae24756a17c31483da4f9b12d9ac0b}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf tClientInfo} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a73ae24756a17c31483da4f9b12d9ac0b}
+
+
+Comparison operator for a full struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & other struct of same type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether id, name and type members are equal 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_a3b6dd4384e8bba997500e6d13c638972}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf tClientType} \&}]{othertype}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a3b6dd4384e8bba997500e6d13c638972}
+
+
+Comparison operator for a type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em othertype} & type to compare with the type of this struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the type is the same as this client 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_a34920e02d198358ce3add9f2ac032f74}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{othername}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a34920e02d198358ce3add9f2ac032f74}
+
+
+Comparison operator for a name (ID on the Scene) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em othername} & name to compare with the name of this struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the name is the same as this client 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_a137c3d3194d8fc2b27056027c967f9de}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool RakServ::tClientInfo::operator== (
+\begin{DoxyParamCaption}
+\item[{const RakNetGUID \&}]{otherid}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_rak_serv_1_1t_client_info_a137c3d3194d8fc2b27056027c967f9de}
+
+
+Comparison operator for a RakNet ID (our client-\/server connection) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em otherid} & GUID to compare with the id of this struct \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the GUID is the same as this client 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file rakserv.h.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_rak_serv_1_1t_client_info_a3aed64a4f3917a999813f7072719c5dd}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!id@{id}}
+\index{id@{id}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}RakNetGUID {\bf RakServ::tClientInfo::id}}}
+\label{struct_rak_serv_1_1t_client_info_a3aed64a4f3917a999813f7072719c5dd}
+
+
+The RakNet GUID from the client-\/server connection. 
+
+
+
+Definition at line 49 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_a6fdc01a600555cf48f33a62c318dc8c1}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!name@{name}}
+\index{name@{name}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}QString {\bf RakServ::tClientInfo::name}}}
+\label{struct_rak_serv_1_1t_client_info_a6fdc01a600555cf48f33a62c318dc8c1}
+
+
+the name which the client identified with -\/ generally this would be the BEAMING Scene ID 
+
+
+
+Definition at line 53 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_abfc1a53faf84914a8e5380aaca2003c2}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!otherId@{otherId}}
+\index{otherId@{otherId}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{otherId}]{\setlength{\rightskip}{0pt plus 5cm}RakNetGUID {\bf RakServ::tClientInfo::otherId}}}
+\label{struct_rak_serv_1_1t_client_info_abfc1a53faf84914a8e5380aaca2003c2}
+
+
+The RakNet GUID, which is somehow tied to this client (eg. visitor-\/avatar, proxy-\/visitor etc.) 
+
+
+
+Definition at line 51 of file rakserv.h.
+
+\hypertarget{struct_rak_serv_1_1t_client_info_aef482d29b311861590457ff12df84e43}{
+\index{RakServ::tClientInfo@{RakServ::tClientInfo}!type@{type}}
+\index{type@{type}!RakServ::tClientInfo@{RakServ::tClientInfo}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tClientType} {\bf RakServ::tClientInfo::type}}}
+\label{struct_rak_serv_1_1t_client_info_aef482d29b311861590457ff12df84e43}
+
+
+which type the client has identified as 
+
+
+
+Definition at line 55 of file rakserv.h.
+
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{rakserv_8h}{rakserv.h}\end{DoxyCompactItemize}

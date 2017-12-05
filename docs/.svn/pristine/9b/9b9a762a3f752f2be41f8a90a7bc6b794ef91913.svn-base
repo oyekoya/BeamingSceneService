@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_beaming_user.html" title="User Replica." alt="" coords="5,187,104,213"/>
+<area shape="rect" id="node4" href="$class_c_vec3.html" title="CVec3" alt="" coords="129,187,191,213"/>
+<area shape="rect" id="node6" href="$structnode__info.html" title="node_info" alt="" coords="332,187,409,213"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="243,83,323,109"/>
+<area shape="rect" id="node10" title="STL class." alt="" coords="199,5,365,32"/>
+<area shape="rect" id="node12" href="$class_c_quat.html" title="math helper class for quaternions" alt="" coords="433,187,492,213"/>
+</map>

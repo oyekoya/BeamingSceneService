@@ -1,0 +1,25 @@
+################################################
+#
+# Cal3d cfg File
+#
+################################################
+
+scale=1.0
+
+################# Skeleton #################
+skeleton=Skeleton.XSF
+
+################# Meshes #################
+mesh=CMan0023-Mesh.XMF
+mesh=eye_left.XMF
+mesh=eye_right.XMF
+
+################# Animations #################
+animation=walk.caf
+
+################# Materials #################
+material=CMan0023-Mesh_1.XRF
+material=CMan0023-Mesh_2.XRF
+material=eye_left.XRF
+material=eye_right.XRF
+

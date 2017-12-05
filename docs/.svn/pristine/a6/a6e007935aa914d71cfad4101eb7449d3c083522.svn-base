@@ -1,0 +1,536 @@
+\hypertarget{class_audio_i_o}{
+\section{AudioIO Class Reference}
+\label{class_audio_i_o}\index{AudioIO@{AudioIO}}
+}
+
+
+Audio Input/Output class based on portaudio.  
+
+
+
+
+{\ttfamily \#include $<$audioio.h$>$}
+
+
+
+Collaboration diagram for AudioIO:
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_audio_i_o_a7a235cd8e00af8509f7bc57b7766fe36}{muteMic} (bool mute)
+\begin{DoxyCompactList}\small\item\em A Qt Slot for muting or unmuting input. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_i_o_a7a501d9f85127219d80c16076ccc287d}{enablePostFilter} (bool doFilt)
+\begin{DoxyCompactList}\small\item\em A Qt Slot to enable or disable filtering to apply after directional rendering. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_i_o_aca51519b328983b7f3280d52bffaf2db}{loadPostFilter} (QString filename)
+\begin{DoxyCompactList}\small\item\em A Qt Slot to load a filter to apply after directional rendering. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_audio_i_o_a95cc7af8edbd303ecc211194c3a68890}{message} (QString text, bool err=0)
+\begin{DoxyCompactList}\small\item\em A Qt Signal for a general message interface. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_audio_i_o_a6bc6c689f9ce8e46107cfdeec29ea223}{AudioIO} (\hyperlink{class_audio_interface}{AudioInterface} $\ast$audio, void $\ast$scene=0, void $\ast$hptfFilter=0, bool init=false, QObject $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ multiline due to the optional classes one can chose to use in compilation. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_audio_i_o_a2f4c27592985ed796e1b5cf17c10ba23}{init} (int inDevIdx=-\/1, int inChn=-\/1, int outDevIdx=-\/1, int outChn=-\/1)
+\begin{DoxyCompactList}\small\item\em Initialize hardware with both input and output. The function is merely a wrapper around \hyperlink{class_audio_i_o_a822e929714c61c212422bf69f56974f0}{initIn()} and \hyperlink{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}{initOut()} \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_audio_i_o_a822e929714c61c212422bf69f56974f0}{initIn} (int devIdx=-\/1, int nChn=-\/1)
+\begin{DoxyCompactList}\small\item\em Initialize input device. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}{initOut} (int devIdx=-\/1, int nChn=-\/1)
+\begin{DoxyCompactList}\small\item\em Initialize output device. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_i_o_aa5dd3333572985ca56ac7cfbdce7820e}{start} ()
+\begin{DoxyCompactList}\small\item\em start audio capture and/or playback \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_i_o_a48f9696dd9463cabda08d4c4f1a458bf}{stop} ()
+\begin{DoxyCompactList}\small\item\em stop audio capture and/or playback \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_audio_i_o_a67a5ec8fac60d8ae96dbcf8014e46839}{isrunning} ()
+\begin{DoxyCompactList}\small\item\em running status of \hyperlink{class_audio_i_o}{AudioIO} \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_audio_i_o_afd595ae99d2e465bf75f74819f1de973}{isMuted} ()
+\begin{DoxyCompactList}\small\item\em input muted status \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_audio_i_o_a202e09e054514a17d31c33ce650fc3a8}{isPostFilterEnabled} ()
+\begin{DoxyCompactList}\small\item\em status of filtering to apply after directional rendering \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_audio_i_o_a4518c227826f7ff33c6da02a7571eead}{isPostFilterLoaded} ()
+\begin{DoxyCompactList}\small\item\em status of filtering to apply after directional rendering \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_i_o_a50f5361c2b3f65c002bd6e22838e2a31}{nChnIn} ()
+\begin{DoxyCompactList}\small\item\em Number of input channels currently in use. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_i_o_a3e5c8cd951b8e418fedd92bb43f53c84}{nChnOut} ()
+\begin{DoxyCompactList}\small\item\em Number of output channels currently in use. \item\end{DoxyCompactList}\item 
+QVector$<$ \hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo} $>$ \hyperlink{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}{deviceInfo} ()
+\begin{DoxyCompactList}\small\item\em Obtain a list of all available sound devices. \item\end{DoxyCompactList}\item 
+\hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo} \hyperlink{class_audio_i_o_adc839d9f117ea39db71d22aa43a57d86}{deviceInfo} (int devIdx)
+\begin{DoxyCompactList}\small\item\em Obtain details about a specific sound device. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Audio Input/Output class based on portaudio. In order to use this class, the following basic initialization is required:
+\begin{DoxyItemize}
+\item create an \hyperlink{class_audio_interface}{AudioInterface} object
+\item create a \hyperlink{class_scene_interface}{SceneInterface} object
+\begin{DoxyItemize}
+\item only relevant if the \hyperlink{class_scene_interface}{SceneInterface} is used (and \hyperlink{class_audio_i_o}{AudioIO} is compiled with the define USE\_\-SCENE)
+\end{DoxyItemize}
+\item create an \hyperlink{class_audio_i_o}{AudioIO} object with reference to the \hyperlink{class_audio_interface}{AudioInterface} and optionally \hyperlink{class_scene_interface}{SceneInterface}
+\end{DoxyItemize}
+
+To actually use the class for input and output, do the following:
+\begin{DoxyItemize}
+\item Initialize the sound card with the number of in-\/ and output channes you intend to use
+\begin{DoxyItemize}
+\item use \hyperlink{class_audio_i_o_a2f4c27592985ed796e1b5cf17c10ba23}{init()} to enable both input and output
+\item use \hyperlink{class_audio_i_o_a822e929714c61c212422bf69f56974f0}{initIn()} to only enable input
+\item use \hyperlink{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}{initOut()} to only enable output
+\item the init functions can be run multiple times and only the latest is used
+\end{DoxyItemize}
+\item Add the number of input channels you intend to use to the \hyperlink{class_audio_interface}{AudioInterface}
+\begin{DoxyItemize}
+\item \hyperlink{class_audio_interface_aee1478c637ec699b4a157f2fa407c1a3}{AudioInterface::addChnCapture()}
+\item Up to the maximum number of channels in {\itshape either\/} \hyperlink{class_audio_i_o}{AudioIO} or \hyperlink{class_audio_interface}{AudioInterface}, audio will be added to the interface
+\item The order of channels in the interface is the order in which they were created so, eg. \par
+ \begin{DoxyVerb}audioIF.addChnCapture("GUID1,first");
+audioIF.addChnCapture("GUID2,second");\end{DoxyVerb}
+ will result in the stream from sound card channel 1 to be sent with the ID \char`\"{}GUID1,first\char`\"{} and channel 2 as \char`\"{}GUID2,second\char`\"{}
+\end{DoxyItemize}
+\item Start the audio capture/playback with \hyperlink{class_audio_i_o_aa5dd3333572985ca56ac7cfbdce7820e}{start()}
+\begin{DoxyItemize}
+\item Note that the \hyperlink{class_audio_interface}{AudioInterface} channels can be changed while the system is running, the \hyperlink{class_audio_i_o}{AudioIO} channels can {\bfseries only} be changed when no audio input/output is taking place.\par
+ It is possible to use \hyperlink{class_audio_i_o_a48f9696dd9463cabda08d4c4f1a458bf}{stop()}, \hyperlink{class_audio_i_o_a2f4c27592985ed796e1b5cf17c10ba23}{init()} and \hyperlink{class_audio_i_o_aa5dd3333572985ca56ac7cfbdce7820e}{start()} with minor skips in audio as a result
+\item Input will always be treated as individual channels to transmit
+\item Single channel output will mix all received channels
+\item Two channel output will render each channel directional (if there is a connection to the Beaming Scene) and mix the resulting binaural signals 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Definition at line 100 of file audioio.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_audio_i_o_a6bc6c689f9ce8e46107cfdeec29ea223}{
+\index{AudioIO@{AudioIO}!AudioIO@{AudioIO}}
+\index{AudioIO@{AudioIO}!AudioIO@{AudioIO}}
+\subsubsection[{AudioIO}]{\setlength{\rightskip}{0pt plus 5cm}AudioIO::AudioIO (
+\begin{DoxyParamCaption}
+\item[{{\bf AudioInterface} $\ast$}]{audio, }
+\item[{void $\ast$}]{scene = {\ttfamily 0}, }
+\item[{void $\ast$}]{hptfFilter = {\ttfamily 0}, }
+\item[{bool}]{init = {\ttfamily false}, }
+\item[{QObject $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a6bc6c689f9ce8e46107cfdeec29ea223}
+
+
+Constructor -\/ multiline due to the optional classes one can chose to use in compilation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em audio} & Reference to an already instantiated \hyperlink{class_audio_interface}{AudioInterface} \\
+\hline
+{\em scene} & Reference to an already instantiated \hyperlink{class_scene_interface}{SceneInterface} -\/ set to 0 to disable use \\
+\hline
+{\em hptfFilter} & Reference to an already instantiated Headphone Transfer Function Filter -\/ set to 0 to disable use \\
+\hline
+{\em init} & whether to initialize the default devices \\
+\hline
+{\em parent} & A pointer to the parent may be given, but is not used for anything. It is merely a requirement of inheriting QThread. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 12 of file audioio.cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}{
+\index{AudioIO@{AudioIO}!deviceInfo@{deviceInfo}}
+\index{deviceInfo@{deviceInfo}!AudioIO@{AudioIO}}
+\subsubsection[{deviceInfo}]{\setlength{\rightskip}{0pt plus 5cm}QVector$<$ {\bf t\_\-audioDevinfo} $>$ AudioIO::deviceInfo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}
+
+
+Obtain a list of all available sound devices. 
+
+\begin{DoxyReturn}{Returns}
+QVector of \hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo} structs with basice device information 
+\end{DoxyReturn}
+
+
+Definition at line 381 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_adc839d9f117ea39db71d22aa43a57d86}{
+\index{AudioIO@{AudioIO}!deviceInfo@{deviceInfo}}
+\index{deviceInfo@{deviceInfo}!AudioIO@{AudioIO}}
+\subsubsection[{deviceInfo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf t\_\-audioDevinfo} AudioIO::deviceInfo (
+\begin{DoxyParamCaption}
+\item[{int}]{devIdx}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_adc839d9f117ea39db71d22aa43a57d86}
+
+
+Obtain details about a specific sound device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em devIdx} & index of the device to obtain information about \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo} struct with basic device information 
+\end{DoxyReturn}
+
+
+Definition at line 385 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a7a501d9f85127219d80c16076ccc287d}{
+\index{AudioIO@{AudioIO}!enablePostFilter@{enablePostFilter}}
+\index{enablePostFilter@{enablePostFilter}!AudioIO@{AudioIO}}
+\subsubsection[{enablePostFilter}]{\setlength{\rightskip}{0pt plus 5cm}void AudioIO::enablePostFilter (
+\begin{DoxyParamCaption}
+\item[{bool}]{doFilt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_audio_i_o_a7a501d9f85127219d80c16076ccc287d}
+
+
+A Qt Slot to enable or disable filtering to apply after directional rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em doFilt} & whether to enable or disable filtering -\/ only possible if a filter is loaded \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[\hyperlink{todo__todo000003}{Todo}]post filtering is not actually used at this time \end{Desc}
+
+
+Definition at line 304 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a2f4c27592985ed796e1b5cf17c10ba23}{
+\index{AudioIO@{AudioIO}!init@{init}}
+\index{init@{init}!AudioIO@{AudioIO}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}bool AudioIO::init (
+\begin{DoxyParamCaption}
+\item[{int}]{inDevIdx = {\ttfamily -\/1}, }
+\item[{int}]{inChn = {\ttfamily -\/1}, }
+\item[{int}]{outDevIdx = {\ttfamily -\/1}, }
+\item[{int}]{outChn = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a2f4c27592985ed796e1b5cf17c10ba23}
+
+
+Initialize hardware with both input and output. The function is merely a wrapper around \hyperlink{class_audio_i_o_a822e929714c61c212422bf69f56974f0}{initIn()} and \hyperlink{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}{initOut()} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inDevIdx} & index of the input device, see \hyperlink{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}{deviceInfo()} for options. Set to -\/1 for default device \\
+\hline
+{\em inChn} & How many input channels to initialize for. Set to -\/1 for all available channels \\
+\hline
+{\em outDevIdx} & index of the output device, see \hyperlink{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}{deviceInfo()} for options. Set to -\/1 for default device \\
+\hline
+{\em outChn} & How many output channels to initialize for. Set to -\/1 for all available channels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether initialization was succesful 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a822e929714c61c212422bf69f56974f0}{
+\index{AudioIO@{AudioIO}!initIn@{initIn}}
+\index{initIn@{initIn}!AudioIO@{AudioIO}}
+\subsubsection[{initIn}]{\setlength{\rightskip}{0pt plus 5cm}bool AudioIO::initIn (
+\begin{DoxyParamCaption}
+\item[{int}]{devIdx = {\ttfamily -\/1}, }
+\item[{int}]{nChn = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a822e929714c61c212422bf69f56974f0}
+
+
+Initialize input device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em devIdx} & index of the input device, see \hyperlink{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}{deviceInfo()} for options. Set to -\/1 for default device \\
+\hline
+{\em nChn} & How many input channels to initialize for. Set to -\/1 for all available channels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether initialization was succesful 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}{
+\index{AudioIO@{AudioIO}!initOut@{initOut}}
+\index{initOut@{initOut}!AudioIO@{AudioIO}}
+\subsubsection[{initOut}]{\setlength{\rightskip}{0pt plus 5cm}bool AudioIO::initOut (
+\begin{DoxyParamCaption}
+\item[{int}]{devIdx = {\ttfamily -\/1}, }
+\item[{int}]{nChn = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_aeddcf774eb1660ea280837d6c00086f7}
+
+
+Initialize output device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em devIdx} & index of the output device, see \hyperlink{class_audio_i_o_a4fbdeba7c7a4eb000052e91b7cb1589c}{deviceInfo()} for options. Set to -\/1 for default device \\
+\hline
+{\em nChn} & How many output channels to initialize for. Set to -\/1 for all available channels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether initialization was succesful 
+\end{DoxyReturn}
+
+
+Definition at line 144 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_afd595ae99d2e465bf75f74819f1de973}{
+\index{AudioIO@{AudioIO}!isMuted@{isMuted}}
+\index{isMuted@{isMuted}!AudioIO@{AudioIO}}
+\subsubsection[{isMuted}]{\setlength{\rightskip}{0pt plus 5cm}bool AudioIO::isMuted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_afd595ae99d2e465bf75f74819f1de973}
+
+
+input muted status 
+
+\begin{DoxyReturn}{Returns}
+whether input is muted 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a202e09e054514a17d31c33ce650fc3a8}{
+\index{AudioIO@{AudioIO}!isPostFilterEnabled@{isPostFilterEnabled}}
+\index{isPostFilterEnabled@{isPostFilterEnabled}!AudioIO@{AudioIO}}
+\subsubsection[{isPostFilterEnabled}]{\setlength{\rightskip}{0pt plus 5cm}bool AudioIO::isPostFilterEnabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a202e09e054514a17d31c33ce650fc3a8}
+
+
+status of filtering to apply after directional rendering 
+
+\begin{DoxyReturn}{Returns}
+whether post filtering is enabled 
+\end{DoxyReturn}
+\begin{Desc}
+\item[\hyperlink{todo__todo000001}{Todo}]post filtering is not actually used at this time \end{Desc}
+
+
+Definition at line 308 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a4518c227826f7ff33c6da02a7571eead}{
+\index{AudioIO@{AudioIO}!isPostFilterLoaded@{isPostFilterLoaded}}
+\index{isPostFilterLoaded@{isPostFilterLoaded}!AudioIO@{AudioIO}}
+\subsubsection[{isPostFilterLoaded}]{\setlength{\rightskip}{0pt plus 5cm}bool AudioIO::isPostFilterLoaded (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a4518c227826f7ff33c6da02a7571eead}
+
+
+status of filtering to apply after directional rendering 
+
+\begin{DoxyReturn}{Returns}
+whether post filtering is loaded 
+\end{DoxyReturn}
+\begin{Desc}
+\item[\hyperlink{todo__todo000002}{Todo}]post filtering is not actually used at this time \end{Desc}
+
+
+Definition at line 368 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a67a5ec8fac60d8ae96dbcf8014e46839}{
+\index{AudioIO@{AudioIO}!isrunning@{isrunning}}
+\index{isrunning@{isrunning}!AudioIO@{AudioIO}}
+\subsubsection[{isrunning}]{\setlength{\rightskip}{0pt plus 5cm}bool AudioIO::isrunning (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a67a5ec8fac60d8ae96dbcf8014e46839}
+
+
+running status of \hyperlink{class_audio_i_o}{AudioIO} 
+
+\begin{DoxyReturn}{Returns}
+whether the audio capture and/or playback is running 
+\end{DoxyReturn}
+
+
+Definition at line 289 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_aca51519b328983b7f3280d52bffaf2db}{
+\index{AudioIO@{AudioIO}!loadPostFilter@{loadPostFilter}}
+\index{loadPostFilter@{loadPostFilter}!AudioIO@{AudioIO}}
+\subsubsection[{loadPostFilter}]{\setlength{\rightskip}{0pt plus 5cm}void AudioIO::loadPostFilter (
+\begin{DoxyParamCaption}
+\item[{QString}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_audio_i_o_aca51519b328983b7f3280d52bffaf2db}
+
+
+A Qt Slot to load a filter to apply after directional rendering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the file name of a file containing a filter in text format.\par
+ Format of the file is a headerline followed by one or two columns of taps separated by whitespace. The headerline format is \begin{DoxyVerb}#firfilter mono|stereo ntaps \end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[\hyperlink{todo__todo000004}{Todo}]post filtering is not actually used at this time \end{Desc}
+
+
+Definition at line 312 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a95cc7af8edbd303ecc211194c3a68890}{
+\index{AudioIO@{AudioIO}!message@{message}}
+\index{message@{message}!AudioIO@{AudioIO}}
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}void AudioIO::message (
+\begin{DoxyParamCaption}
+\item[{QString}]{text, }
+\item[{bool}]{err = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_audio_i_o_a95cc7af8edbd303ecc211194c3a68890}
+
+
+A Qt Signal for a general message interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & A message text emitted from the class. \\
+\hline
+{\em err} & {\bfseries true} if the message is an error, {\bfseries false} otherwise. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_audio_i_o_a7a235cd8e00af8509f7bc57b7766fe36}{
+\index{AudioIO@{AudioIO}!muteMic@{muteMic}}
+\index{muteMic@{muteMic}!AudioIO@{AudioIO}}
+\subsubsection[{muteMic}]{\setlength{\rightskip}{0pt plus 5cm}void AudioIO::muteMic (
+\begin{DoxyParamCaption}
+\item[{bool}]{mute}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_audio_i_o_a7a235cd8e00af8509f7bc57b7766fe36}
+
+
+A Qt Slot for muting or unmuting input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mute} & Whether to mute input \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 294 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a50f5361c2b3f65c002bd6e22838e2a31}{
+\index{AudioIO@{AudioIO}!nChnIn@{nChnIn}}
+\index{nChnIn@{nChnIn}!AudioIO@{AudioIO}}
+\subsubsection[{nChnIn}]{\setlength{\rightskip}{0pt plus 5cm}int AudioIO::nChnIn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a50f5361c2b3f65c002bd6e22838e2a31}
+
+
+Number of input channels currently in use. 
+
+\begin{DoxyReturn}{Returns}
+Number of input channels currently in use 
+\end{DoxyReturn}
+
+
+Definition at line 372 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a3e5c8cd951b8e418fedd92bb43f53c84}{
+\index{AudioIO@{AudioIO}!nChnOut@{nChnOut}}
+\index{nChnOut@{nChnOut}!AudioIO@{AudioIO}}
+\subsubsection[{nChnOut}]{\setlength{\rightskip}{0pt plus 5cm}int AudioIO::nChnOut (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a3e5c8cd951b8e418fedd92bb43f53c84}
+
+
+Number of output channels currently in use. 
+
+\begin{DoxyReturn}{Returns}
+Number of output channels currently in use 
+\end{DoxyReturn}
+
+
+Definition at line 376 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_aa5dd3333572985ca56ac7cfbdce7820e}{
+\index{AudioIO@{AudioIO}!start@{start}}
+\index{start@{start}!AudioIO@{AudioIO}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void AudioIO::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_aa5dd3333572985ca56ac7cfbdce7820e}
+
+
+start audio capture and/or playback 
+
+
+
+Definition at line 203 of file audioio.cpp.
+
+\hypertarget{class_audio_i_o_a48f9696dd9463cabda08d4c4f1a458bf}{
+\index{AudioIO@{AudioIO}!stop@{stop}}
+\index{stop@{stop}!AudioIO@{AudioIO}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void AudioIO::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_i_o_a48f9696dd9463cabda08d4c4f1a458bf}
+
+
+stop audio capture and/or playback 
+
+
+
+Definition at line 242 of file audioio.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{audioio_8h}{audioio.h}\item 
+Classes/audioio.cpp\end{DoxyCompactItemize}

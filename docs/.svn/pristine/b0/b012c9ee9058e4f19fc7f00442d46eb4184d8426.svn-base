@@ -1,0 +1,23 @@
+\hypertarget{audiointerface_8cpp}{
+\section{Classes/audiointerface.cpp File Reference}
+\label{audiointerface_8cpp}\index{Classes/audiointerface.cpp@{Classes/audiointerface.cpp}}
+}
+
+
+Implements the interface for asynchronous communicating between audio modules.  
+
+
+{\ttfamily \#include \char`\"{}audiointerface.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}pa\_\-ringbuffer.c\char`\"{}}\par
+{\ttfamily \#include $<$math.h$>$}\par
+{\ttfamily \#include $<$QDebug$>$}\par
+
+
+\subsection{Detailed Description}
+Implements the interface for asynchronous communicating between audio modules. \begin{DoxyAuthor}{Author}
+Aalborg University 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{audiointerface_8cpp_source}{audiointerface.cpp}.
+

@@ -1,0 +1,92 @@
+\hypertarget{sceneinterface_8h}{
+\section{Classes/sceneinterface.h File Reference}
+\label{sceneinterface_8h}\index{Classes/sceneinterface.h@{Classes/sceneinterface.h}}
+}
+
+
+Manages connection to the Beaming scene and manages the relevant data regarding both the client using it and all connected (external) clients.  
+
+
+{\ttfamily \#include $<$QString$>$}\par
+{\ttfamily \#include $<$QStringList$>$}\par
+{\ttfamily \#include $<$QHash$>$}\par
+{\ttfamily \#include $<$QVector$>$}\par
+{\ttfamily \#include $<$QObject$>$}\par
+{\ttfamily \#include $<$QReadLocker$>$}\par
+{\ttfamily \#include $<$QWriteLocker$>$}\par
+{\ttfamily \#include $<$QThread$>$}\par
+{\ttfamily \#include \char`\"{}aaubinfilter.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}utilMath.h\char`\"{}}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sceneinterface_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}
+\begin{DoxyCompactList}\small\item\em struct datatype containing all information about a particular \char`\"{}ID\char`\"{} \item\end{DoxyCompactList}\item 
+struct \hyperlink{structt__process_info}{t\_\-processInfo}
+\begin{DoxyCompactList}\small\item\em Struct for managing a the directional rendering of a particular stream. \item\end{DoxyCompactList}\item 
+class \hyperlink{class_scene_interface}{SceneInterface}
+\begin{DoxyCompactList}\small\item\em Class for managing connection to the Beaming Scene, obtaining tracking information and directional rendering of audio. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sceneinterface_8h_a525335710b53cb064ca56b936120431e}{\_\-USE\_\-MATH\_\-DEFINES}
+\item 
+\#define \hyperlink{sceneinterface_8h_a9979baadc14889cd5265952aa72efb58}{GAIN\_\-SHIFT}~13
+\begin{DoxyCompactList}\small\item\em number of places to shift when applying an integer gain \item\end{DoxyCompactList}\item 
+\#define \hyperlink{sceneinterface_8h_a571596f8318cc9002b4effff7e3efc31}{GAIN\_\-SCALE}~8192
+\begin{DoxyCompactList}\small\item\em integer shift to a number for multiplication \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages connection to the Beaming scene and manages the relevant data regarding both the client using it and all connected (external) clients. \begin{DoxyAuthor}{Author}
+Aalborg University, Esben Madsen 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{sceneinterface_8h_source}{sceneinterface.h}.
+
+
+
+\subsection{Define Documentation}
+\hypertarget{sceneinterface_8h_a525335710b53cb064ca56b936120431e}{
+\index{sceneinterface.h@{sceneinterface.h}!\_\-USE\_\-MATH\_\-DEFINES@{\_\-USE\_\-MATH\_\-DEFINES}}
+\index{\_\-USE\_\-MATH\_\-DEFINES@{\_\-USE\_\-MATH\_\-DEFINES}!sceneinterface.h@{sceneinterface.h}}
+\subsubsection[{\_\-USE\_\-MATH\_\-DEFINES}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-USE\_\-MATH\_\-DEFINES}}
+\label{sceneinterface_8h_a525335710b53cb064ca56b936120431e}
+For MSVC definitions of various math defines (eg. M\_\-1\_\-PI etc.) in math.h, define this before inclusion (math.h is included in utilMath.h) 
+
+Definition at line 21 of file sceneinterface.h.
+
+\hypertarget{sceneinterface_8h_a571596f8318cc9002b4effff7e3efc31}{
+\index{sceneinterface.h@{sceneinterface.h}!GAIN\_\-SCALE@{GAIN\_\-SCALE}}
+\index{GAIN\_\-SCALE@{GAIN\_\-SCALE}!sceneinterface.h@{sceneinterface.h}}
+\subsubsection[{GAIN\_\-SCALE}]{\setlength{\rightskip}{0pt plus 5cm}\#define GAIN\_\-SCALE~8192}}
+\label{sceneinterface_8h_a571596f8318cc9002b4effff7e3efc31}
+
+
+integer shift to a number for multiplication 
+
+
+
+Definition at line 48 of file sceneinterface.h.
+
+\hypertarget{sceneinterface_8h_a9979baadc14889cd5265952aa72efb58}{
+\index{sceneinterface.h@{sceneinterface.h}!GAIN\_\-SHIFT@{GAIN\_\-SHIFT}}
+\index{GAIN\_\-SHIFT@{GAIN\_\-SHIFT}!sceneinterface.h@{sceneinterface.h}}
+\subsubsection[{GAIN\_\-SHIFT}]{\setlength{\rightskip}{0pt plus 5cm}\#define GAIN\_\-SHIFT~13}}
+\label{sceneinterface_8h_a9979baadc14889cd5265952aa72efb58}
+
+
+number of places to shift when applying an integer gain 
+
+
+
+Definition at line 46 of file sceneinterface.h.
+

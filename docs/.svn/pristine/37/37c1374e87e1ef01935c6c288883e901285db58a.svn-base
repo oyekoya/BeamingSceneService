@@ -1,0 +1,48 @@
+\hypertarget{structt__audio_devinfo}{
+\section{t\_\-audioDevinfo Struct Reference}
+\label{structt__audio_devinfo}\index{t\_\-audioDevinfo@{t\_\-audioDevinfo}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structt__audio_devinfo_a19bc76b4c4cb381a9fd3fd3b184639e9}{
+{\bfseries t\_\-audioDevinfo} (QString name=\char`\"{}\char`\"{}, int in=0, int out=0, QString api=\char`\"{}\char`\"{})}
+\label{structt__audio_devinfo_a19bc76b4c4cb381a9fd3fd3b184639e9}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structt__audio_devinfo_a30c93d9526c1b00aaee10a4a7c4442e5}{
+QString {\bfseries name}}
+\label{structt__audio_devinfo_a30c93d9526c1b00aaee10a4a7c4442e5}
+
+\item 
+\hypertarget{structt__audio_devinfo_a6fa832814bf8219522e8a87ae7de7bfa}{
+int {\bfseries in}}
+\label{structt__audio_devinfo_a6fa832814bf8219522e8a87ae7de7bfa}
+
+\item 
+\hypertarget{structt__audio_devinfo_aae35268467cac9068297b7d722d569de}{
+int {\bfseries out}}
+\label{structt__audio_devinfo_aae35268467cac9068297b7d722d569de}
+
+\item 
+\hypertarget{structt__audio_devinfo_a278cf8ce1cbde913cff67042940f3c44}{
+QString {\bfseries api}}
+\label{structt__audio_devinfo_a278cf8ce1cbde913cff67042940f3c44}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 39 of file audioio.h.
+
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/audioio.h\item 
+Classes/audioio.cpp\end{DoxyCompactItemize}

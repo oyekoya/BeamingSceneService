@@ -1,0 +1,324 @@
+<QtHelpProject version="1.0">
+  <namespace>com.beaming.audio</namespace>
+  <virtualFolder>beaming</virtualFolder>
+  <filterSection>
+    <filterAttribute>doxygen</filterAttribute>
+    <toc>
+      <section title="Beaming Audio 0.9" ref="index.html">
+        <section title="Related Pages" ref="pages.html">
+          <section title="Todo List" ref="todo.html" />
+        </section>
+        <section title="Class List" ref="annotated.html">
+          <section title="AudioInterface" ref="class_audio_interface.html" />
+          <section title="AudioIO" ref="class_audio_i_o.html" />
+          <section title="cli_printout" ref="classcli__printout.html" />
+          <section title="RakCli" ref="class_rak_cli.html" />
+          <section title="RakServ" ref="class_rak_serv.html" />
+          <section title="SceneInterface" ref="class_scene_interface.html" />
+          <section title="t_audioDevinfo" ref="structt__audio_devinfo.html" />
+          <section title="t_processInfo" ref="structt__process_info.html" />
+          <section title="t_sceneInfoData" ref="structt__scene_info_data.html" />
+          <section title="RakServ::tClientInfo" ref="struct_rak_serv_1_1t_client_info.html" />
+        </section>
+        <section title="Class Index" ref="classes.html" />
+        <section title="Class Members" ref="functions.html" />
+        <section title="File List" ref="files.html">
+          <section title="Classes/audiointerface.cpp" ref="audiointerface_8cpp.html" />
+          <section title="Classes/audiointerface.h" ref="audiointerface_8h.html" />
+          <section title="Classes/audioio.cpp" />
+          <section title="Classes/audioio.h" />
+          <section title="Classes/cli_printout.h" ref="cli__printout_8h.html" />
+          <section title="Classes/kbhit_mod.h" ref="kbhit__mod_8h.html" />
+          <section title="Classes/rakcli.cpp" ref="rakcli_8cpp.html" />
+          <section title="Classes/rakcli.h" ref="rakcli_8h.html" />
+          <section title="Classes/rakinfo.h" ref="rakinfo_8h.html" />
+          <section title="Classes/rakserv.cpp" ref="rakserv_8cpp.html" />
+          <section title="Classes/rakserv.h" ref="rakserv_8h.html" />
+          <section title="Classes/sceneinterface.cpp" />
+          <section title="Classes/sceneinterface.h" />
+        </section>
+        <section title="File Members" ref="globals.html" />
+      </section>
+    </toc>
+    <keywords>
+      <keyword name="DEFAULT_BUFFERSIZE" id="audiointerface.h::DEFAULT_BUFFERSIZE" ref="audiointerface_8h.html#a81db355b83565bfef5e8d70529816e1f" />
+      <keyword name="P_ERR" id="cli_printout.h::P_ERR" ref="cli__printout_8h.html#a09131fea8acedb17e80c1785d79712a7" />
+      <keyword name="P_NOERR" id="cli_printout.h::P_NOERR" ref="cli__printout_8h.html#af09a3eb05b32a1317ff372fa2c6a53bb" />
+      <keyword name="cooked" id="kbhit_mod.h::cooked" ref="kbhit__mod_8h.html#ab6a0eb9d27a9bae96d5e488bcb77b5ed" />
+      <keyword name="raw" id="kbhit_mod.h::raw" ref="kbhit__mod_8h.html#a91dd97230ebe40e2387a9f9b1eee7258" />
+      <keyword name="kbhit" id="kbhit_mod.h::kbhit" ref="kbhit__mod_8h.html#a59e3c2bf4365d8cb8b07eae9e6baa905" />
+      <keyword name="getch" id="kbhit_mod.h::getch" ref="kbhit__mod_8h.html#a47bde4de4100fb9fb386e345367787ce" />
+      <keyword name="g_old_kbd_mode" id="kbhit_mod.h::g_old_kbd_mode" ref="kbhit__mod_8h.html#a9cb11cfdb0ccedf4d1100363933eaf1a" />
+      <keyword name="AAU_MAX_PACKETSIZE" id="rakcli.cpp::AAU_MAX_PACKETSIZE" ref="rakcli_8cpp.html#a5faf1a47d0611ceea03904443d37f280" />
+      <keyword name="ClientTypeText" id="rakinfo.h::ClientTypeText" ref="rakinfo_8h.html#afcf889820a49d13605ea469a5799b4e3" />
+      <keyword name="ClientTypeTextArticle" id="rakinfo.h::ClientTypeTextArticle" ref="rakinfo_8h.html#a7e898d6e6f8e4ee4dc0de97ec6ca3138" />
+      <keyword name="ClientTypeTextPlural" id="rakinfo.h::ClientTypeTextPlural" ref="rakinfo_8h.html#a6afd466533cc05323c70430f803abe3e" />
+      <keyword name="ID_AAU_CLIENTTYPE" id="rakinfo.h::ID_AAU_CLIENTTYPE" ref="rakinfo_8h.html#a89d6c6b7b4358189be5c421d8ced50cea944ec816a7f2f69b4d323b8d95488702" />
+      <keyword name="ID_AAU_AUDIO" id="rakinfo.h::ID_AAU_AUDIO" ref="rakinfo_8h.html#a89d6c6b7b4358189be5c421d8ced50ceaf2efb077e05044fb869e868c542b3e3d" />
+      <keyword name="AUDIO_VISITOR" id="rakinfo.h::AUDIO_VISITOR" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19ca87fd49d0542fa58a1d282e2d02537511" />
+      <keyword name="AUDIO_AVATAR" id="rakinfo.h::AUDIO_AVATAR" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19ca3659746e6afa35c80147e5aecf362b76" />
+      <keyword name="AUDIO_LOCAL" id="rakinfo.h::AUDIO_LOCAL" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19caab0b4e85be005591a8e5470c96699c86" />
+      <keyword name="AUDIO_AR_LOCAL" id="rakinfo.h::AUDIO_AR_LOCAL" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19ca2e394db8fadb9012b09142a0de7ffcef" />
+      <keyword name="AUDIO_SPECTATOR" id="rakinfo.h::AUDIO_SPECTATOR" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19ca45fdad03ce6b227ee2e0377af19693af" />
+      <keyword name="AUDIO_PROXY" id="rakinfo.h::AUDIO_PROXY" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19ca11641dcaecf6e966b16477a15140c025" />
+      <keyword name="AUDIO_GUID_LISTENER" id="rakinfo.h::AUDIO_GUID_LISTENER" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19ca023a6a8a9abd2e44fa1322d64b9fe005" />
+      <keyword name="AUDIO_CUSTOM" id="rakinfo.h::AUDIO_CUSTOM" ref="rakinfo_8h.html#a3c17bff6fe46b8320aaff27c1fbac19ca10c640771ca6b67327fd79fd10577c1d" />
+      <keyword name="Todo List" id="Todo List" ref="todo.html" />
+      <keyword name="AudioInterface" id="AudioInterface" ref="class_audio_interface.html" />
+      <keyword name="message" id="AudioInterface::message" ref="class_audio_interface.html#a5794aa6662df15c55e99177709ca9305" />
+      <keyword name="chnOutAdded" id="AudioInterface::chnOutAdded" ref="class_audio_interface.html#a8d80beb8357fedad2cbb672457ff1e90" />
+      <keyword name="chnOutRemoved" id="AudioInterface::chnOutRemoved" ref="class_audio_interface.html#a17e1dd7847e2d093f7f7ecaa0e543892" />
+      <keyword name="chnCaptureAdded" id="AudioInterface::chnCaptureAdded" ref="class_audio_interface.html#a30f885a2317f321556397e3c16db1bde" />
+      <keyword name="chnCaptureRemoved" id="AudioInterface::chnCaptureRemoved" ref="class_audio_interface.html#a71062397bdac1a2afb7f2e7192b8d2e3" />
+      <keyword name="AudioInterface" id="AudioInterface::AudioInterface" ref="class_audio_interface.html#a7b9240750c634fadb20b97e6450e578b" />
+      <keyword name="nAvailCapture" id="AudioInterface::nAvailCapture" ref="class_audio_interface.html#a6a5265f1be1d9b5151002d3104a55fd0" />
+      <keyword name="writeCapture" id="AudioInterface::writeCapture" ref="class_audio_interface.html#adf47b99cee9fdeb3b843a624dfad2f4e" />
+      <keyword name="writeCapture" id="AudioInterface::writeCapture" ref="class_audio_interface.html#a0216d85b9467eb13b63c77e47b7797ed" />
+      <keyword name="readCapture" id="AudioInterface::readCapture" ref="class_audio_interface.html#a55a997d0ba7d7b5eef8b924ce2a2aeed" />
+      <keyword name="readCapture" id="AudioInterface::readCapture" ref="class_audio_interface.html#a7de9bde79e7259c3a6339a1b8ab52545" />
+      <keyword name="nAvailOutput" id="AudioInterface::nAvailOutput" ref="class_audio_interface.html#a8364736e18cc33aeff7eeb389356fe88" />
+      <keyword name="writeOutput" id="AudioInterface::writeOutput" ref="class_audio_interface.html#a7aab1fc9ee96f0b2f30e097b8ba9d271" />
+      <keyword name="writeOutput" id="AudioInterface::writeOutput" ref="class_audio_interface.html#a09ab6faa8ce907f02a3fbbe6cdea09e1" />
+      <keyword name="readOutput" id="AudioInterface::readOutput" ref="class_audio_interface.html#a089f7cb8b1327c9c83e2442b3ef5c4d0" />
+      <keyword name="readOutput" id="AudioInterface::readOutput" ref="class_audio_interface.html#a6c610824367452dee0a83bf4ffa185cd" />
+      <keyword name="addChnCapture" id="AudioInterface::addChnCapture" ref="class_audio_interface.html#aee1478c637ec699b4a157f2fa407c1a3" />
+      <keyword name="rmChnCapture" id="AudioInterface::rmChnCapture" ref="class_audio_interface.html#a404e29fbe189109a90d0038b94a70994" />
+      <keyword name="addChnOutput" id="AudioInterface::addChnOutput" ref="class_audio_interface.html#a0d38fbf733e8555f95f4af9d23672a33" />
+      <keyword name="rmChnOutput" id="AudioInterface::rmChnOutput" ref="class_audio_interface.html#a1445e17d49590fd352ecc48779bb4b21" />
+      <keyword name="nChnCapture" id="AudioInterface::nChnCapture" ref="class_audio_interface.html#a9cee063cdbec8d17af8588b0486be515" />
+      <keyword name="nChnOutput" id="AudioInterface::nChnOutput" ref="class_audio_interface.html#a30e09099d70d0c10d23422db185b3f38" />
+      <keyword name="captureID" id="AudioInterface::captureID" ref="class_audio_interface.html#a91e40a8c965ba6217312acc15ca08fc4" />
+      <keyword name="setCaptureID" id="AudioInterface::setCaptureID" ref="class_audio_interface.html#a56eb2962c98bc90da4b3f1fff44c8151" />
+      <keyword name="indexFromCaptureID" id="AudioInterface::indexFromCaptureID" ref="class_audio_interface.html#a7c22ce19f754d6db48ff679f09af567d" />
+      <keyword name="outputID" id="AudioInterface::outputID" ref="class_audio_interface.html#ab91b9a3336a716ca6689da5e1411d57e" />
+      <keyword name="setOutputID" id="AudioInterface::setOutputID" ref="class_audio_interface.html#a1c9136358c468eafadb86b0df52d8585" />
+      <keyword name="indexFromOutputID" id="AudioInterface::indexFromOutputID" ref="class_audio_interface.html#a06e0157bc58c97fd43deb148e6bf0515" />
+      <keyword name="AudioIO" id="AudioIO" ref="class_audio_i_o.html" />
+      <keyword name="muteMic" id="AudioIO::muteMic" ref="class_audio_i_o.html#a0160bda178c733b5a34ca82084ee7a1d" />
+      <keyword name="enablePostFilter" id="AudioIO::enablePostFilter" ref="class_audio_i_o.html#a1ea8d3fd4525355a27ef10ac237f21a3" />
+      <keyword name="loadPostFilter" id="AudioIO::loadPostFilter" ref="class_audio_i_o.html#aca51519b328983b7f3280d52bffaf2db" />
+      <keyword name="message" id="AudioIO::message" ref="class_audio_i_o.html#a95cc7af8edbd303ecc211194c3a68890" />
+      <keyword name="AudioIO" id="AudioIO::AudioIO" ref="class_audio_i_o.html#a64df8b70f276cc1f25f1b4aea7e1f28e" />
+      <keyword name="init" id="AudioIO::init" ref="class_audio_i_o.html#a2f4c27592985ed796e1b5cf17c10ba23" />
+      <keyword name="initIn" id="AudioIO::initIn" ref="class_audio_i_o.html#a822e929714c61c212422bf69f56974f0" />
+      <keyword name="initOut" id="AudioIO::initOut" ref="class_audio_i_o.html#aeddcf774eb1660ea280837d6c00086f7" />
+      <keyword name="start" id="AudioIO::start" ref="class_audio_i_o.html#aa5dd3333572985ca56ac7cfbdce7820e" />
+      <keyword name="stop" id="AudioIO::stop" ref="class_audio_i_o.html#a48f9696dd9463cabda08d4c4f1a458bf" />
+      <keyword name="isrunning" id="AudioIO::isrunning" ref="class_audio_i_o.html#a67a5ec8fac60d8ae96dbcf8014e46839" />
+      <keyword name="isMuted" id="AudioIO::isMuted" ref="class_audio_i_o.html#afd595ae99d2e465bf75f74819f1de973" />
+      <keyword name="isPostFilterEnabled" id="AudioIO::isPostFilterEnabled" ref="class_audio_i_o.html#a202e09e054514a17d31c33ce650fc3a8" />
+      <keyword name="isPostFilterLoaded" id="AudioIO::isPostFilterLoaded" ref="class_audio_i_o.html#a4518c227826f7ff33c6da02a7571eead" />
+      <keyword name="nChnIn" id="AudioIO::nChnIn" ref="class_audio_i_o.html#a50f5361c2b3f65c002bd6e22838e2a31" />
+      <keyword name="nChnOut" id="AudioIO::nChnOut" ref="class_audio_i_o.html#a3e5c8cd951b8e418fedd92bb43f53c84" />
+      <keyword name="deviceInfo" id="AudioIO::deviceInfo" ref="class_audio_i_o.html#a4fbdeba7c7a4eb000052e91b7cb1589c" />
+      <keyword name="deviceInfo" id="AudioIO::deviceInfo" ref="class_audio_i_o.html#adc839d9f117ea39db71d22aa43a57d86" />
+      <keyword name="cli_printout" id="cli_printout" ref="classcli__printout.html" />
+      <keyword name="print" id="cli_printout::print" ref="classcli__printout.html#ad38dd5c08d1da0ffb030e67ee188443f" />
+      <keyword name="printServerClientInfo" id="cli_printout::printServerClientInfo" ref="classcli__printout.html#ab1498f4f550024a035d4c33e5faf80f9" />
+      <keyword name="printClientInfo" id="cli_printout::printClientInfo" ref="classcli__printout.html#ad5c7d27e27577da5efc80a79a46a2f3b" />
+      <keyword name="cli_printout" id="cli_printout::cli_printout" ref="classcli__printout.html#ac6a02d8a24c428e533309765ea180230" />
+      <keyword name="RakCli" id="RakCli" ref="class_rak_cli.html" />
+      <keyword name="clientInfo" id="RakCli::clientInfo" ref="class_rak_cli.html#a0c0030c980346a7b7334bbcac75b66a3" />
+      <keyword name="message" id="RakCli::message" ref="class_rak_cli.html#a26034a0d56aa197fe2328001f5692da6" />
+      <keyword name="disconnected" id="RakCli::disconnected" ref="class_rak_cli.html#acf69a9a30fea432df3a6a3a6d7a2cb9f" />
+      <keyword name="RakCli" id="RakCli::RakCli" ref="class_rak_cli.html#a00bdaed2aca425e1c1f387059db736f6" />
+      <keyword name="ConnectToServer" id="RakCli::ConnectToServer" ref="class_rak_cli.html#a1e92e491f024d0add9b772fd97342461" />
+      <keyword name="Disconnect" id="RakCli::Disconnect" ref="class_rak_cli.html#adb9ce1989d290b2eb16dff0ba8bd1f28" />
+      <keyword name="isConnected" id="RakCli::isConnected" ref="class_rak_cli.html#aded7a39a959da8d8041d54db95f7d45e" />
+      <keyword name="clientType" id="RakCli::clientType" ref="class_rak_cli.html#a7e216105226b643c182137b6d77f0bc9" />
+      <keyword name="RakServ" id="RakServ" ref="class_rak_serv.html" />
+      <keyword name="kickClient" id="RakServ::kickClient" ref="class_rak_serv.html#ad24690e318fe12ebba1c8d3a05c04684" />
+      <keyword name="clientInfo" id="RakServ::clientInfo" ref="class_rak_serv.html#a7247b83301c66e974172f39f34fca90f" />
+      <keyword name="message" id="RakServ::message" ref="class_rak_serv.html#afbb9fa516f8722fcf64d56e24af7c8d1" />
+      <keyword name="RakServ" id="RakServ::RakServ" ref="class_rak_serv.html#aa73c807b377d9a3ebea0e3d9b2a98d94" />
+      <keyword name="~RakServ" id="RakServ::~RakServ" ref="class_rak_serv.html#ac3162dd4b5f6ea01dde25850994cafb8" />
+      <keyword name="StartServer" id="RakServ::StartServer" ref="class_rak_serv.html#ac57e6640a0622a2f9972ee40d49aa3e4" />
+      <keyword name="StopServer" id="RakServ::StopServer" ref="class_rak_serv.html#af217795bed31c82f9f92f64d98e5c419" />
+      <keyword name="isRunning" id="RakServ::isRunning" ref="class_rak_serv.html#a442febed7a21d90e1d4acecc785465ee" />
+      <keyword name="serverPort" id="RakServ::serverPort" ref="class_rak_serv.html#a798e36c5a3efd76074b3711d8a00ea6c" />
+      <keyword name="nConnections" id="RakServ::nConnections" ref="class_rak_serv.html#ab3ec5cc0fb25df253387c6910258d023" />
+      <keyword name="maxConnections" id="RakServ::maxConnections" ref="class_rak_serv.html#a12314453963575c40667bf9131b69fae" />
+      <keyword name="setMaxConnections" id="RakServ::setMaxConnections" ref="class_rak_serv.html#a08111039f9cfcd53c1ddc1956aaee222" />
+      <keyword name="connectedClients" id="RakServ::connectedClients" ref="class_rak_serv.html#a6dc20891b8b106654975833b997d15ef" />
+      <keyword name="RakServ::tClientInfo" id="RakServ::tClientInfo" ref="struct_rak_serv_1_1t_client_info.html" />
+      <keyword name="tClientInfo" id="RakServ::tClientInfo::tClientInfo" ref="struct_rak_serv_1_1t_client_info.html#a03bac537f882c0fbf94e319a25bb53a4" />
+      <keyword name="operator==" id="RakServ::tClientInfo::operator==" ref="struct_rak_serv_1_1t_client_info.html#a73ae24756a17c31483da4f9b12d9ac0b" />
+      <keyword name="operator==" id="RakServ::tClientInfo::operator==" ref="struct_rak_serv_1_1t_client_info.html#a137c3d3194d8fc2b27056027c967f9de" />
+      <keyword name="operator==" id="RakServ::tClientInfo::operator==" ref="struct_rak_serv_1_1t_client_info.html#a34920e02d198358ce3add9f2ac032f74" />
+      <keyword name="operator==" id="RakServ::tClientInfo::operator==" ref="struct_rak_serv_1_1t_client_info.html#a3b6dd4384e8bba997500e6d13c638972" />
+      <keyword name="id" id="RakServ::tClientInfo::id" ref="struct_rak_serv_1_1t_client_info.html#a3aed64a4f3917a999813f7072719c5dd" />
+      <keyword name="otherId" id="RakServ::tClientInfo::otherId" ref="struct_rak_serv_1_1t_client_info.html#abfc1a53faf84914a8e5380aaca2003c2" />
+      <keyword name="name" id="RakServ::tClientInfo::name" ref="struct_rak_serv_1_1t_client_info.html#a6fdc01a600555cf48f33a62c318dc8c1" />
+      <keyword name="type" id="RakServ::tClientInfo::type" ref="struct_rak_serv_1_1t_client_info.html#aef482d29b311861590457ff12df84e43" />
+      <keyword name="SceneInterface" id="SceneInterface" ref="class_scene_interface.html" />
+      <keyword name="addID" id="SceneInterface::addID" ref="class_scene_interface.html#ae89618d6d530ae55f18fa3f4d8cf5f90" />
+      <keyword name="removeID" id="SceneInterface::removeID" ref="class_scene_interface.html#a92285c3aea9e0aa135df93613dfe0bdf" />
+      <keyword name="message" id="SceneInterface::message" ref="class_scene_interface.html#aebe0de9a190095cc5f7fcb6ae9bb0146" />
+      <keyword name="audioServerFound" id="SceneInterface::audioServerFound" ref="class_scene_interface.html#af924bed35d76efabdca9e2968f138601" />
+      <keyword name="SceneInterface" id="SceneInterface::SceneInterface" ref="class_scene_interface.html#a52b4e22cae0a0eb85223417458fc6a81" />
+      <keyword name="connectToScene" id="SceneInterface::connectToScene" ref="class_scene_interface.html#a32a7846a3ad562ec4ba1763e8e809e26" />
+      <keyword name="disconnectFromScene" id="SceneInterface::disconnectFromScene" ref="class_scene_interface.html#a68fe01e390a379d3d440b398edc9ec8d" />
+      <keyword name="setSceneID" id="SceneInterface::setSceneID" ref="class_scene_interface.html#a3db7acd0ef9f10bc937a2c48b54d0992" />
+      <keyword name="isConnectedToScene" id="SceneInterface::isConnectedToScene" ref="class_scene_interface.html#a50b68136dc1c20828a41d5c03fcabc21" />
+      <keyword name="updateAudioServerInfo" id="SceneInterface::updateAudioServerInfo" ref="class_scene_interface.html#a2c9f50c877cd2ac7bf75bfb6af7fff46" />
+      <keyword name="audioServerAdress" id="SceneInterface::audioServerAdress" ref="class_scene_interface.html#a38974e9a7e8bcbf71a9acb5f34469d8b" />
+      <keyword name="audioServerPort" id="SceneInterface::audioServerPort" ref="class_scene_interface.html#a52d9b2266857e45e8e51a8a683a99aed" />
+      <keyword name="exist" id="SceneInterface::exist" ref="class_scene_interface.html#aea18e3bfc539d329ee970a066a47fdcd" />
+      <keyword name="processStarted" id="SceneInterface::processStarted" ref="class_scene_interface.html#a89b6cd2cccb2a6d6c1279eabed97677e" />
+      <keyword name="IDs" id="SceneInterface::IDs" ref="class_scene_interface.html#ac6fca129f77e5673b3d8df5381e01125" />
+      <keyword name="sceneClientsVisible" id="SceneInterface::sceneClientsVisible" ref="class_scene_interface.html#ae4b498d2a9db4b00bb7a797093227700" />
+      <keyword name="setInfoData" id="SceneInterface::setInfoData" ref="class_scene_interface.html#af2dfd9f8f4a1b231cf372d2e5f861321" />
+      <keyword name="infoData" id="SceneInterface::infoData" ref="class_scene_interface.html#a353f36b59fe149ef67292496d854923d" />
+      <keyword name="setGain" id="SceneInterface::setGain" ref="class_scene_interface.html#a25ee22bf15b8356545895cd4c416f8a8" />
+      <keyword name="gain" id="SceneInterface::gain" ref="class_scene_interface.html#ac7a3201eb5742c16a3f0c92fe1f0db64" />
+      <keyword name="setDirection" id="SceneInterface::setDirection" ref="class_scene_interface.html#ae198052b63eee052ec4a55b1515120c6" />
+      <keyword name="direction" id="SceneInterface::direction" ref="class_scene_interface.html#ae9b1faef921eb2a51f159ee8072c6bf1" />
+      <keyword name="azimuth" id="SceneInterface::azimuth" ref="class_scene_interface.html#a415918bc782e5e50b8feff63a78fc432" />
+      <keyword name="elevation" id="SceneInterface::elevation" ref="class_scene_interface.html#ae676700dccf220b565bc1b83ecb23258" />
+      <keyword name="setTranslation" id="SceneInterface::setTranslation" ref="class_scene_interface.html#a61ab59240f6afbcd98414e2edb3d9506" />
+      <keyword name="setTranslation" id="SceneInterface::setTranslation" ref="class_scene_interface.html#a7e2c7d3545e94853a316801b7090075e" />
+      <keyword name="translation" id="SceneInterface::translation" ref="class_scene_interface.html#ae2a9d009552ce99961cbcfe3f56649f0" />
+      <keyword name="x" id="SceneInterface::x" ref="class_scene_interface.html#ab5b5906d55a658c22bb6c964cea89981" />
+      <keyword name="y" id="SceneInterface::y" ref="class_scene_interface.html#a503e849fab724be5283318c9821e5bf7" />
+      <keyword name="z" id="SceneInterface::z" ref="class_scene_interface.html#a57e34610f7bc5ac22ace2ec280c32b10" />
+      <keyword name="setMyTranslation" id="SceneInterface::setMyTranslation" ref="class_scene_interface.html#aeb84d07ab93ef8cbace876d731ff9fc0" />
+      <keyword name="setMyTranslation" id="SceneInterface::setMyTranslation" ref="class_scene_interface.html#a224ed0650413c37e695fa481111cb947" />
+      <keyword name="myTranslation" id="SceneInterface::myTranslation" ref="class_scene_interface.html#af588ea71f14dcf9246e720c2e31bdefb" />
+      <keyword name="myX" id="SceneInterface::myX" ref="class_scene_interface.html#a823c45130fc803a3d8be71920e857aa3" />
+      <keyword name="myY" id="SceneInterface::myY" ref="class_scene_interface.html#a8f357987bf1c83b6ab9572055d652504" />
+      <keyword name="myZ" id="SceneInterface::myZ" ref="class_scene_interface.html#af138d7752ac636869b4a92bc895d2f66" />
+      <keyword name="setMyQuat" id="SceneInterface::setMyQuat" ref="class_scene_interface.html#ae207616a7fadd0bb0cea6cf1e3aef176" />
+      <keyword name="setMyQuat" id="SceneInterface::setMyQuat" ref="class_scene_interface.html#ab42c961da985fce8cbe290a928f2501a" />
+      <keyword name="myQuat" id="SceneInterface::myQuat" ref="class_scene_interface.html#a54fb65adf83ff8644a529cd62282c1e9" />
+      <keyword name="myQx" id="SceneInterface::myQx" ref="class_scene_interface.html#a1e460424619757422fe39954bab91fbe" />
+      <keyword name="myQy" id="SceneInterface::myQy" ref="class_scene_interface.html#acf833f156d50a62804e6e68d7dec20e6" />
+      <keyword name="myQz" id="SceneInterface::myQz" ref="class_scene_interface.html#aefc381908a9033cd054929b73df2d909" />
+      <keyword name="myQw" id="SceneInterface::myQw" ref="class_scene_interface.html#aed278e558de12154532fe2eef37c1bc2" />
+      <keyword name="startProcessing" id="SceneInterface::startProcessing" ref="class_scene_interface.html#a3bfb14f28b5a32f8e28a84b710e5e776" />
+      <keyword name="stopProcessing" id="SceneInterface::stopProcessing" ref="class_scene_interface.html#a9db192eaee89cb45faa09e998ba8cee4" />
+      <keyword name="process" id="SceneInterface::process" ref="class_scene_interface.html#ab92a58713e8f8b50320b3ee1e5b5b7f3" />
+      <keyword name="process" id="SceneInterface::process" ref="class_scene_interface.html#a767870846f423fb32940b2f067881c7e" />
+      <keyword name="process" id="SceneInterface::process" ref="class_scene_interface.html#a106d56a955ac2e3c9d11855c3a8f5736" />
+      <keyword name="process" id="SceneInterface::process" ref="class_scene_interface.html#a060f1a319636a73b190dc808447912c6" />
+      <keyword name="t_audioDevinfo" id="t_audioDevinfo" ref="structt__audio_devinfo.html" />
+      <keyword name="t_audioDevinfo" id="t_audioDevinfo::t_audioDevinfo" ref="structt__audio_devinfo.html#a19bc76b4c4cb381a9fd3fd3b184639e9" />
+      <keyword name="name" id="t_audioDevinfo::name" ref="structt__audio_devinfo.html#a30c93d9526c1b00aaee10a4a7c4442e5" />
+      <keyword name="in" id="t_audioDevinfo::in" ref="structt__audio_devinfo.html#a6fa832814bf8219522e8a87ae7de7bfa" />
+      <keyword name="out" id="t_audioDevinfo::out" ref="structt__audio_devinfo.html#aae35268467cac9068297b7d722d569de" />
+      <keyword name="api" id="t_audioDevinfo::api" ref="structt__audio_devinfo.html#a278cf8ce1cbde913cff67042940f3c44" />
+      <keyword name="t_processInfo" id="t_processInfo" ref="structt__process_info.html" />
+      <keyword name="t_processInfo" id="t_processInfo::t_processInfo" ref="structt__process_info.html#a2221096a6ef57600bdeea1c991e7a606" />
+      <keyword name="~t_processInfo" id="t_processInfo::~t_processInfo" ref="structt__process_info.html#a9a759605078c5913be327d250f2dcdc7" />
+      <keyword name="binaural" id="t_processInfo::binaural" ref="structt__process_info.html#afe747425ed47a260d12c1e347344ea16" />
+      <keyword name="t_sceneInfoData" id="t_sceneInfoData" ref="structt__scene_info_data.html" />
+      <keyword name="t_sceneInfoData" id="t_sceneInfoData::t_sceneInfoData" ref="structt__scene_info_data.html#ad32854fb07b92e491f75af898a3a15c3" />
+      <keyword name="gain" id="t_sceneInfoData::gain" ref="structt__scene_info_data.html#ae67bb2550a64547fad8ffccfedfe2c3a" />
+      <keyword name="sgain" id="t_sceneInfoData::sgain" ref="structt__scene_info_data.html#a26a79da5a2e36e6785ad6f031d16d4a1" />
+      <keyword name="azimuth" id="t_sceneInfoData::azimuth" ref="structt__scene_info_data.html#a199a8b6a0a61f01ec9be31a11d42faf9" />
+      <keyword name="elevation" id="t_sceneInfoData::elevation" ref="structt__scene_info_data.html#aac464c2957aaedac5972c9eb57c43cc6" />
+      <keyword name="translation" id="t_sceneInfoData::translation" ref="structt__scene_info_data.html#ace4be49c4f94d9900543199dc12e96f5" />
+    </keywords>
+    <files>
+      <file>tabs.css</file>
+      <file>tab_a.png</file>
+      <file>tab_b.png</file>
+      <file>tab_h.png</file>
+      <file>tab_s.png</file>
+      <file>nav_h.png</file>
+      <file>nav_f.png</file>
+      <file>bc_s.png</file>
+      <file>doxygen.png</file>
+      <file>closed.png</file>
+      <file>open.png</file>
+      <file>doxygen.css</file>
+      <file>/search/mag_sel.png</file>
+      <file>/search/search_l.png</file>
+      <file>/search/search_m.png</file>
+      <file>/search/search_r.png</file>
+      <file>/search/close.png</file>
+      <file>search/search.css</file>
+      <file>search/search.js</file>
+      <file>index.html</file>
+      <file>pages.html</file>
+      <file>audiointerface_8cpp_source.html</file>
+      <file>audiointerface_8h_source.html</file>
+      <file>audioio_8cpp_source.html</file>
+      <file>audioio_8h_source.html</file>
+      <file>cli__printout_8h_source.html</file>
+      <file>kbhit__mod_8h_source.html</file>
+      <file>rakcli_8cpp_source.html</file>
+      <file>rakcli_8h_source.html</file>
+      <file>rakinfo_8h_source.html</file>
+      <file>rakserv_8cpp_source.html</file>
+      <file>rakserv_8h_source.html</file>
+      <file>sceneinterface_8cpp_source.html</file>
+      <file>sceneinterface_8h_source.html</file>
+      <file>audiointerface_8cpp.html</file>
+      <file>audiointerface_8h.html</file>
+      <file>audiointerface_8h__dep__incl.png</file>
+      <file>audiointerface_8h__dep__incl.png</file>
+      <file>audiointerface_8h__dep__incl.png</file>
+      <file>cli__printout_8h.html</file>
+      <file>kbhit__mod_8h.html</file>
+      <file>rakcli_8cpp.html</file>
+      <file>rakcli_8h.html</file>
+      <file>rakcli_8h__dep__incl.png</file>
+      <file>rakcli_8h__dep__incl.png</file>
+      <file>rakcli_8h__dep__incl.png</file>
+      <file>rakinfo_8h.html</file>
+      <file>rakinfo_8h__dep__incl.png</file>
+      <file>rakinfo_8h__dep__incl.png</file>
+      <file>rakinfo_8h__dep__incl.png</file>
+      <file>rakserv_8cpp.html</file>
+      <file>rakserv_8h.html</file>
+      <file>rakserv_8h__dep__incl.png</file>
+      <file>rakserv_8h__dep__incl.png</file>
+      <file>rakserv_8h__dep__incl.png</file>
+      <file>todo.html</file>
+      <file>annotated.html</file>
+      <file>classes.html</file>
+      <file>functions.html</file>
+      <file>functions_func.html</file>
+      <file>class_audio_interface.html</file>
+      <file>class_audio_interface-members.html</file>
+      <file>class_audio_i_o.html</file>
+      <file>class_audio_i_o__coll__graph.png</file>
+      <file>class_audio_i_o__coll__graph.png</file>
+      <file>class_audio_i_o__coll__graph.png</file>
+      <file>class_audio_i_o-members.html</file>
+      <file>classcli__printout.html</file>
+      <file>classcli__printout-members.html</file>
+      <file>class_rak_cli.html</file>
+      <file>class_rak_cli__coll__graph.png</file>
+      <file>class_rak_cli__coll__graph.png</file>
+      <file>class_rak_cli__coll__graph.png</file>
+      <file>class_rak_cli-members.html</file>
+      <file>class_rak_serv.html</file>
+      <file>class_rak_serv-members.html</file>
+      <file>struct_rak_serv_1_1t_client_info.html</file>
+      <file>struct_rak_serv_1_1t_client_info-members.html</file>
+      <file>class_scene_interface.html</file>
+      <file>class_scene_interface-members.html</file>
+      <file>structt__audio_devinfo.html</file>
+      <file>structt__audio_devinfo-members.html</file>
+      <file>structt__process_info.html</file>
+      <file>structt__process_info-members.html</file>
+      <file>structt__scene_info_data.html</file>
+      <file>structt__scene_info_data-members.html</file>
+      <file>graph_legend.png</file>
+      <file>graph_legend.html</file>
+      <file>files.html</file>
+      <file>globals.html</file>
+      <file>globals_vars.html</file>
+      <file>globals_enum.html</file>
+      <file>globals_eval.html</file>
+      <file>globals_defs.html</file>
+      <file>form_0.png</file>
+      <file>form_1.png</file>
+      <file>form_2.png</file>
+      <file>form_3.png</file>
+      <file>form_4.png</file>
+      <file>form_5.png</file>
+    </files>
+  </filterSection>
+</QtHelpProject>

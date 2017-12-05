@@ -1,0 +1,18 @@
+\section{File List}
+Here is a list of all documented files with brief descriptions:\begin{DoxyCompactList}
+\item\contentsline{section}{Classes/\hyperlink{audiointerface_8cpp}{audiointerface.cpp} (Implements the interface for asynchronous communicating between audio modules )}{\pageref{audiointerface_8cpp}}{}
+\item\contentsline{section}{Classes/\hyperlink{audiointerface_8h}{audiointerface.h} (Defines the interface for asynchronous communication between audio modules )}{\pageref{audiointerface_8h}}{}
+\item\contentsline{section}{Classes/{\bfseries audioio.cpp} }{\pageref{audioio_8cpp}}{}
+\item\contentsline{section}{Classes/\hyperlink{audioio_8h}{audioio.h} (Handles audio input and output through the \hyperlink{class_audio_interface}{AudioInterface}, and also uses the \hyperlink{class_scene_interface}{SceneInterface} to control directional rendering )}{\pageref{audioio_8h}}{}
+\item\contentsline{section}{Classes/\hyperlink{cli__printout_8h}{cli\_\-printout.h} (Definition and implementation of a very simple helper-\/class to print messages from the various audio clases to the console )}{\pageref{cli__printout_8h}}{}
+\item\contentsline{section}{Classes/\hyperlink{kbhit__mod_8h}{kbhit\_\-mod.h} (Slightly modified version of the Kbhit.h-\/file found in RakNet used for reimplementing the \hyperlink{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}{kbhit()} and \hyperlink{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}{getch()} functions from conio.h on unix )}{\pageref{kbhit__mod_8h}}{}
+\item\contentsline{section}{Classes/\hyperlink{rakcli_8cpp}{rakcli.cpp} (Implements the \hyperlink{class_rak_cli}{RakCli} class containing the overall interface for connecting and identifying to an Audio Server )}{\pageref{rakcli_8cpp}}{}
+\item\contentsline{section}{Classes/\hyperlink{rakcli_8h}{rakcli.h} (Defines the \hyperlink{class_rak_cli}{RakCli} class containing the overall interface for connecting and identifying to an Audio Server )}{\pageref{rakcli_8h}}{}
+\item\contentsline{section}{Classes/\hyperlink{rakinfo_8h}{rakinfo.h} (General extended RakNet information used by both \hyperlink{class_rak_cli}{RakCli} and \hyperlink{class_rak_serv}{RakServ}. Provides useful overview of how the client types should be used )}{\pageref{rakinfo_8h}}{}
+\item\contentsline{section}{Classes/\hyperlink{rakserv_8cpp}{rakserv.cpp} (Implements the \hyperlink{class_rak_serv}{RakServ} class containing the overall interface for controlling the Audio Server )}{\pageref{rakserv_8cpp}}{}
+\item\contentsline{section}{Classes/\hyperlink{rakserv_8h}{rakserv.h} (Defines the \hyperlink{class_rak_serv}{RakServ} class containing the overall interface for controlling the Audio Server )}{\pageref{rakserv_8h}}{}
+\item\contentsline{section}{Classes/{\bfseries sceneinterface.cpp} }{\pageref{sceneinterface_8cpp}}{}
+\item\contentsline{section}{Classes/\hyperlink{sceneinterface_8h}{sceneinterface.h} (Manages connection to the Beaming scene and manages the relevant data regarding both the client using it and all connected (external) clients )}{\pageref{sceneinterface_8h}}{}
+\item\contentsline{section}{Classes/{\bfseries vrpn2scene.cpp} }{\pageref{vrpn2scene_8cpp}}{}
+\item\contentsline{section}{Classes/\hyperlink{vrpn2scene_8h}{vrpn2scene.h} (Reads data from a VRPN server and converts to the Beaming Scene format )}{\pageref{vrpn2scene_8h}}{}
+\end{DoxyCompactList}

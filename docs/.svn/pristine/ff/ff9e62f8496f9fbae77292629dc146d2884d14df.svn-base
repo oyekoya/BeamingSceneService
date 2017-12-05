@@ -1,0 +1,91 @@
+\hypertarget{audiointerface_8h}{
+\section{Classes/audiointerface.h File Reference}
+\label{audiointerface_8h}\index{Classes/audiointerface.h@{Classes/audiointerface.h}}
+}
+
+
+Defines the interface for asynchronous communication between audio modules.  
+
+
+{\ttfamily \#include $<$QObject$>$}\par
+{\ttfamily \#include $<$QString$>$}\par
+{\ttfamily \#include $<$QVector$>$}\par
+{\ttfamily \#include \char`\"{}pa\_\-ringbuffer.h\char`\"{}}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{audiointerface_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_audio_interface}{AudioInterface}
+\begin{DoxyCompactList}\small\item\em Interface for asynchronous communication between audio modules. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{audiointerface_8h_a81db355b83565bfef5e8d70529816e1f}{DEFAULT\_\-BUFFERSIZE}~16384
+\begin{DoxyCompactList}\small\item\em The default size of buffers for each individual channel in samples. \item\end{DoxyCompactList}\item 
+\#define \hyperlink{audiointerface_8h_ae6dd9a6fc75fbd6478353b27a546a2d2}{MSG\_\-LIMIT}~188
+\begin{DoxyCompactList}\small\item\em limit the amount of messages per buffer read/write \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines the interface for asynchronous communication between audio modules. \begin{DoxyAuthor}{Author}
+Aalborg University, Esben Madsen
+\end{DoxyAuthor}
+The \hyperlink{class_audio_interface}{AudioInterface} class defined in this file is meant for interfacing different modules by using buffers that work with asynchronous access.
+
+The actual buffering is done using the pa\_\-ringbuffer from the open source project \href{http://portaudio.com}{\tt PortAudio}, which is threadsafe for one reader and one writer. Due to this inclusion, the following notice must be included -\/ note that this license {\bfseries only} relates to the parts {\itshape within\/} PortAudio (which are unaltered) and {\bfseries not} any of the code {\itshape using\/} PortAudio: 
+\begin{DoxyVerbInclude}
+This program is distributed with the PortAudio Portable Audio Library.
+For more information see: http://www.portaudio.com
+Copyright (c) 1999-2000 Ross Bencina and Phil Burk
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files
+(the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+\end{DoxyVerbInclude}
+ 
+
+Definition in file \hyperlink{audiointerface_8h_source}{audiointerface.h}.
+
+
+
+\subsection{Define Documentation}
+\hypertarget{audiointerface_8h_a81db355b83565bfef5e8d70529816e1f}{
+\index{audiointerface.h@{audiointerface.h}!DEFAULT\_\-BUFFERSIZE@{DEFAULT\_\-BUFFERSIZE}}
+\index{DEFAULT\_\-BUFFERSIZE@{DEFAULT\_\-BUFFERSIZE}!audiointerface.h@{audiointerface.h}}
+\subsubsection[{DEFAULT\_\-BUFFERSIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-BUFFERSIZE~16384}}
+\label{audiointerface_8h_a81db355b83565bfef5e8d70529816e1f}
+
+
+The default size of buffers for each individual channel in samples. 
+
+The buffersize for each individual channel must be a power of 2 for the ringbuffer to function.\par
+ At a sample rate of 48kHz, 16384 samples is a buffer length of $ 16384/48000 \approx 340 \mathrm{~ms} $. 
+
+Definition at line 31 of file audiointerface.h.
+
+\hypertarget{audiointerface_8h_ae6dd9a6fc75fbd6478353b27a546a2d2}{
+\index{audiointerface.h@{audiointerface.h}!MSG\_\-LIMIT@{MSG\_\-LIMIT}}
+\index{MSG\_\-LIMIT@{MSG\_\-LIMIT}!audiointerface.h@{audiointerface.h}}
+\subsubsection[{MSG\_\-LIMIT}]{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-LIMIT~188}}
+\label{audiointerface_8h_ae6dd9a6fc75fbd6478353b27a546a2d2}
+
+
+limit the amount of messages per buffer read/write 
+
+Assuming an underrun (network loss) and reading 256 samples each time at 48 kHz gives 48k/256 = 187,5 reads pr second. Setting the limit to eg 256 will then give minimum 256/187,5 = 1,4 seconds between messages 
+
+Definition at line 38 of file audiointerface.h.
+

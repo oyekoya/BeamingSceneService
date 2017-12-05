@@ -1,0 +1,224 @@
+\hypertarget{rakinfo_8h}{
+\section{Classes/rakinfo.h File Reference}
+\label{rakinfo_8h}\index{Classes/rakinfo.h@{Classes/rakinfo.h}}
+}
+
+
+contains general extended RakNet information used by both \hyperlink{class_rak_cli}{RakCli} and \hyperlink{class_rak_serv}{RakServ}  
+
+
+{\ttfamily \#include $<$QString$>$}\par
+{\ttfamily \#include $<$QVector$>$}\par
+{\ttfamily \#include $<$MessageIdentifiers.h$>$}\par
+{\ttfamily \#include $<$RakPeerInterface.h$>$}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{rakinfo_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50ce}{RaknetUserID} \{ \hyperlink{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50cea944ec816a7f2f69b4d323b8d95488702}{ID\_\-AAU\_\-CLIENTTYPE} = ID\_\-USER\_\-PACKET\_\-ENUM+1, 
+\hyperlink{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50ceaf2efb077e05044fb869e868c542b3e3d}{ID\_\-AAU\_\-AUDIO}
+ \}
+\begin{DoxyCompactList}\small\item\em RaknetUserID extends the raknet packet ID's with some of our own. \item\end{DoxyCompactList}\item 
+enum \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} \{ \par
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca87fd49d0542fa58a1d282e2d02537511}{AUDIO\_\-VISITOR}, 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca3659746e6afa35c80147e5aecf362b76}{AUDIO\_\-AVATAR}, 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19caab0b4e85be005591a8e5470c96699c86}{AUDIO\_\-LOCAL}, 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca2e394db8fadb9012b09142a0de7ffcef}{AUDIO\_\-AR\_\-LOCAL}, 
+\par
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca45fdad03ce6b227ee2e0377af19693af}{AUDIO\_\-SPECTATOR}, 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca11641dcaecf6e966b16477a15140c025}{AUDIO\_\-PROXY}, 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca023a6a8a9abd2e44fa1322d64b9fe005}{AUDIO\_\-GUID\_\-LISTENER}, 
+\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca10c640771ca6b67327fd79fd10577c1d}{AUDIO\_\-CUSTOM}
+ \}
+\begin{DoxyCompactList}\small\item\em tClientType is an enum for defining our internal (audio) client types \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$const \hyperlink{rakinfo_8h_afcf889820a49d13605ea469a5799b4e3}{ClientTypeText} \mbox{[}$\,$\mbox{]}
+\item 
+static const char $\ast$const \hyperlink{rakinfo_8h_a7e898d6e6f8e4ee4dc0de97ec6ca3138}{ClientTypeTextArticle} \mbox{[}$\,$\mbox{]}
+\item 
+static const char $\ast$const \hyperlink{rakinfo_8h_a6afd466533cc05323c70430f803abe3e}{ClientTypeTextPlural} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains general extended RakNet information used by both \hyperlink{class_rak_cli}{RakCli} and \hyperlink{class_rak_serv}{RakServ} \begin{DoxyAuthor}{Author}
+Aalborg University 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{rakinfo_8h_source}{rakinfo.h}.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50ce}{
+\index{rakinfo.h@{rakinfo.h}!RaknetUserID@{RaknetUserID}}
+\index{RaknetUserID@{RaknetUserID}!rakinfo.h@{rakinfo.h}}
+\subsubsection[{RaknetUserID}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf RaknetUserID}}}
+\label{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50ce}
+
+
+RaknetUserID extends the raknet packet ID's with some of our own. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{ID\_\-AAU\_\-CLIENTTYPE@{ID\_\-AAU\_\-CLIENTTYPE}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!ID\_\-AAU\_\-CLIENTTYPE@{ID\_\-AAU\_\-CLIENTTYPE}}\item[{\em 
+\hypertarget{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50cea944ec816a7f2f69b4d323b8d95488702}{
+ID\_\-AAU\_\-CLIENTTYPE}
+\label{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50cea944ec816a7f2f69b4d323b8d95488702}
+}]The ClientType packet is used when a client identifies it's \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{type} and Beaming Scene ID to an Audio Server \index{ID\_\-AAU\_\-AUDIO@{ID\_\-AAU\_\-AUDIO}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!ID\_\-AAU\_\-AUDIO@{ID\_\-AAU\_\-AUDIO}}\item[{\em 
+\hypertarget{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50ceaf2efb077e05044fb869e868c542b3e3d}{
+ID\_\-AAU\_\-AUDIO}
+\label{rakinfo_8h_a89d6c6b7b4358189be5c421d8ced50ceaf2efb077e05044fb869e868c542b3e3d}
+}]The Audio packet type is used when the transmitted data is audio. \end{description}
+\end{Desc}
+
+
+
+Definition at line 17 of file rakinfo.h.
+
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{
+\index{rakinfo.h@{rakinfo.h}!tClientType@{tClientType}}
+\index{tClientType@{tClientType}!rakinfo.h@{rakinfo.h}}
+\subsubsection[{tClientType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tClientType}}}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}
+
+
+tClientType is an enum for defining our internal (audio) client types 
+
+The client type is specified by the client connecting to the server after the RakNet connection is established.\par
+ On the server side additional logic is applied in order to route the audio streams to the proper clients. \begin{Desc}
+\item[\hyperlink{todo__todo000002}{Todo}]The current system is only implemented for one connection of each type (server side), except for the ::GUID\_\-LISTENER. \end{Desc}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{AUDIO\_\-VISITOR@{AUDIO\_\-VISITOR}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-VISITOR@{AUDIO\_\-VISITOR}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca87fd49d0542fa58a1d282e2d02537511}{
+AUDIO\_\-VISITOR}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca87fd49d0542fa58a1d282e2d02537511}
+}]The Visitor client is expected to transmit one channel and receive any number of channels to render (all Locals, other Visitors and Custom types). The stream ID should be set to the GUID of the Visitor's tracking data on the BEAMING Scene. \index{AUDIO\_\-AVATAR@{AUDIO\_\-AVATAR}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-AVATAR@{AUDIO\_\-AVATAR}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca3659746e6afa35c80147e5aecf362b76}{
+AUDIO\_\-AVATAR}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca3659746e6afa35c80147e5aecf362b76}
+}]The Avatar client is the Visitors \char`\"{}mouth\char`\"{} at the Destination and should therefore only receive one channel of audio. The stream ID can be set to anything and is only used for identification by the server. \index{AUDIO\_\-LOCAL@{AUDIO\_\-LOCAL}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-LOCAL@{AUDIO\_\-LOCAL}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19caab0b4e85be005591a8e5470c96699c86}{
+AUDIO\_\-LOCAL}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19caab0b4e85be005591a8e5470c96699c86}
+}]The Local client should transmit the audio of one or more locals, each with an attached Scene ID. The stream ID should be set so a semicolon-\/separated list of GUID's for the tracking data of the locals \index{AUDIO\_\-AR\_\-LOCAL@{AUDIO\_\-AR\_\-LOCAL}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-AR\_\-LOCAL@{AUDIO\_\-AR\_\-LOCAL}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca2e394db8fadb9012b09142a0de7ffcef}{
+AUDIO\_\-AR\_\-LOCAL}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca2e394db8fadb9012b09142a0de7ffcef}
+}]The AR-\/Local client should transmit audio like a regular Local and also receive audio from all Visitors to render directional – see deliverable D2.3 for details. The stream ID should be set to a semicolon-\/separated list of GUID's for the tracking data of the locals \begin{Desc}
+\item[\hyperlink{todo__todo000003}{Todo}]the AR-\/Local is currently not implemented on the \hyperlink{class_rak_serv}{Server}. \end{Desc}
+\index{AUDIO\_\-SPECTATOR@{AUDIO\_\-SPECTATOR}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-SPECTATOR@{AUDIO\_\-SPECTATOR}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca45fdad03ce6b227ee2e0377af19693af}{
+AUDIO\_\-SPECTATOR}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca45fdad03ce6b227ee2e0377af19693af}
+}]The spectator client should be able to listen to all Visitors, Locals and Custom types. The stream ID can be set to anything and is only used for identification by the server \begin{Desc}
+\item[\hyperlink{todo__todo000004}{Todo}]The spectator is currently not implemented on the \hyperlink{class_rak_serv}{Server}. \end{Desc}
+\index{AUDIO\_\-PROXY@{AUDIO\_\-PROXY}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-PROXY@{AUDIO\_\-PROXY}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca11641dcaecf6e966b16477a15140c025}{
+AUDIO\_\-PROXY}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca11641dcaecf6e966b16477a15140c025}
+}]The Proxy client is able to \char`\"{}take over\char`\"{} the session from a currently connected Visitor. From the client side, the Proxy works exactly like a Visitor (see above). While the Proxy is connected, the server will route audio streams as follows:
+\begin{DoxyItemize}
+\item Ignore audio coming from the Visitor
+\item Forward the audio coming from the Proxy as if it came from the Visitor
+\item Forward all audio that would otherwise be sent to the Visitor to the Proxy instead.
+\end{DoxyItemize}
+
+As soon as the proxy disconnects, the Visitor will work as before. The stream ID should be set to the stream ID of the visitor that should be replaced (ie. the GUID of the visitors tracking data). \index{AUDIO\_\-GUID\_\-LISTENER@{AUDIO\_\-GUID\_\-LISTENER}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-GUID\_\-LISTENER@{AUDIO\_\-GUID\_\-LISTENER}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca023a6a8a9abd2e44fa1322d64b9fe005}{
+AUDIO\_\-GUID\_\-LISTENER}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca023a6a8a9abd2e44fa1322d64b9fe005}
+}]The Listener client can be described as a simple spectator, that only receives a single defined stream. This is useful for example to render mouth movements of an avatar according to the Visitor's speech. The stream ID should be set to the stream ID of the client whoose stream one wish to receive. \index{AUDIO\_\-CUSTOM@{AUDIO\_\-CUSTOM}!rakinfo.h@{rakinfo.h}}\index{rakinfo.h@{rakinfo.h}!AUDIO\_\-CUSTOM@{AUDIO\_\-CUSTOM}}\item[{\em 
+\hypertarget{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca10c640771ca6b67327fd79fd10577c1d}{
+AUDIO\_\-CUSTOM}
+\label{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca10c640771ca6b67327fd79fd10577c1d}
+}]The custom client is reserved for \char`\"{}Locals\char`\"{} which require a custom processing in some way, such as for instance a xylophone. The stream ID should be set to a string defining the custom type followed by a colon and the GUID for the objects tracking data. For a xylophone this could for example be \char`\"{}xyl:GUID\char`\"{} (with GUID replaced by the actual scene GUID). \begin{Desc}
+\item[\hyperlink{todo__todo000005}{Todo}]The Custom client is currently not implemented on the \hyperlink{class_rak_serv}{Server}. \end{Desc}
+\end{description}
+\end{Desc}
+
+
+
+Definition at line 35 of file rakinfo.h.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{rakinfo_8h_afcf889820a49d13605ea469a5799b4e3}{
+\index{rakinfo.h@{rakinfo.h}!ClientTypeText@{ClientTypeText}}
+\index{ClientTypeText@{ClientTypeText}!rakinfo.h@{rakinfo.h}}
+\subsubsection[{ClientTypeText}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ const {\bf ClientTypeText}\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{rakinfo_8h_afcf889820a49d13605ea469a5799b4e3}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+        QT_TR_NOOP("Visitor"),
+        QT_TR_NOOP("Avatar"),
+        QT_TR_NOOP("Local"),
+        QT_TR_NOOP("AR-Local"),
+        QT_TR_NOOP("Spectator"),
+        QT_TR_NOOP("Proxy"),
+        QT_TR_NOOP("Listener"),
+
+    }
+\end{DoxyCode}
+The client type texts can be used in various messages etc. The QT\_\-TR\_\-NOOP enables possibility for Qt translation of objects outside of runtime code 
+
+Definition at line 102 of file rakinfo.h.
+
+\hypertarget{rakinfo_8h_a7e898d6e6f8e4ee4dc0de97ec6ca3138}{
+\index{rakinfo.h@{rakinfo.h}!ClientTypeTextArticle@{ClientTypeTextArticle}}
+\index{ClientTypeTextArticle@{ClientTypeTextArticle}!rakinfo.h@{rakinfo.h}}
+\subsubsection[{ClientTypeTextArticle}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ const {\bf ClientTypeTextArticle}\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{rakinfo_8h_a7e898d6e6f8e4ee4dc0de97ec6ca3138}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+        QT_TR_NOOP("a Visitor"),
+        QT_TR_NOOP("an Avatar"),
+        QT_TR_NOOP("a Local"),
+        QT_TR_NOOP("an AR-Local"),
+        QT_TR_NOOP("a Spectator"),
+        QT_TR_NOOP("a Proxy"),
+        QT_TR_NOOP("a Listener"),
+
+    }
+\end{DoxyCode}
+The client type texts can be used in various messages etc. The QT\_\-TR\_\-NOOP enables possibility for Qt translation of objects outside of runtime code  
+
+Definition at line 114 of file rakinfo.h.
+
+\hypertarget{rakinfo_8h_a6afd466533cc05323c70430f803abe3e}{
+\index{rakinfo.h@{rakinfo.h}!ClientTypeTextPlural@{ClientTypeTextPlural}}
+\index{ClientTypeTextPlural@{ClientTypeTextPlural}!rakinfo.h@{rakinfo.h}}
+\subsubsection[{ClientTypeTextPlural}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ const {\bf ClientTypeTextPlural}\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{rakinfo_8h_a6afd466533cc05323c70430f803abe3e}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+        QT_TR_NOOP("Visitors"),
+        QT_TR_NOOP("Avatars"),
+        QT_TR_NOOP("Locals"),
+        QT_TR_NOOP("AR-Locals"),
+        QT_TR_NOOP("Spectators"),
+        QT_TR_NOOP("Proxies"),
+        QT_TR_NOOP("Listeners"),
+
+    }
+\end{DoxyCode}
+The client type texts can be used in various messages etc. The QT\_\-TR\_\-NOOP enables possibility for Qt translation of objects outside of runtime code  
+
+Definition at line 126 of file rakinfo.h.
+

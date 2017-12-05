@@ -1,0 +1,10 @@
+var class_beaming_video_replica =
+[
+    [ "BeamingVideoReplica", "class_beaming_video_replica.html#af7d8bd9fbf1477f03dc0046eab061ebf", null ],
+    [ "~BeamingVideoReplica", "class_beaming_video_replica.html#a40d680570145142a3f3bd5e418fd5f16", null ],
+    [ "bandwidth", "class_beaming_video_replica.html#a4bcd0c1e427ecf9de3619d5baf589b96", null ],
+    [ "frame_height", "class_beaming_video_replica.html#a7b750b16fe46e1b29570f23bdf8a91a1", null ],
+    [ "frame_width", "class_beaming_video_replica.html#a582815b2400bea4b42dbf36618bee0d3", null ],
+    [ "thisnode", "class_beaming_video_replica.html#ab277d6e38994687a30f0e0762b311e27", null ],
+    [ "video_id", "class_beaming_video_replica.html#a622e05ef8f00ebed66e7ca5ef742e859", null ]
+];

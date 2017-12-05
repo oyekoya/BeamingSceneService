@@ -1,0 +1,171 @@
+/* Include s3d symbols */
+#include <Script3d.h>
+
+/* Set global scene parameters */
+SET SCENE_FOV  = 60;
+SET SCENE_NEAR = 0.01;
+SET SCENE_FAR  = 1000;//light
+
+//#define DQUAT_TRANSF_XVRSHADER
+//#define VA_TRANS
+#define TM_TRANSF_XVRSHADER
+
+#include "common.s3d"
+#include "KeyBoardManager.s3d"
+#include "avatars.s3d"
+
+// TODO: put your global variables here
+
+
+
+/* Function declarations */
+//function CameraMoveMouse();
+//function DrawGrid(col, size);
+
+var KeyManager=CVmKeyBoardManager();
+var morphval=vector(10);
+var normalinfl=0.0;
+var wasExecuting=false;
+var starTime=0;
+var endTime=0;
+var startIt=false;
+
+function OnDownload()
+{
+	// TODO: download your resources here
+	// E.g.: FileDownload("resource.ext");
+}
+
+function incMorphVal(i,x){
+	morphval[i]+=x;
+}
+
+function incNormInfl(x){
+	normalinfl+=x;
+}
+
+function exeMorph(aid){
+	Avatars.exeMorph(aid,0,2.0,0.0);
+}
+
+function startFlag(){
+	startIt=true;
+	OutPutLn("Started");
+
+}
+
+
+function OnInit(params)
+{
+	// TODO: put your initialization code here
+	SetLocalDir();
+	
+	initAvatars();
+	avatars.addCharacter("Hero","hero.cfg");
+//	avatars.addCharacter("AMan0004","AMan0004.cfg");
+	outputln("animation duration ",avatars.getAnimationDuration(0,0));
+
+	KeyManager.addKeyFunction("m",VK_LSHIFT,true,"incMorphVal",{0,0.01},2,"Increase Morph");
+	KeyManager.addKeyFunction("m",VK_LSHIFT,false,"incMorphVal",{0,-0.01},2,"Decrease Morph");
+	KeyManager.addKeyFunction("n",VK_LSHIFT,true,"incMorphVal",{1,0.01},2,"Increase Morph");
+	KeyManager.addKeyFunction("n",VK_LSHIFT,false,"incMorphVal",{1,-0.01},2,"Decrease Morph");
+	KeyManager.addKeyFunction("b",VK_LSHIFT,true,"incMorphVal",{2,0.01},2,"Increase Morph");
+	KeyManager.addKeyFunction("b",VK_LSHIFT,false,"incMorphVal",{2,-0.01},2,"Decrease Morph");
+	KeyManager.addKeyFunction("v",VK_LSHIFT,true,"incMorphVal",{3,0.01},2,"Increase Morph");
+	KeyManager.addKeyFunction("v",VK_LSHIFT,false,"incMorphVal",{3,-0.01},2,"Decrease Morph");
+	KeyManager.addKeyFunction("c",VK_LSHIFT,true,"incMorphVal",{4,0.01},2,"Increase Morph");
+	KeyManager.addKeyFunction("c",VK_LSHIFT,false,"incMorphVal",{4,-0.01},2,"Decrease Morph");
+	KeyManager.addKeyFunction("x",VK_LSHIFT,true,"incMorphVal",{5,0.01},2,"Increase Morph");
+	KeyManager.addKeyFunction("x",VK_LSHIFT,false,"incMorphVal",{5,-0.01},2,"Decrease Morph");
+	
+	KeyManager.addKeyFunction("k",VK_LSHIFT,true,"incNormInfl",{0.01},2,"Increase norminfl");
+	KeyManager.addKeyFunction("k",VK_LSHIFT,false,"incNormInfl",{-0.01},2,"Decrease norminfl");
+	
+	KeyManager.addKeyFunction("s",0,true,"startFlag",{},1,"start scenario");
+
+
+
+	KeyManager.addKeyFunction("p",0,false,"exeMorph",{0},2,"execute Morph");
+
+
+}
+
+
+
+function OnFrame()
+{
+	/* manage camera */
+	CameraMoveMouse();
+
+
+
+	SceneBegin();
+	glDisable(GL_CULL_FACE);
+
+	DrawGrid([0.5, 0.5, 0.5], 100);
+#ifdef VA_TRANS
+	Avatars.Draw(0);
+#else
+	skinshader.start();
+	skinshader.setParameter("morphval0",morphval[0]);
+	skinshader.setParameter("morphval1",morphval[1]);
+	skinshader.setParameter("morphval2",morphval[2]);
+	skinshader.setParameter("morphval3",morphval[3]);
+	skinshader.setParameter("morphval4",morphval[4]);
+	skinshader.setParameter("normalinfl",normalinfl);
+//	skinshader.setParameter("growfac",morphval[5]);
+//	skinshader.setParameter("thebone",10);
+	
+	Avatars.DrawExtShader();
+	skinshader.stop();
+#endif
+	Avatars.Idle();
+	// TODO: put your drawing code here
+	
+	KeyManager.idle();
+
+
+	SceneEnd();
+}
+
+
+
+function DownloadReady(RequestID)
+{
+	// TODO
+}
+
+
+
+function OnTimer()
+{
+	// TODO:
+	
+		if (startIt){	
+//	avatars.blendCycle(0,0,0.5,0.0);
+	if (Avatars.isExecuting(0,0)==0 && !wasExecuting){
+		avatars.exeAct(0,0,1.0,0.0,1.0,0);
+		wasExecuting=true;
+		starTime=getTime();
+
+	}
+	if (Avatars.isExecuting(0,0)==0 && wasExecuting){
+//		avatars.exeAct(0,0,0.0,0.0,1.0,0);
+		endTime=getTime();
+		OutputLN(endTime,",",starTime,",Time passed:",endTime-starTime);
+		wasExecuting=false;
+	}
+
+	}
+
+}
+
+
+
+function OnExit()
+{
+	// TODO: put your cleanup code here
+}
+
+
+

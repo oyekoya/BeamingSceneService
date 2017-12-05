@@ -1,0 +1,1567 @@
+\hypertarget{class_scene_interface}{
+\section{SceneInterface Class Reference}
+\label{class_scene_interface}\index{SceneInterface@{SceneInterface}}
+}
+
+
+Class for managing connection to the Beaming Scene, obtaining tracking information and directional rendering of audio.  
+
+
+
+
+{\ttfamily \#include $<$sceneinterface.h$>$}
+
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_scene_interface_ae89618d6d530ae55f18fa3f4d8cf5f90}{addID} (QString id, bool startProcess=true)
+\begin{DoxyCompactList}\small\item\em Qt Slot to add an ID to manage in the Scene interface. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a92285c3aea9e0aa135df93613dfe0bdf}{removeID} (QString id)
+\begin{DoxyCompactList}\small\item\em Qt Slot to remove all data related to a particular ID from the Scene interface. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_scene_interface_aebe0de9a190095cc5f7fcb6ae9bb0146}{message} (QString text, bool err=0)
+\begin{DoxyCompactList}\small\item\em A Qt Signal for a general message interface. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_af924bed35d76efabdca9e2968f138601}{audioServerFound} (QString address, unsigned short port)
+\begin{DoxyCompactList}\small\item\em A Qt Signal informing that an audio server was published on the Beaming Scene. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scene_interface_a52b4e22cae0a0eb85223417458fc6a81}{SceneInterface} (QObject $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructor of the scene interface. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a32a7846a3ad562ec4ba1763e8e809e26}{connectToScene} (QString myID, QString serverAddress, int serverPort)
+\begin{DoxyCompactList}\small\item\em Connect to the Beaming Scene. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a68fe01e390a379d3d440b398edc9ec8d}{disconnectFromScene} ()
+\begin{DoxyCompactList}\small\item\em Disconnect from the Beaming Scene. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a3db7acd0ef9f10bc937a2c48b54d0992}{setSceneID} (QString myID)
+\begin{DoxyCompactList}\small\item\em Change the \mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]} pair by which this client is tracked on the Beaming Scene -\/ useful after making the initial connection. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_ad5340f6262f3dfc83f2c4e5ae1457612}{useSelfTrackingFromScene} (bool use=true, bool publish=false)
+\begin{DoxyCompactList}\small\item\em Set whether to look at the Beaming Scene for tracking information for the user of this interface of to use only direct tracking input. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a2b7acaa6b5f187a930cb07d34ed4d69f}{usingSelfTrackingFromScene} ()
+\begin{DoxyCompactList}\small\item\em Determine whether the Scene for tracking updates. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a2cbf6feb9fc39ac2eb6deebee138246a}{publishingSelfTrackingToScene} ()
+\begin{DoxyCompactList}\small\item\em Determine whether self-\/tracking is published to the scene. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a50b68136dc1c20828a41d5c03fcabc21}{isConnectedToScene} ()
+\begin{DoxyCompactList}\small\item\em Test whether a Beaming Scene connection is active. \item\end{DoxyCompactList}\item 
+pair$<$ QString, unsigned short $>$ \hyperlink{class_scene_interface_a2c9f50c877cd2ac7bf75bfb6af7fff46}{updateAudioServerInfo} ()
+\begin{DoxyCompactList}\small\item\em Obtain information about the audio server from the scene. \item\end{DoxyCompactList}\item 
+QString \hyperlink{class_scene_interface_a38974e9a7e8bcbf71a9acb5f34469d8b}{audioServerAdress} ()
+\begin{DoxyCompactList}\small\item\em Obtain the audio server address from the scene. \item\end{DoxyCompactList}\item 
+unsigned short \hyperlink{class_scene_interface_a52d9b2266857e45e8e51a8a683a99aed}{audioServerPort} ()
+\begin{DoxyCompactList}\small\item\em Obtain the audio server port from the scene. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_aea18e3bfc539d329ee970a066a47fdcd}{exist} (QString id)
+\begin{DoxyCompactList}\small\item\em Test if a given ID exist in the \hyperlink{class_scene_interface}{SceneInterface}. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a89b6cd2cccb2a6d6c1279eabed97677e}{processStarted} (QString id)
+\begin{DoxyCompactList}\small\item\em Test if processing (3D rendering etc.) is enabled for a given ID in the \hyperlink{class_scene_interface}{SceneInterface}. \item\end{DoxyCompactList}\item 
+QList$<$ QString $>$ \hyperlink{class_scene_interface_ac6fca129f77e5673b3d8df5381e01125}{IDs} ()
+\begin{DoxyCompactList}\small\item\em Get a list of all ID's registered in this class. \item\end{DoxyCompactList}\item 
+QStringList \hyperlink{class_scene_interface_ae4b498d2a9db4b00bb7a797093227700}{sceneClientsVisible} (bool IDonly=false)
+\begin{DoxyCompactList}\small\item\em Obtain a list of all the objects that are visible on the Beaming Scene Server. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData} (QString id, \hyperlink{structt__scene_info_data}{t\_\-sceneInfoData} data)
+\begin{DoxyCompactList}\small\item\em Set a full data set for a \hyperlink{class_scene_interface}{SceneInterface} ID. \item\end{DoxyCompactList}\item 
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData} \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData} (QString id)
+\begin{DoxyCompactList}\small\item\em Read scene related data for a specific ID. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain} (QString id, double gain)
+\begin{DoxyCompactList}\small\item\em Set the gain for a \hyperlink{class_scene_interface}{SceneInterface} ID. \item\end{DoxyCompactList}\item 
+double \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain} (QString id)
+\begin{DoxyCompactList}\small\item\em Read gain for a specific ID. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection} (QString id, double azimuth, double elevation)
+\begin{DoxyCompactList}\small\item\em Set the direction from which a \hyperlink{class_scene_interface}{SceneInterface} ID should be rendered. \item\end{DoxyCompactList}\item 
+pair$<$ double, double $>$ \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction} (QString id)
+\begin{DoxyCompactList}\small\item\em Read direction for a specific ID. \item\end{DoxyCompactList}\item 
+double \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth} (QString id)
+\begin{DoxyCompactList}\small\item\em Read azimuth for a specific ID. \item\end{DoxyCompactList}\item 
+double \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation} (QString id)
+\begin{DoxyCompactList}\small\item\em Read elevation for a specific ID. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation} (QString id, CVec3 translation)
+\begin{DoxyCompactList}\small\item\em Set the translation (position) for a \hyperlink{class_scene_interface}{SceneInterface} ID. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a7e2c7d3545e94853a316801b7090075e}{setTranslation} (QString id, float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Set the translation for a \hyperlink{class_scene_interface}{SceneInterface} ID (overloaded version of \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}) \item\end{DoxyCompactList}\item 
+CVec3 \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation} (QString id)
+\begin{DoxyCompactList}\small\item\em Read translation for a specific ID. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x} (QString id)
+\begin{DoxyCompactList}\small\item\em Read x-\/translation for a specific ID. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y} (QString id)
+\begin{DoxyCompactList}\small\item\em Read y-\/translation for a specific ID. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z} (QString id)
+\begin{DoxyCompactList}\small\item\em Read z-\/translation for a specific ID. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation} (CVec3 translation)
+\begin{DoxyCompactList}\small\item\em Set the translation (position) of the client using this interface (to whom directinoal sound should be rendered) \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a224ed0650413c37e695fa481111cb947}{setMyTranslation} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Set the translation (position) for the client using this interface (overloaded version of \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}) \item\end{DoxyCompactList}\item 
+CVec3 \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation} ()
+\begin{DoxyCompactList}\small\item\em Read translation for the client using this interface. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX} ()
+\begin{DoxyCompactList}\small\item\em Read x-\/translation of the client using this interface. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY} ()
+\begin{DoxyCompactList}\small\item\em Read y-\/translation of the client using this interface. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ} ()
+\begin{DoxyCompactList}\small\item\em Read z-\/translation of the client using this interface. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat} (CQuat quat)
+\begin{DoxyCompactList}\small\item\em Set the quaternion (direction) of the client using this interface (to whom directinoal sound should be rendered) \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_ab42c961da985fce8cbe290a928f2501a}{setMyQuat} (float qx, float qy, float qz, float qw)
+\begin{DoxyCompactList}\small\item\em Set the quaternion (direction) of the client using this interface (overloaded version of \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}) \item\end{DoxyCompactList}\item 
+CQuat \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat} ()
+\begin{DoxyCompactList}\small\item\em Read direction of the interface user as a quaternion. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx} ()
+\begin{DoxyCompactList}\small\item\em Read the quaternion x-\/value of the interface user. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy} ()
+\begin{DoxyCompactList}\small\item\em Read the quaternion y-\/value of the interface user. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz} ()
+\begin{DoxyCompactList}\small\item\em Read the quaternion z-\/value of the interface user. \item\end{DoxyCompactList}\item 
+float \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw} ()
+\begin{DoxyCompactList}\small\item\em Read the quaternion w-\/value of the interface user. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking} (CVec3 translation, CQuat quat)
+\begin{DoxyCompactList}\small\item\em Set a full tracking set (translation and rotations) for the interface user. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a65b835026adca84bf9800b661434e5f8}{setMyTracking} (float x, float y, float z, float qx, float qy, float qz, float qw)
+\begin{DoxyCompactList}\small\item\em Set a full tracking set (translation and rotations) for the interface user (overloaded version of \hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}) \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a3bfb14f28b5a32f8e28a84b710e5e776}{startProcessing} (QString id)
+\begin{DoxyCompactList}\small\item\em Start processing for a particular stream. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_scene_interface_a9db192eaee89cb45faa09e998ba8cee4}{stopProcessing} (QString id)
+\begin{DoxyCompactList}\small\item\em Stop processing for a particular stream. \item\end{DoxyCompactList}\item 
+pair$<$ short, short $>$ \hyperlink{class_scene_interface_ab92a58713e8f8b50320b3ee1e5b5b7f3}{process} (QString id, short sample)
+\begin{DoxyCompactList}\small\item\em Process a single sample in short format for a particular stream. \item\end{DoxyCompactList}\item 
+pair$<$ float, float $>$ \hyperlink{class_scene_interface_a767870846f423fb32940b2f067881c7e}{process} (QString id, float sample)
+\begin{DoxyCompactList}\small\item\em Process a single sample in float format for a particular stream. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a106d56a955ac2e3c9d11855c3a8f5736}{process} (QString id, short $\ast$sample, short $\ast$left, short $\ast$right, int len=1)
+\begin{DoxyCompactList}\small\item\em Process multiple samples in short format for a particular stream. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a060f1a319636a73b190dc808447912c6}{process} (QString id, float $\ast$sample, float $\ast$left, float $\ast$right, int len=1)
+\begin{DoxyCompactList}\small\item\em Process multiple samples in float format for a particular stream. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for managing connection to the Beaming Scene, obtaining tracking information and directional rendering of audio. 
+
+Definition at line 63 of file sceneinterface.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_scene_interface_a52b4e22cae0a0eb85223417458fc6a81}{
+\index{SceneInterface@{SceneInterface}!SceneInterface@{SceneInterface}}
+\index{SceneInterface@{SceneInterface}!SceneInterface@{SceneInterface}}
+\subsubsection[{SceneInterface}]{\setlength{\rightskip}{0pt plus 5cm}SceneInterface::SceneInterface (
+\begin{DoxyParamCaption}
+\item[{QObject $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a52b4e22cae0a0eb85223417458fc6a81}
+
+
+Constructor of the scene interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & A pointer to the parent may be given, but is not used for anything. It is merely a requirement of inheriting QThread. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file sceneinterface.cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scene_interface_ae89618d6d530ae55f18fa3f4d8cf5f90}{
+\index{SceneInterface@{SceneInterface}!addID@{addID}}
+\index{addID@{addID}!SceneInterface@{SceneInterface}}
+\subsubsection[{addID}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::addID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{bool}]{startProcess = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_scene_interface_ae89618d6d530ae55f18fa3f4d8cf5f90}
+
+
+Qt Slot to add an ID to manage in the Scene interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to add \\
+\hline
+{\em startProcess} & Whether to initialize processing for this new ID \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 442 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a38974e9a7e8bcbf71a9acb5f34469d8b}{
+\index{SceneInterface@{SceneInterface}!audioServerAdress@{audioServerAdress}}
+\index{audioServerAdress@{audioServerAdress}!SceneInterface@{SceneInterface}}
+\subsubsection[{audioServerAdress}]{\setlength{\rightskip}{0pt plus 5cm}QString SceneInterface::audioServerAdress (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a38974e9a7e8bcbf71a9acb5f34469d8b}
+
+
+Obtain the audio server address from the scene. 
+
+\begin{DoxyReturn}{Returns}
+The address (hostname or IP) on which an audio server is available 
+\end{DoxyReturn}
+
+
+Definition at line 366 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_af924bed35d76efabdca9e2968f138601}{
+\index{SceneInterface@{SceneInterface}!audioServerFound@{audioServerFound}}
+\index{audioServerFound@{audioServerFound}!SceneInterface@{SceneInterface}}
+\subsubsection[{audioServerFound}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::audioServerFound (
+\begin{DoxyParamCaption}
+\item[{QString}]{address, }
+\item[{unsigned short}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_scene_interface_af924bed35d76efabdca9e2968f138601}
+
+
+A Qt Signal informing that an audio server was published on the Beaming Scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & the host or IP of the audio server \\
+\hline
+{\em port} & port on which to connect to the audio server \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_scene_interface_a52d9b2266857e45e8e51a8a683a99aed}{
+\index{SceneInterface@{SceneInterface}!audioServerPort@{audioServerPort}}
+\index{audioServerPort@{audioServerPort}!SceneInterface@{SceneInterface}}
+\subsubsection[{audioServerPort}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short SceneInterface::audioServerPort (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a52d9b2266857e45e8e51a8a683a99aed}
+
+
+Obtain the audio server port from the scene. 
+
+\begin{DoxyReturn}{Returns}
+The port to use when connecting to the audio server 
+\end{DoxyReturn}
+
+
+Definition at line 373 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{
+\index{SceneInterface@{SceneInterface}!azimuth@{azimuth}}
+\index{azimuth@{azimuth}!SceneInterface@{SceneInterface}}
+\subsubsection[{azimuth}]{\setlength{\rightskip}{0pt plus 5cm}double SceneInterface::azimuth (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}
+
+
+Read azimuth for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The azimuth value for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 511 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a32a7846a3ad562ec4ba1763e8e809e26}{
+\index{SceneInterface@{SceneInterface}!connectToScene@{connectToScene}}
+\index{connectToScene@{connectToScene}!SceneInterface@{SceneInterface}}
+\subsubsection[{connectToScene}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::connectToScene (
+\begin{DoxyParamCaption}
+\item[{QString}]{myID, }
+\item[{QString}]{serverAddress, }
+\item[{int}]{serverPort}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a32a7846a3ad562ec4ba1763e8e809e26}
+
+
+Connect to the Beaming Scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em myID} & The \mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]} pair by which this client is tracked on the Beaming Scene \\
+\hline
+{\em serverAddress} & The hostname or IP of the Beaming Scene Server \\
+\hline
+{\em serverPort} & The port of the Beaming Scene Server \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the connection was successful 
+\end{DoxyReturn}
+
+
+Definition at line 289 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{
+\index{SceneInterface@{SceneInterface}!direction@{direction}}
+\index{direction@{direction}!SceneInterface@{SceneInterface}}
+\subsubsection[{direction}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ double, double $>$ SceneInterface::direction (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}
+
+
+Read direction for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The direction std::pair$<$azimuth,elevation$>$ for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 506 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a68fe01e390a379d3d440b398edc9ec8d}{
+\index{SceneInterface@{SceneInterface}!disconnectFromScene@{disconnectFromScene}}
+\index{disconnectFromScene@{disconnectFromScene}!SceneInterface@{SceneInterface}}
+\subsubsection[{disconnectFromScene}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::disconnectFromScene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a68fe01e390a379d3d440b398edc9ec8d}
+
+
+Disconnect from the Beaming Scene. 
+
+
+
+Definition at line 329 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{
+\index{SceneInterface@{SceneInterface}!elevation@{elevation}}
+\index{elevation@{elevation}!SceneInterface@{SceneInterface}}
+\subsubsection[{elevation}]{\setlength{\rightskip}{0pt plus 5cm}double SceneInterface::elevation (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}
+
+
+Read elevation for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The elevation value for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 516 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_aea18e3bfc539d329ee970a066a47fdcd}{
+\index{SceneInterface@{SceneInterface}!exist@{exist}}
+\index{exist@{exist}!SceneInterface@{SceneInterface}}
+\subsubsection[{exist}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::exist (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_aea18e3bfc539d329ee970a066a47fdcd}
+
+
+Test if a given ID exist in the \hyperlink{class_scene_interface}{SceneInterface}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to test for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the ID is created in this class 
+\end{DoxyReturn}
+
+
+Definition at line 420 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{
+\index{SceneInterface@{SceneInterface}!gain@{gain}}
+\index{gain@{gain}!SceneInterface@{SceneInterface}}
+\subsubsection[{gain}]{\setlength{\rightskip}{0pt plus 5cm}double SceneInterface::gain (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}
+
+
+Read gain for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The gain value for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 488 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ac6fca129f77e5673b3d8df5381e01125}{
+\index{SceneInterface@{SceneInterface}!IDs@{IDs}}
+\index{IDs@{IDs}!SceneInterface@{SceneInterface}}
+\subsubsection[{IDs}]{\setlength{\rightskip}{0pt plus 5cm}QList$<$ QString $>$ SceneInterface::IDs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ac6fca129f77e5673b3d8df5381e01125}
+
+
+Get a list of all ID's registered in this class. 
+
+\begin{DoxyReturn}{Returns}
+A list of the unique ID's that are registered in the \hyperlink{class_scene_interface}{SceneInterface} 
+\end{DoxyReturn}
+
+
+Definition at line 435 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a353f36b59fe149ef67292496d854923d}{
+\index{SceneInterface@{SceneInterface}!infoData@{infoData}}
+\index{infoData@{infoData}!SceneInterface@{SceneInterface}}
+\subsubsection[{infoData}]{\setlength{\rightskip}{0pt plus 5cm}{\bf t\_\-sceneInfoData} SceneInterface::infoData (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a353f36b59fe149ef67292496d854923d}
+
+
+Read scene related data for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The struct containing data for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()}
+\end{DoxySeeAlso}
+Accessing data for either a \char`\"{}full set\char`\"{} or partial data will always have the same format (id). 
+
+Definition at line 472 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a50b68136dc1c20828a41d5c03fcabc21}{
+\index{SceneInterface@{SceneInterface}!isConnectedToScene@{isConnectedToScene}}
+\index{isConnectedToScene@{isConnectedToScene}!SceneInterface@{SceneInterface}}
+\subsubsection[{isConnectedToScene}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::isConnectedToScene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a50b68136dc1c20828a41d5c03fcabc21}
+
+
+Test whether a Beaming Scene connection is active. 
+
+\begin{DoxyReturn}{Returns}
+Whether there is an active connection to the Beaming Scene 
+\end{DoxyReturn}
+
+
+Definition at line 337 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_aebe0de9a190095cc5f7fcb6ae9bb0146}{
+\index{SceneInterface@{SceneInterface}!message@{message}}
+\index{message@{message}!SceneInterface@{SceneInterface}}
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::message (
+\begin{DoxyParamCaption}
+\item[{QString}]{text, }
+\item[{bool}]{err = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_scene_interface_aebe0de9a190095cc5f7fcb6ae9bb0146}
+
+
+A Qt Signal for a general message interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & A message text emitted from the class. \\
+\hline
+{\em err} & {\bfseries true} if the message is an error, {\bfseries false} otherwise. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{
+\index{SceneInterface@{SceneInterface}!myQuat@{myQuat}}
+\index{myQuat@{myQuat}!SceneInterface@{SceneInterface}}
+\subsubsection[{myQuat}]{\setlength{\rightskip}{0pt plus 5cm}CQuat SceneInterface::myQuat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}
+
+
+Read direction of the interface user as a quaternion. 
+
+\begin{DoxyReturn}{Returns}
+The quaternion in vector form from the Beaming Scene utilMath.h for the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 633 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{
+\index{SceneInterface@{SceneInterface}!myQw@{myQw}}
+\index{myQw@{myQw}!SceneInterface@{SceneInterface}}
+\subsubsection[{myQw}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::myQw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}
+
+
+Read the quaternion w-\/value of the interface user. 
+
+\begin{DoxyReturn}{Returns}
+The quaternion w-\/value of the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 653 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a1e460424619757422fe39954bab91fbe}{
+\index{SceneInterface@{SceneInterface}!myQx@{myQx}}
+\index{myQx@{myQx}!SceneInterface@{SceneInterface}}
+\subsubsection[{myQx}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::myQx (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a1e460424619757422fe39954bab91fbe}
+
+
+Read the quaternion x-\/value of the interface user. 
+
+\begin{DoxyReturn}{Returns}
+The quaternion x-\/value of the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 638 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{
+\index{SceneInterface@{SceneInterface}!myQy@{myQy}}
+\index{myQy@{myQy}!SceneInterface@{SceneInterface}}
+\subsubsection[{myQy}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::myQy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}
+
+
+Read the quaternion y-\/value of the interface user. 
+
+\begin{DoxyReturn}{Returns}
+The quaternion y-\/value of the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 643 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_aefc381908a9033cd054929b73df2d909}{
+\index{SceneInterface@{SceneInterface}!myQz@{myQz}}
+\index{myQz@{myQz}!SceneInterface@{SceneInterface}}
+\subsubsection[{myQz}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::myQz (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_aefc381908a9033cd054929b73df2d909}
+
+
+Read the quaternion z-\/value of the interface user. 
+
+\begin{DoxyReturn}{Returns}
+The quaternion z-\/value of the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 648 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{
+\index{SceneInterface@{SceneInterface}!myTranslation@{myTranslation}}
+\index{myTranslation@{myTranslation}!SceneInterface@{SceneInterface}}
+\subsubsection[{myTranslation}]{\setlength{\rightskip}{0pt plus 5cm}CVec3 SceneInterface::myTranslation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}
+
+
+Read translation for the client using this interface. 
+
+\begin{DoxyReturn}{Returns}
+The translation in vector form from the Beaming Scene utilMath.h for the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 600 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{
+\index{SceneInterface@{SceneInterface}!myX@{myX}}
+\index{myX@{myX}!SceneInterface@{SceneInterface}}
+\subsubsection[{myX}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::myX (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}
+
+
+Read x-\/translation of the client using this interface. 
+
+\begin{DoxyReturn}{Returns}
+The x-\/translation of the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 605 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{
+\index{SceneInterface@{SceneInterface}!myY@{myY}}
+\index{myY@{myY}!SceneInterface@{SceneInterface}}
+\subsubsection[{myY}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::myY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}
+
+
+Read y-\/translation of the client using this interface. 
+
+\begin{DoxyReturn}{Returns}
+The y-\/translation of the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 610 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{
+\index{SceneInterface@{SceneInterface}!myZ@{myZ}}
+\index{myZ@{myZ}!SceneInterface@{SceneInterface}}
+\subsubsection[{myZ}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::myZ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}
+
+
+Read z-\/translation of the client using this interface. 
+
+\begin{DoxyReturn}{Returns}
+The z-\/translation of the interface user 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()},\hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 615 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a767870846f423fb32940b2f067881c7e}{
+\index{SceneInterface@{SceneInterface}!process@{process}}
+\index{process@{process}!SceneInterface@{SceneInterface}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ float, float $>$ SceneInterface::process (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{float}]{sample}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a767870846f423fb32940b2f067881c7e}
+
+
+Process a single sample in float format for a particular stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to process for \\
+\hline
+{\em sample} & The input sample to process \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std::pair containing left (first) and right (second) filtered samples 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a060f1a319636a73b190dc808447912c6}{process(QString id, float $\ast$sample, float $\ast$left, float $\ast$right, int len)} 
+\end{DoxySeeAlso}
+
+
+Definition at line 711 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ab92a58713e8f8b50320b3ee1e5b5b7f3}{
+\index{SceneInterface@{SceneInterface}!process@{process}}
+\index{process@{process}!SceneInterface@{SceneInterface}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ short, short $>$ SceneInterface::process (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{short}]{sample}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ab92a58713e8f8b50320b3ee1e5b5b7f3}
+
+
+Process a single sample in short format for a particular stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to process for \\
+\hline
+{\em sample} & The input sample to process \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std::pair containing left (first) and right (second) filtered samples 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a106d56a955ac2e3c9d11855c3a8f5736}{process(QString id, short $\ast$sample, short $\ast$left, short $\ast$right, int len)} 
+\end{DoxySeeAlso}
+
+
+Definition at line 702 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a060f1a319636a73b190dc808447912c6}{
+\index{SceneInterface@{SceneInterface}!process@{process}}
+\index{process@{process}!SceneInterface@{SceneInterface}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::process (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{float $\ast$}]{sample, }
+\item[{float $\ast$}]{left, }
+\item[{float $\ast$}]{right, }
+\item[{int}]{len = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a060f1a319636a73b190dc808447912c6}
+
+
+Process multiple samples in float format for a particular stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to process for \\
+\hline
+{\em sample} & Refence to the input samples to process \\
+\hline
+{\em left} & Reference to array for the left output samples \\
+\hline
+{\em right} & Reference to array for the right output samples \\
+\hline
+{\em len} & Number of samples to process \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+pair$<$float,float$>$ \hyperlink{class_scene_interface_a767870846f423fb32940b2f067881c7e}{process(QString id, float sample)} 
+\end{DoxySeeAlso}
+
+
+Definition at line 741 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a106d56a955ac2e3c9d11855c3a8f5736}{
+\index{SceneInterface@{SceneInterface}!process@{process}}
+\index{process@{process}!SceneInterface@{SceneInterface}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::process (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{short $\ast$}]{sample, }
+\item[{short $\ast$}]{left, }
+\item[{short $\ast$}]{right, }
+\item[{int}]{len = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a106d56a955ac2e3c9d11855c3a8f5736}
+
+
+Process multiple samples in short format for a particular stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to process for \\
+\hline
+{\em sample} & Refence to the input samples to process \\
+\hline
+{\em left} & Reference to array for the left output samples \\
+\hline
+{\em right} & Reference to array for the right output samples \\
+\hline
+{\em len} & Number of samples to process \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+pair$<$short,short$>$ \hyperlink{class_scene_interface_ab92a58713e8f8b50320b3ee1e5b5b7f3}{process(QString id, short sample)} 
+\end{DoxySeeAlso}
+
+
+Definition at line 720 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a89b6cd2cccb2a6d6c1279eabed97677e}{
+\index{SceneInterface@{SceneInterface}!processStarted@{processStarted}}
+\index{processStarted@{processStarted}!SceneInterface@{SceneInterface}}
+\subsubsection[{processStarted}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::processStarted (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a89b6cd2cccb2a6d6c1279eabed97677e}
+
+
+Test if processing (3D rendering etc.) is enabled for a given ID in the \hyperlink{class_scene_interface}{SceneInterface}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to test for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether processing is active for the stream 
+\end{DoxyReturn}
+
+
+Definition at line 425 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a2cbf6feb9fc39ac2eb6deebee138246a}{
+\index{SceneInterface@{SceneInterface}!publishingSelfTrackingToScene@{publishingSelfTrackingToScene}}
+\index{publishingSelfTrackingToScene@{publishingSelfTrackingToScene}!SceneInterface@{SceneInterface}}
+\subsubsection[{publishingSelfTrackingToScene}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::publishingSelfTrackingToScene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a2cbf6feb9fc39ac2eb6deebee138246a}
+
+
+Determine whether self-\/tracking is published to the scene. 
+
+\begin{DoxyReturn}{Returns}
+Whether self-\/tracking from other sources than the scene is published to the scene 
+\end{DoxyReturn}
+
+
+Definition at line 325 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a92285c3aea9e0aa135df93613dfe0bdf}{
+\index{SceneInterface@{SceneInterface}!removeID@{removeID}}
+\index{removeID@{removeID}!SceneInterface@{SceneInterface}}
+\subsubsection[{removeID}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::removeID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_scene_interface_a92285c3aea9e0aa135df93613dfe0bdf}
+
+
+Qt Slot to remove all data related to a particular ID from the Scene interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 452 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ae4b498d2a9db4b00bb7a797093227700}{
+\index{SceneInterface@{SceneInterface}!sceneClientsVisible@{sceneClientsVisible}}
+\index{sceneClientsVisible@{sceneClientsVisible}!SceneInterface@{SceneInterface}}
+\subsubsection[{sceneClientsVisible}]{\setlength{\rightskip}{0pt plus 5cm}QStringList SceneInterface::sceneClientsVisible (
+\begin{DoxyParamCaption}
+\item[{bool}]{IDonly = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ae4b498d2a9db4b00bb7a797093227700}
+
+
+Obtain a list of all the objects that are visible on the Beaming Scene Server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em IDonly} & Whether to only return the GUID's ({\bfseries true} -\/ from Beaming Scene getPeersID()) or also obtain info about all connected (root) nodes on for each GUID ({\bfseries false} -\/ from Beaming Scene getNodesInfo()) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QStringList containing the result\par
+ If IDonly is {\bfseries true}, each string is just the GUID\par
+ If IDonly is {\bfseries false} (default), each string has the format \begin{DoxyVerb}GUID,NAME,NODEID,TYPE,CONFIG \end{DoxyVerb}
+ where multiple published objects from the same client (eg. multiple tracked avatars/objects) will result in duplicates of the GUID with different names.
+\end{DoxyReturn}
+For obtaining a specific field from the full return format, one may use eg. QString::section(): \begin{DoxyVerb}QString name = avatarIds.at(1).section(",",1,1); // NAME
+QString guidAvatar = avatarIds.at(1).section(",",0,1); // GUID,NAME \end{DoxyVerb}
+ 
+
+Definition at line 380 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{
+\index{SceneInterface@{SceneInterface}!setDirection@{setDirection}}
+\index{setDirection@{setDirection}!SceneInterface@{SceneInterface}}
+\subsubsection[{setDirection}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::setDirection (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{double}]{azimuth, }
+\item[{double}]{elevation}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}
+
+
+Set the direction from which a \hyperlink{class_scene_interface}{SceneInterface} ID should be rendered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to set for \\
+\hline
+{\em azimuth} & The azimuth degree value to use for this stream (0 means straight ahead, positve values up to 180 is to the left and negative values down to -\/180 is to the right) \\
+\hline
+{\em elevation} & The elevation degree value to use (-\/90 below, 0 head level, +90 above) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether a new ID was created ({\bfseries true}) or an existing one was updated ({\bfseries false}) 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()}
+\end{DoxySeeAlso}
+This direction is directly used to render the stream directional and is set when calculations are made from changing translations and user rotation 
+
+Definition at line 494 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{
+\index{SceneInterface@{SceneInterface}!setGain@{setGain}}
+\index{setGain@{setGain}!SceneInterface@{SceneInterface}}
+\subsubsection[{setGain}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::setGain (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{double}]{gain}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}
+
+
+Set the gain for a \hyperlink{class_scene_interface}{SceneInterface} ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to set for \\
+\hline
+{\em gain} & The gain value to use for this stream (1.0 means no gain) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether a new ID was created ({\bfseries true}) or an existing one was updated ({\bfseries false}) 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 478 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{
+\index{SceneInterface@{SceneInterface}!setInfoData@{setInfoData}}
+\index{setInfoData@{setInfoData}!SceneInterface@{SceneInterface}}
+\subsubsection[{setInfoData}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::setInfoData (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{{\bf t\_\-sceneInfoData}}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}
+
+
+Set a full data set for a \hyperlink{class_scene_interface}{SceneInterface} ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to set for \\
+\hline
+{\em data} & The struct containing a full (or partial) data-\/set for this ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether a new ID was created ({\bfseries true}) or an existing one was updated ({\bfseries false}) 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()}
+\end{DoxySeeAlso}
+Setting data for either a \char`\"{}full set\char`\"{} or partial data will always have the same format (id, data). The return value when setting data always indicates whether a new ID was created or an existing one updated. 
+
+Definition at line 465 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ab42c961da985fce8cbe290a928f2501a}{
+\index{SceneInterface@{SceneInterface}!setMyQuat@{setMyQuat}}
+\index{setMyQuat@{setMyQuat}!SceneInterface@{SceneInterface}}
+\subsubsection[{setMyQuat}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::setMyQuat (
+\begin{DoxyParamCaption}
+\item[{float}]{qx, }
+\item[{float}]{qy, }
+\item[{float}]{qz, }
+\item[{float}]{qw}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ab42c961da985fce8cbe290a928f2501a}
+
+
+Set the quaternion (direction) of the client using this interface (overloaded version of \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}) 
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+\begin{DoxyParams}{Parameters}
+{\em qx} & The x-\/value tu use \\
+\hline
+{\em qy} & The y-\/value to use \\
+\hline
+{\em qz} & The z-\/value to use \\
+\hline
+{\em qw} & The w-\/value to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 625 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{
+\index{SceneInterface@{SceneInterface}!setMyQuat@{setMyQuat}}
+\index{setMyQuat@{setMyQuat}!SceneInterface@{SceneInterface}}
+\subsubsection[{setMyQuat}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::setMyQuat (
+\begin{DoxyParamCaption}
+\item[{CQuat}]{quat}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}
+
+
+Set the quaternion (direction) of the client using this interface (to whom directinoal sound should be rendered) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quat} & The quaternion to use for this stream in vector form from the Beaming Scene utilMath.h \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()}
+\end{DoxySeeAlso}
+This quaternion is used for calculation of direction for each external client and used to render the streams directional. For a convenience overloaded function, see \hyperlink{class_scene_interface_ab42c961da985fce8cbe290a928f2501a}{setMyQuat(float qx, float qy, float qz, float qw)} 
+
+Definition at line 620 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{
+\index{SceneInterface@{SceneInterface}!setMyTracking@{setMyTracking}}
+\index{setMyTracking@{setMyTracking}!SceneInterface@{SceneInterface}}
+\subsubsection[{setMyTracking}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::setMyTracking (
+\begin{DoxyParamCaption}
+\item[{CVec3}]{translation, }
+\item[{CQuat}]{quat}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}
+
+
+Set a full tracking set (translation and rotations) for the interface user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quat} & The quaternion to use for this stream in vector form from the Beaming Scene utilMath.h \\
+\hline
+{\em translation} & The translation to use for this stream in vector form from the Beaming Scene utilMath.h \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 658 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a65b835026adca84bf9800b661434e5f8}{
+\index{SceneInterface@{SceneInterface}!setMyTracking@{setMyTracking}}
+\index{setMyTracking@{setMyTracking}!SceneInterface@{SceneInterface}}
+\subsubsection[{setMyTracking}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::setMyTracking (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z, }
+\item[{float}]{qx, }
+\item[{float}]{qy, }
+\item[{float}]{qz, }
+\item[{float}]{qw}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a65b835026adca84bf9800b661434e5f8}
+
+
+Set a full tracking set (translation and rotations) for the interface user (overloaded version of \hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/value tu use \\
+\hline
+{\em y} & The y-\/value to use \\
+\hline
+{\em z} & The z-\/value to use \\
+\hline
+{\em qx} & The x-\/value tu use \\
+\hline
+{\em qy} & The y-\/value to use \\
+\hline
+{\em qz} & The z-\/value to use \\
+\hline
+{\em qw} & The w-\/value to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 664 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{
+\index{SceneInterface@{SceneInterface}!setMyTranslation@{setMyTranslation}}
+\index{setMyTranslation@{setMyTranslation}!SceneInterface@{SceneInterface}}
+\subsubsection[{setMyTranslation}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::setMyTranslation (
+\begin{DoxyParamCaption}
+\item[{CVec3}]{translation}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}
+
+
+Set the translation (position) of the client using this interface (to whom directinoal sound should be rendered) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em translation} & The translation to use for this stream in vector form from the Beaming Scene utilMath.h \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_scene_interface_a2f7c3937c14fa87824d5d7f674168ad5}{setMyTracking()}, \hyperlink{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{myTranslation()}, \hyperlink{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{myX()}, \hyperlink{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{myY()}, \hyperlink{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{myZ()}, \hyperlink{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{setMyQuat()}, \hyperlink{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{myQuat()}, \hyperlink{class_scene_interface_a1e460424619757422fe39954bab91fbe}{myQx()}, \hyperlink{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{myQy()}, \hyperlink{class_scene_interface_aefc381908a9033cd054929b73df2d909}{myQz()}, \hyperlink{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{myQw()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()}
+\end{DoxySeeAlso}
+This translation is used for calculation of direction for each external client and used to render the streams directional. For a convenience overloaded function, see setMyTranslation(QString id, float x, float y, float z) 
+
+Definition at line 588 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a224ed0650413c37e695fa481111cb947}{
+\index{SceneInterface@{SceneInterface}!setMyTranslation@{setMyTranslation}}
+\index{setMyTranslation@{setMyTranslation}!SceneInterface@{SceneInterface}}
+\subsubsection[{setMyTranslation}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::setMyTranslation (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a224ed0650413c37e695fa481111cb947}
+
+
+Set the translation (position) for the client using this interface (overloaded version of \hyperlink{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{setMyTranslation()}) 
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/value tu use \\
+\hline
+{\em y} & The y-\/value to use \\
+\hline
+{\em z} & The z-\/value to use \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 593 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a3db7acd0ef9f10bc937a2c48b54d0992}{
+\index{SceneInterface@{SceneInterface}!setSceneID@{setSceneID}}
+\index{setSceneID@{setSceneID}!SceneInterface@{SceneInterface}}
+\subsubsection[{setSceneID}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::setSceneID (
+\begin{DoxyParamCaption}
+\item[{QString}]{myID}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a3db7acd0ef9f10bc937a2c48b54d0992}
+
+
+Change the \mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]} pair by which this client is tracked on the Beaming Scene -\/ useful after making the initial connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em myID} & The \mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]} pair by which this client is tracked on the Beaming Scene \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 310 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a7e2c7d3545e94853a316801b7090075e}{
+\index{SceneInterface@{SceneInterface}!setTranslation@{setTranslation}}
+\index{setTranslation@{setTranslation}!SceneInterface@{SceneInterface}}
+\subsubsection[{setTranslation}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::setTranslation (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a7e2c7d3545e94853a316801b7090075e}
+
+
+Set the translation for a \hyperlink{class_scene_interface}{SceneInterface} ID (overloaded version of \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}) 
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to set for \\
+\hline
+{\em x} & The x-\/value tu use \\
+\hline
+{\em y} & The y-\/value to use \\
+\hline
+{\em z} & The Z-\/value to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether a new ID was created ({\bfseries true}) or an existing one was updated ({\bfseries false}) 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 563 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{
+\index{SceneInterface@{SceneInterface}!setTranslation@{setTranslation}}
+\index{setTranslation@{setTranslation}!SceneInterface@{SceneInterface}}
+\subsubsection[{setTranslation}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::setTranslation (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{CVec3}]{translation}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}
+
+
+Set the translation (position) for a \hyperlink{class_scene_interface}{SceneInterface} ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to set for \\
+\hline
+{\em translation} & The translation to use for this stream in vector form from the Beaming Scene utilMath.h \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether a new ID was created ({\bfseries true}) or an existing one was updated ({\bfseries false}) 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()}
+\end{DoxySeeAlso}
+For a convenience overloaded function, see \hyperlink{class_scene_interface_a7e2c7d3545e94853a316801b7090075e}{setTranslation(QString id, float x, float y, float z)} 
+
+Definition at line 523 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a3bfb14f28b5a32f8e28a84b710e5e776}{
+\index{SceneInterface@{SceneInterface}!startProcessing@{startProcessing}}
+\index{startProcessing@{startProcessing}!SceneInterface@{SceneInterface}}
+\subsubsection[{startProcessing}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::startProcessing (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a3bfb14f28b5a32f8e28a84b710e5e776}
+
+
+Start processing for a particular stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to start processing for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether processing was successfully started ({\bfseries false} if already started or ID does not exist) 
+\end{DoxyReturn}
+
+
+Definition at line 677 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a9db192eaee89cb45faa09e998ba8cee4}{
+\index{SceneInterface@{SceneInterface}!stopProcessing@{stopProcessing}}
+\index{stopProcessing@{stopProcessing}!SceneInterface@{SceneInterface}}
+\subsubsection[{stopProcessing}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::stopProcessing (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a9db192eaee89cb45faa09e998ba8cee4}
+
+
+Stop processing for a particular stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to stop processing for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether processing was successfully stopped ({\bfseries false} if it was not actually running) 
+\end{DoxyReturn}
+
+
+Definition at line 693 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{
+\index{SceneInterface@{SceneInterface}!translation@{translation}}
+\index{translation@{translation}!SceneInterface@{SceneInterface}}
+\subsubsection[{translation}]{\setlength{\rightskip}{0pt plus 5cm}CVec3 SceneInterface::translation (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}
+
+
+Read translation for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The translation in vector form from the Beaming Scene utilMath.h for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 567 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a2c9f50c877cd2ac7bf75bfb6af7fff46}{
+\index{SceneInterface@{SceneInterface}!updateAudioServerInfo@{updateAudioServerInfo}}
+\index{updateAudioServerInfo@{updateAudioServerInfo}!SceneInterface@{SceneInterface}}
+\subsubsection[{updateAudioServerInfo}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ QString, unsigned short $>$ SceneInterface::updateAudioServerInfo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a2c9f50c877cd2ac7bf75bfb6af7fff46}
+
+
+Obtain information about the audio server from the scene. 
+
+\begin{DoxyReturn}{Returns}
+std::pair containing the audio server address and port 
+\end{DoxyReturn}
+
+
+Definition at line 341 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ad5340f6262f3dfc83f2c4e5ae1457612}{
+\index{SceneInterface@{SceneInterface}!useSelfTrackingFromScene@{useSelfTrackingFromScene}}
+\index{useSelfTrackingFromScene@{useSelfTrackingFromScene}!SceneInterface@{SceneInterface}}
+\subsubsection[{useSelfTrackingFromScene}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::useSelfTrackingFromScene (
+\begin{DoxyParamCaption}
+\item[{bool}]{use = {\ttfamily true}, }
+\item[{bool}]{publish = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ad5340f6262f3dfc83f2c4e5ae1457612}
+
+
+Set whether to look at the Beaming Scene for tracking information for the user of this interface of to use only direct tracking input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em use} & Whether to use the Scene for tracking updates \\
+\hline
+{\em publish} & Whether to publish manually set tracking data (eg. from VRPN) to the Beaming Scene \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 314 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a2b7acaa6b5f187a930cb07d34ed4d69f}{
+\index{SceneInterface@{SceneInterface}!usingSelfTrackingFromScene@{usingSelfTrackingFromScene}}
+\index{usingSelfTrackingFromScene@{usingSelfTrackingFromScene}!SceneInterface@{SceneInterface}}
+\subsubsection[{usingSelfTrackingFromScene}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::usingSelfTrackingFromScene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a2b7acaa6b5f187a930cb07d34ed4d69f}
+
+
+Determine whether the Scene for tracking updates. 
+
+\begin{DoxyReturn}{Returns}
+Whether the Scene is used for tracking updates 
+\end{DoxyReturn}
+
+
+Definition at line 321 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{
+\index{SceneInterface@{SceneInterface}!x@{x}}
+\index{x@{x}!SceneInterface@{SceneInterface}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::x (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}
+
+
+Read x-\/translation for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The x-\/tranlation value for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()}, \hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 572 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{
+\index{SceneInterface@{SceneInterface}!y@{y}}
+\index{y@{y}!SceneInterface@{SceneInterface}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::y (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a503e849fab724be5283318c9821e5bf7}
+
+
+Read y-\/translation for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The y-\/tranlation value for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()},\hyperlink{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{z()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 577 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{
+\index{SceneInterface@{SceneInterface}!z@{z}}
+\index{z@{z}!SceneInterface@{SceneInterface}}
+\subsubsection[{z}]{\setlength{\rightskip}{0pt plus 5cm}float SceneInterface::z (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}
+
+
+Read z-\/translation for a specific ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The Beaming Scene ID (\mbox{[}GUID\mbox{]},\mbox{[}NAME\mbox{]}) to obtain data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The z-\/tranlation value for this ID 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData}, \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData()}, \hyperlink{class_scene_interface_a353f36b59fe149ef67292496d854923d}{infoData()}, \hyperlink{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{setGain()}, \hyperlink{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{gain()}, \hyperlink{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{setDirection()}, \hyperlink{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{direction()}, \hyperlink{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{azimuth()}, \hyperlink{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{elevation()}, \hyperlink{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{setTranslation()}, \hyperlink{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{translation()}, \hyperlink{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{x()}, \hyperlink{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{y()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 582 of file sceneinterface.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{sceneinterface_8h}{sceneinterface.h}\item 
+Classes/sceneinterface.cpp\end{DoxyCompactItemize}

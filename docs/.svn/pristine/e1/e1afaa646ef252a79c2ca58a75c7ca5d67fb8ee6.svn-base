@@ -1,0 +1,107 @@
+On the BEAMING SVN, the folder \mbox{[}trunk/Audio/AudioClientServer\mbox{]} folder contains what may be described as a \char`\"{}stable snapshot\char`\"{} of the audio software for BEAMING. This documentation is generated from the classes therein. Apart from this html-\/version, also a Qt Help file is generated, which can be included in QtCreator to work the same way as other Qt Documentation as described on \href{http://doc.qt.nokia.com/qtcreator/creator-help.html#adding-external-documentation.}{\tt http://doc.qt.nokia.com/qtcreator/creator-\/help.html\#adding-\/external-\/documentation.}
+
+The subfolders contain the main classes as well as separate QtCreator projects and matching source code:
+
+Folder overview:
+\begin{DoxyItemize}
+\item \mbox{[}Classes\mbox{]} contains Qt classes providing basic functionality that are used in all the different programs
+\begin{DoxyItemize}
+\item This documentation is so far mainly concerned with these classes
+\item The use of these classes should be the main focus for anyone integrating use of the audio streaming. This could for instance be for purposes like determining how to move a mouth or for implementing a proxy.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item \mbox{[}AudioClientCli\mbox{]} implements a command line audio client using the client types to connect to an audio server and stream audio
+\begin{DoxyItemize}
+\item Mainly tested in linux.
+\item Pierre from UB has succesfully used this in windows, compiled with msvc
+\item Scene integration, and 3D audio is not implemented in this program
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item \mbox{[}AudioServerCli\mbox{]} implements a command line audio server
+\begin{DoxyItemize}
+\item Mainly tested in linux.
+\item Pierre from UB has succesfully used this in windows, compiled with msvc
+\item If a Scene server is available, public address and port of the server will be shared on this
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item \mbox{[}SimpleAudioListener\mbox{]} is a very simple implementation of how one may access ONE specific audio stream from an AudioServer using the \hyperlink{class_rak_cli}{RakCli} class
+\begin{DoxyItemize}
+\item currently only tested in linux
+\item As long as you include the proper headers etc., this should also be possible to use and compile in windows, including in visual studio
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\itshape {\bfseries Coming} {\itshape {\bfseries soon}.\/}.\/}. \mbox{[}GUI\_\-Server\mbox{]} is an implementation of a server with a GUI for control of listing information, kicking clients etc.
+\begin{DoxyItemize}
+\item Tested in both linux (GCC) and windows (MSVC2010)
+\begin{DoxyItemize}
+\item note that the MSVC compilers are pretty picky on versions of a lot of things -\/ the used libraries has to be built with the same compiler version and mode (debug/release and runtime library)
+\end{DoxyItemize}
+\item All main functionality lies in the \hyperlink{class_rak_serv}{RakServ} class
+\item requires the beaming scene library, static raknet library, relevant Qt libraries and system/compiler specific runtime libraries
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\itshape {\bfseries Coming} {\itshape {\bfseries soon}.\/}.\/}. \mbox{[}GUI\_\-MultiClient\mbox{]} is a GUI which can be set up to act as all (normal) types of clients: Visitor, Avatar, Local and Spectator (the latter disabled for the time being)
+\begin{DoxyItemize}
+\item Note that you will not be able to compile this without header and a binary of the binaural filtering class from AAU (used in the \hyperlink{class_scene_interface}{SceneInterface})
+\item Tested in both linux (GCC) and windows (MSVC2010)
+\begin{DoxyItemize}
+\item note that the MSVC compilers are pretty picky on versions of a lot of things -\/ the used libraries has to be built with the same compiler version and mode (debug/release and runtime library)
+\end{DoxyItemize}
+\item All main functionality lies in the various classes (\hyperlink{class_rak_cli}{RakCli}, \hyperlink{class_audio_i_o}{AudioIO}, \hyperlink{class_audio_interface}{AudioInterface}, \hyperlink{class_scene_interface}{SceneInterface})
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\itshape {\bfseries Coming} {\itshape {\bfseries soon}.\/}.\/}. \mbox{[}Libs\mbox{]} Precompiled libraries of various kinds for both windows and linux -\/ both static and dynamic
+\begin{DoxyItemize}
+\item XVR-\/compatible DLL's are in progress
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\itshape {\bfseries Coming} {\itshape {\bfseries soon}.\/}.\/}. \mbox{[}Include\mbox{]} header files for the libraries that are not in the Classes folder
+\end{DoxyItemize}
+
+Additional folders with examples will be provided once they are ready.
+
+Anyone willing to create Visual Studio solutions that create DLL's to import the classes in XVR are welcome to help with this.
+
+Quick overview of how to integrate the audio streaming:
+\begin{DoxyItemize}
+\item Compile the dependencies on the BEAMING SVN accourding to their respective guides
+\begin{DoxyItemize}
+\item RakNet -\/ required for streaming
+\item Beaming Scene -\/ required to locate the audio server address and port
+\begin{DoxyItemize}
+\item Audio server is puplished as an AUDIO client according to the BEAMING Scene Service documentation
+\item When accessing the Scene Service, make sure to set the \char`\"{}viewer\char`\"{} parameter of startclient() to 1
+\end{DoxyItemize}
+\item (Portaudio) -\/ only required if recording or playing audio
+\end{DoxyItemize}
+\item Take inspiration from the implementations of SimpleAudioListener and AudioClientCli
+\item In particular the following classes are relevant for minimum implementation
+\begin{DoxyItemize}
+\item \hyperlink{class_rak_cli}{RakCli}
+\item \hyperlink{class_audio_interface}{AudioInterface}
+\end{DoxyItemize}
+\item A definition of relevant client types (\hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType}) can be found in \hyperlink{rakinfo_8h}{rakinfo.h}. These can be used to identify to the audio server and the documentation also states how they are intended to be used
+\end{DoxyItemize}
+
+For questions, please contact the AAU BEAMING Group on \href{mailto:beaming-aalborg@es.aau.dk}{\tt beaming-\/aalborg@es.aau.dk} 

@@ -1,0 +1,63 @@
+\hypertarget{cli__printout_8h}{
+\section{Classes/cli\_\-printout.h File Reference}
+\label{cli__printout_8h}\index{Classes/cli\_\-printout.h@{Classes/cli\_\-printout.h}}
+}
+
+
+Definition and implementation of a very simple helper-\/class to print messages from the various audio clases to the console.  
+
+
+{\ttfamily \#include \char`\"{}rakinfo.h\char`\"{}}\par
+{\ttfamily \#include $<$QDebug$>$}\par
+{\ttfamily \#include $<$QObject$>$}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcli__printout}{cli\_\-printout}
+\begin{DoxyCompactList}\small\item\em Very simple helper-\/class to print messages from the various audio clases to the console. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cli__printout_8h_a09131fea8acedb17e80c1785d79712a7}{P\_\-ERR}~true
+\begin{DoxyCompactList}\small\item\em Convenience define for using the class externally: \hyperlink{classcli__printout_ad38dd5c08d1da0ffb030e67ee188443f}{cli\_\-printout::print}(\char`\"{}some error\char`\"{},P\_\-ERR);. \item\end{DoxyCompactList}\item 
+\#define \hyperlink{cli__printout_8h_af09a3eb05b32a1317ff372fa2c6a53bb}{P\_\-NOERR}~false
+\begin{DoxyCompactList}\small\item\em Convenience define for using the class externally: \hyperlink{classcli__printout_ad38dd5c08d1da0ffb030e67ee188443f}{cli\_\-printout::print}(\char`\"{}some error\char`\"{},P\_\-NOERR);. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definition and implementation of a very simple helper-\/class to print messages from the various audio clases to the console. \begin{DoxyAuthor}{Author}
+Aalborg University 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{cli__printout_8h_source}{cli\_\-printout.h}.
+
+
+
+\subsection{Define Documentation}
+\hypertarget{cli__printout_8h_a09131fea8acedb17e80c1785d79712a7}{
+\index{cli\_\-printout.h@{cli\_\-printout.h}!P\_\-ERR@{P\_\-ERR}}
+\index{P\_\-ERR@{P\_\-ERR}!cli_printout.h@{cli\_\-printout.h}}
+\subsubsection[{P\_\-ERR}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\_\-ERR~true}}
+\label{cli__printout_8h_a09131fea8acedb17e80c1785d79712a7}
+
+
+Convenience define for using the class externally: \hyperlink{classcli__printout_ad38dd5c08d1da0ffb030e67ee188443f}{cli\_\-printout::print}(\char`\"{}some error\char`\"{},P\_\-ERR);. 
+
+
+
+Definition at line 12 of file cli\_\-printout.h.
+
+\hypertarget{cli__printout_8h_af09a3eb05b32a1317ff372fa2c6a53bb}{
+\index{cli\_\-printout.h@{cli\_\-printout.h}!P\_\-NOERR@{P\_\-NOERR}}
+\index{P\_\-NOERR@{P\_\-NOERR}!cli_printout.h@{cli\_\-printout.h}}
+\subsubsection[{P\_\-NOERR}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\_\-NOERR~false}}
+\label{cli__printout_8h_af09a3eb05b32a1317ff372fa2c6a53bb}
+
+
+Convenience define for using the class externally: \hyperlink{classcli__printout_ad38dd5c08d1da0ffb030e67ee188443f}{cli\_\-printout::print}(\char`\"{}some error\char`\"{},P\_\-NOERR);. 
+
+
+
+Definition at line 14 of file cli\_\-printout.h.
+

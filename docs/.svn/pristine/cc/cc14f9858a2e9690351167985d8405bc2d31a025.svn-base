@@ -1,0 +1,824 @@
+\hypertarget{class_audio_interface}{
+\section{AudioInterface Class Reference}
+\label{class_audio_interface}\index{AudioInterface@{AudioInterface}}
+}
+
+
+Interface for asynchronous communication between audio modules.  
+
+
+
+
+{\ttfamily \#include $<$audiointerface.h$>$}
+
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_audio_interface_a5794aa6662df15c55e99177709ca9305}{message} (QString text, bool err=0)
+\begin{DoxyCompactList}\small\item\em A Qt Signal for a general message interface. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_interface_a8d80beb8357fedad2cbb672457ff1e90}{chnOutAdded} (QString id)
+\begin{DoxyCompactList}\small\item\em A Qt Signal emitted whenever an Output channel is added. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_interface_a17e1dd7847e2d093f7f7ecaa0e543892}{chnOutRemoved} (QString id)
+\begin{DoxyCompactList}\small\item\em A Qt Signal emitted whenever an Output channel is removed. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_interface_a30f885a2317f321556397e3c16db1bde}{chnCaptureAdded} (QString id)
+\begin{DoxyCompactList}\small\item\em A Qt Signal emitted whenever a Capture channel is added. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_audio_interface_a71062397bdac1a2afb7f2e7192b8d2e3}{chnCaptureRemoved} (QString id)
+\begin{DoxyCompactList}\small\item\em A Qt Signal emitted whenever a Capture channel is removed. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_audio_interface_a7b9240750c634fadb20b97e6450e578b}{AudioInterface} (unsigned int nChnCapture=0, unsigned int nChnOutput=0, ring\_\-buffer\_\-size\_\-t bufferSize=DEFAULT\_\-BUFFERSIZE, QObject $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructor for the audio interface. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a6a5265f1be1d9b5151002d3104a55fd0}{nAvailCapture} (int channel=0)
+\begin{DoxyCompactList}\small\item\em Test how many samples are available on a particular Capture channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_adf47b99cee9fdeb3b843a624dfad2f4e}{writeCapture} (signed short $\ast$source, ring\_\-buffer\_\-size\_\-t numel, int channel=0)
+\begin{DoxyCompactList}\small\item\em Write to a Capture channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a0216d85b9467eb13b63c77e47b7797ed}{writeCapture} (signed short $\ast$source, ring\_\-buffer\_\-size\_\-t numel, QString id)
+\begin{DoxyCompactList}\small\item\em Write to a Capture channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a55a997d0ba7d7b5eef8b924ce2a2aeed}{readCapture} (signed short $\ast$dest, ring\_\-buffer\_\-size\_\-t numel, int channel=0)
+\begin{DoxyCompactList}\small\item\em Read from a Capture channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a7de9bde79e7259c3a6339a1b8ab52545}{readCapture} (signed short $\ast$dest, ring\_\-buffer\_\-size\_\-t numel, QString id)
+\begin{DoxyCompactList}\small\item\em Read from a Capture channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a8364736e18cc33aeff7eeb389356fe88}{nAvailOutput} (int channel=0)
+\begin{DoxyCompactList}\small\item\em Test how many samples are available on a particular Output channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a7aab1fc9ee96f0b2f30e097b8ba9d271}{writeOutput} (signed short $\ast$source, ring\_\-buffer\_\-size\_\-t numel, int channel=0)
+\begin{DoxyCompactList}\small\item\em Write to an Output channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a09ab6faa8ce907f02a3fbbe6cdea09e1}{writeOutput} (signed short $\ast$source, ring\_\-buffer\_\-size\_\-t numel, QString id)
+\begin{DoxyCompactList}\small\item\em Write to an Output channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a089f7cb8b1327c9c83e2442b3ef5c4d0}{readOutput} (signed short $\ast$dest, ring\_\-buffer\_\-size\_\-t numel, int channel=0)
+\begin{DoxyCompactList}\small\item\em Read from an Output channel. \item\end{DoxyCompactList}\item 
+ring\_\-buffer\_\-size\_\-t \hyperlink{class_audio_interface_a6c610824367452dee0a83bf4ffa185cd}{readOutput} (signed short $\ast$dest, ring\_\-buffer\_\-size\_\-t numel, QString id)
+\begin{DoxyCompactList}\small\item\em Read from an Output channel. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_aee1478c637ec699b4a157f2fa407c1a3}{addChnCapture} (QString id=QString())
+\begin{DoxyCompactList}\small\item\em Explicitly add a Capture channel. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_a404e29fbe189109a90d0038b94a70994}{rmChnCapture} ()
+\begin{DoxyCompactList}\small\item\em Remove the last added Capture channel. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_a0d38fbf733e8555f95f4af9d23672a33}{addChnOutput} (QString id=QString())
+\begin{DoxyCompactList}\small\item\em Explicitly add an Output channel. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_a1445e17d49590fd352ecc48779bb4b21}{rmChnOutput} ()
+\begin{DoxyCompactList}\small\item\em Remove the last added Output channel. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_a9cee063cdbec8d17af8588b0486be515}{nChnCapture} ()
+\begin{DoxyCompactList}\small\item\em Get the number of Capture channels. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_a30e09099d70d0c10d23422db185b3f38}{nChnOutput} ()
+\begin{DoxyCompactList}\small\item\em Get the number of Output channels. \item\end{DoxyCompactList}\item 
+QString \hyperlink{class_audio_interface_a91e40a8c965ba6217312acc15ca08fc4}{captureID} (int channel=0)
+\begin{DoxyCompactList}\small\item\em Get the ID associated to a particular Capture channel. \item\end{DoxyCompactList}\item 
+QString \hyperlink{class_audio_interface_a56eb2962c98bc90da4b3f1fff44c8151}{setCaptureID} (QString id, int channel=0)
+\begin{DoxyCompactList}\small\item\em Set the ID associated to a particular Capture channel. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_a7c22ce19f754d6db48ff679f09af567d}{indexFromCaptureID} (QString id)
+\begin{DoxyCompactList}\small\item\em Get the Capture channel index of a particular ID. \item\end{DoxyCompactList}\item 
+QString \hyperlink{class_audio_interface_ab91b9a3336a716ca6689da5e1411d57e}{outputID} (int channel=0)
+\begin{DoxyCompactList}\small\item\em Get the ID associated to a particular Output channel. \item\end{DoxyCompactList}\item 
+QString \hyperlink{class_audio_interface_a1c9136358c468eafadb86b0df52d8585}{setOutputID} (QString id, int channel=0)
+\begin{DoxyCompactList}\small\item\em Set the ID associated to a particular Output channel. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_audio_interface_a06e0157bc58c97fd43deb148e6bf0515}{indexFromOutputID} (QString id)
+\begin{DoxyCompactList}\small\item\em Get the Output channel index of a particular ID. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface for asynchronous communication between audio modules. The \hyperlink{class_audio_interface}{AudioInterface} class is meant for interfacing different modules by using buffers that work with asynchronous access.\par
+ This class should also be used by any program wishing to implement an Audio Client (since it is used by the \hyperlink{class_rak_cli}{RakCli} class).\par
+ The class can be instantiated without any arguments and then used as a reference in the other modules, which can then use and extend it with audio channels channels later.\par
+ The class contains 2 sets of separate (but equal) functions:
+\begin{DoxyItemize}
+\item The Capture functions relate to the audio (if any) that is {\itshape captured\/} by a microphone in order to be transmitted to the server (or generated otherwise for the same purpose, such as in the proxy client). The \hyperlink{class_rak_cli}{RakCli} class will automatically transmit anything that is in the capture buffers as soon as it is avavilable.
+\item The Output functions relate to the audio (if any) that is meant to be {\itshape output\/} by the client, ie. streams from the server. Once connected to a server, the \hyperlink{class_rak_cli}{RakCli} class will fill up these buffers with any received audio.
+\end{DoxyItemize}\hypertarget{class_audio_interface_Use}{}\subsection{General use}\label{class_audio_interface_Use}
+
+\begin{DoxyItemize}
+\item Writing to the interface is done by using the functions \hyperlink{class_audio_interface_adf47b99cee9fdeb3b843a624dfad2f4e}{writeCapture()} and \hyperlink{class_audio_interface_a7aab1fc9ee96f0b2f30e097b8ba9d271}{writeOutput()}.
+\begin{DoxyItemize}
+\item If there is not enough room in the buffer, the remaining data will be discarded.
+\end{DoxyItemize}
+\item Reading from the interface is done by using the functions \hyperlink{class_audio_interface_a55a997d0ba7d7b5eef8b924ce2a2aeed}{readCapture()} and \hyperlink{class_audio_interface_a089f7cb8b1327c9c83e2442b3ef5c4d0}{readOutput()} with an indication of how much data to read.
+\begin{DoxyItemize}
+\item If there is not enough available data, only what is available will be read
+\item To test how much is available (eg. to avoid dealing with too small bits of data), one can use the functions \hyperlink{class_audio_interface_a6a5265f1be1d9b5151002d3104a55fd0}{nAvailCapture()} and \hyperlink{class_audio_interface_a8364736e18cc33aeff7eeb389356fe88}{nAvailOutput()}.
+\end{DoxyItemize}
+\item When using these functions one can either use an ID (\hyperlink{class_rak_cli}{RakCli} uses this method with the ID of each channel) or the channel number (as is done by the \hyperlink{class_audio_i_o}{AudioIO} class looping through channels).
+\item If there is an attempt to write to a buffer by ID, and there is no channel with that ID, a channel will be added automatically and a Qt Signal emitted.
+\item For looping through channels, the functions \hyperlink{class_audio_interface_a9cee063cdbec8d17af8588b0486be515}{nChnCapture()} and \hyperlink{class_audio_interface_a30e09099d70d0c10d23422db185b3f38}{nChnOutput()} will reveal the current number of channels of each type. 
+\end{DoxyItemize}
+
+Definition at line 78 of file audiointerface.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_audio_interface_a7b9240750c634fadb20b97e6450e578b}{
+\index{AudioInterface@{AudioInterface}!AudioInterface@{AudioInterface}}
+\index{AudioInterface@{AudioInterface}!AudioInterface@{AudioInterface}}
+\subsubsection[{AudioInterface}]{\setlength{\rightskip}{0pt plus 5cm}AudioInterface::AudioInterface (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{nChnCapture = {\ttfamily 0}, }
+\item[{unsigned int}]{nChnOutput = {\ttfamily 0}, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{bufferSize = {\ttfamily DEFAULT\_\-BUFFERSIZE}, }
+\item[{QObject $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a7b9240750c634fadb20b97e6450e578b}
+
+
+Constructor for the audio interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nChnCapture} & Number of capture channels to initialize. \\
+\hline
+{\em nChnOutput} & Number of Output channels to initialize. \\
+\hline
+{\em bufferSize} & The size each buffer should be initialized with. \\
+\hline
+{\em parent} & A pointer to the parent may be given, but is not used for anything. It is merely a requirement of inheriting QObject (which is required for Slots and Signals). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file audiointerface.cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_audio_interface_aee1478c637ec699b4a157f2fa407c1a3}{
+\index{AudioInterface@{AudioInterface}!addChnCapture@{addChnCapture}}
+\index{addChnCapture@{addChnCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{addChnCapture}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::addChnCapture (
+\begin{DoxyParamCaption}
+\item[{QString}]{id = {\ttfamily QString()}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_aee1478c637ec699b4a157f2fa407c1a3}
+
+
+Explicitly add a Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Optional ID for the channel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total number of Capture channels after addition. 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a0d38fbf733e8555f95f4af9d23672a33}{
+\index{AudioInterface@{AudioInterface}!addChnOutput@{addChnOutput}}
+\index{addChnOutput@{addChnOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{addChnOutput}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::addChnOutput (
+\begin{DoxyParamCaption}
+\item[{QString}]{id = {\ttfamily QString()}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a0d38fbf733e8555f95f4af9d23672a33}
+
+
+Explicitly add an Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Optional ID for the channel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total number of Output channels after addition. 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a91e40a8c965ba6217312acc15ca08fc4}{
+\index{AudioInterface@{AudioInterface}!captureID@{captureID}}
+\index{captureID@{captureID}!AudioInterface@{AudioInterface}}
+\subsubsection[{captureID}]{\setlength{\rightskip}{0pt plus 5cm}QString AudioInterface::captureID (
+\begin{DoxyParamCaption}
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a91e40a8c965ba6217312acc15ca08fc4}
+
+
+Get the ID associated to a particular Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The channel number to look up. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the channel (in general this will be the Beaming Scene ID). 
+\end{DoxyReturn}
+
+
+Definition at line 244 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a30f885a2317f321556397e3c16db1bde}{
+\index{AudioInterface@{AudioInterface}!chnCaptureAdded@{chnCaptureAdded}}
+\index{chnCaptureAdded@{chnCaptureAdded}!AudioInterface@{AudioInterface}}
+\subsubsection[{chnCaptureAdded}]{\setlength{\rightskip}{0pt plus 5cm}void AudioInterface::chnCaptureAdded (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_audio_interface_a30f885a2317f321556397e3c16db1bde}
+
+
+A Qt Signal emitted whenever a Capture channel is added. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID attached to the added channel. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_audio_interface_a71062397bdac1a2afb7f2e7192b8d2e3}{
+\index{AudioInterface@{AudioInterface}!chnCaptureRemoved@{chnCaptureRemoved}}
+\index{chnCaptureRemoved@{chnCaptureRemoved}!AudioInterface@{AudioInterface}}
+\subsubsection[{chnCaptureRemoved}]{\setlength{\rightskip}{0pt plus 5cm}void AudioInterface::chnCaptureRemoved (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_audio_interface_a71062397bdac1a2afb7f2e7192b8d2e3}
+
+
+A Qt Signal emitted whenever a Capture channel is removed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID attached to the removed channel. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_audio_interface_a8d80beb8357fedad2cbb672457ff1e90}{
+\index{AudioInterface@{AudioInterface}!chnOutAdded@{chnOutAdded}}
+\index{chnOutAdded@{chnOutAdded}!AudioInterface@{AudioInterface}}
+\subsubsection[{chnOutAdded}]{\setlength{\rightskip}{0pt plus 5cm}void AudioInterface::chnOutAdded (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_audio_interface_a8d80beb8357fedad2cbb672457ff1e90}
+
+
+A Qt Signal emitted whenever an Output channel is added. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID attached to the added channel. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_audio_interface_a17e1dd7847e2d093f7f7ecaa0e543892}{
+\index{AudioInterface@{AudioInterface}!chnOutRemoved@{chnOutRemoved}}
+\index{chnOutRemoved@{chnOutRemoved}!AudioInterface@{AudioInterface}}
+\subsubsection[{chnOutRemoved}]{\setlength{\rightskip}{0pt plus 5cm}void AudioInterface::chnOutRemoved (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_audio_interface_a17e1dd7847e2d093f7f7ecaa0e543892}
+
+
+A Qt Signal emitted whenever an Output channel is removed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID attached to the removed channel. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_audio_interface_a7c22ce19f754d6db48ff679f09af567d}{
+\index{AudioInterface@{AudioInterface}!indexFromCaptureID@{indexFromCaptureID}}
+\index{indexFromCaptureID@{indexFromCaptureID}!AudioInterface@{AudioInterface}}
+\subsubsection[{indexFromCaptureID}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::indexFromCaptureID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a7c22ce19f754d6db48ff679f09af567d}
+
+
+Get the Capture channel index of a particular ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID to look up (in general this will be the Beaming Scene ID). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the requested ID, or -\/1 if it does not exist. 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a06e0157bc58c97fd43deb148e6bf0515}{
+\index{AudioInterface@{AudioInterface}!indexFromOutputID@{indexFromOutputID}}
+\index{indexFromOutputID@{indexFromOutputID}!AudioInterface@{AudioInterface}}
+\subsubsection[{indexFromOutputID}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::indexFromOutputID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a06e0157bc58c97fd43deb148e6bf0515}
+
+
+Get the Output channel index of a particular ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID to look up (in general this will be the Beaming Scene ID). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the requested ID, or -\/1 if it does not exist. 
+\end{DoxyReturn}
+
+
+Definition at line 287 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a5794aa6662df15c55e99177709ca9305}{
+\index{AudioInterface@{AudioInterface}!message@{message}}
+\index{message@{message}!AudioInterface@{AudioInterface}}
+\subsubsection[{message}]{\setlength{\rightskip}{0pt plus 5cm}void AudioInterface::message (
+\begin{DoxyParamCaption}
+\item[{QString}]{text, }
+\item[{bool}]{err = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_audio_interface_a5794aa6662df15c55e99177709ca9305}
+
+
+A Qt Signal for a general message interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & A message text emitted from the class. \\
+\hline
+{\em err} & {\bfseries true} if the message is an error, {\bfseries false} otherwise. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_audio_interface_a6a5265f1be1d9b5151002d3104a55fd0}{
+\index{AudioInterface@{AudioInterface}!nAvailCapture@{nAvailCapture}}
+\index{nAvailCapture@{nAvailCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{nAvailCapture}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::nAvailCapture (
+\begin{DoxyParamCaption}
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a6a5265f1be1d9b5151002d3104a55fd0}
+
+
+Test how many samples are available on a particular Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The channel number to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples ready to read. 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a8364736e18cc33aeff7eeb389356fe88}{
+\index{AudioInterface@{AudioInterface}!nAvailOutput@{nAvailOutput}}
+\index{nAvailOutput@{nAvailOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{nAvailOutput}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::nAvailOutput (
+\begin{DoxyParamCaption}
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a8364736e18cc33aeff7eeb389356fe88}
+
+
+Test how many samples are available on a particular Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The channel number to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples ready to read. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a9cee063cdbec8d17af8588b0486be515}{
+\index{AudioInterface@{AudioInterface}!nChnCapture@{nChnCapture}}
+\index{nChnCapture@{nChnCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{nChnCapture}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::nChnCapture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a9cee063cdbec8d17af8588b0486be515}
+
+
+Get the number of Capture channels. 
+
+\begin{DoxyReturn}{Returns}
+Number of Capture channels. 
+\end{DoxyReturn}
+
+
+Definition at line 162 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a30e09099d70d0c10d23422db185b3f38}{
+\index{AudioInterface@{AudioInterface}!nChnOutput@{nChnOutput}}
+\index{nChnOutput@{nChnOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{nChnOutput}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::nChnOutput (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a30e09099d70d0c10d23422db185b3f38}
+
+
+Get the number of Output channels. 
+
+\begin{DoxyReturn}{Returns}
+Number of Output channels. 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_ab91b9a3336a716ca6689da5e1411d57e}{
+\index{AudioInterface@{AudioInterface}!outputID@{outputID}}
+\index{outputID@{outputID}!AudioInterface@{AudioInterface}}
+\subsubsection[{outputID}]{\setlength{\rightskip}{0pt plus 5cm}QString AudioInterface::outputID (
+\begin{DoxyParamCaption}
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_ab91b9a3336a716ca6689da5e1411d57e}
+
+
+Get the ID associated to a particular Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The channel number to look up \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the channel (in general this will be the Beaming Scene ID) 
+\end{DoxyReturn}
+
+
+Definition at line 268 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a55a997d0ba7d7b5eef8b924ce2a2aeed}{
+\index{AudioInterface@{AudioInterface}!readCapture@{readCapture}}
+\index{readCapture@{readCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{readCapture}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::readCapture (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{dest, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a55a997d0ba7d7b5eef8b924ce2a2aeed}
+
+
+Read from a Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & A pointer to an array of least {\itshape numel\/} elements for the data. \\
+\hline
+{\em numel} & How many samples should be read from the interface. \\
+\hline
+{\em channel} & Which channel number to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually read from interface. 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a7de9bde79e7259c3a6339a1b8ab52545}{
+\index{AudioInterface@{AudioInterface}!readCapture@{readCapture}}
+\index{readCapture@{readCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{readCapture}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::readCapture (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{dest, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a7de9bde79e7259c3a6339a1b8ab52545}
+
+
+Read from a Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & A pointer to an array of least {\itshape numel\/} elements for the data. \\
+\hline
+{\em numel} & How many samples should be read from the interface. \\
+\hline
+{\em id} & Which channel id to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually read from interface. 
+\end{DoxyReturn}
+
+
+Definition at line 89 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a089f7cb8b1327c9c83e2442b3ef5c4d0}{
+\index{AudioInterface@{AudioInterface}!readOutput@{readOutput}}
+\index{readOutput@{readOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{readOutput}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::readOutput (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{dest, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a089f7cb8b1327c9c83e2442b3ef5c4d0}
+
+
+Read from an Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & A pointer to an array of least {\itshape numel\/} elements for the data. \\
+\hline
+{\em numel} & How many samples should be read from the interface. \\
+\hline
+{\em channel} & Which channel number to read from.. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually read from interface. 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a6c610824367452dee0a83bf4ffa185cd}{
+\index{AudioInterface@{AudioInterface}!readOutput@{readOutput}}
+\index{readOutput@{readOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{readOutput}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::readOutput (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{dest, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a6c610824367452dee0a83bf4ffa185cd}
+
+
+Read from an Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & A pointer to an array of least {\itshape numel\/} elements for the data. \\
+\hline
+{\em numel} & How many samples should be read from the interface. \\
+\hline
+{\em id} & Which channel id to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually read from interface. 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a404e29fbe189109a90d0038b94a70994}{
+\index{AudioInterface@{AudioInterface}!rmChnCapture@{rmChnCapture}}
+\index{rmChnCapture@{rmChnCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{rmChnCapture}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::rmChnCapture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a404e29fbe189109a90d0038b94a70994}
+
+
+Remove the last added Capture channel. 
+
+\begin{DoxyReturn}{Returns}
+Total number of Capture channels after removal. 
+\end{DoxyReturn}
+
+
+Definition at line 192 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a1445e17d49590fd352ecc48779bb4b21}{
+\index{AudioInterface@{AudioInterface}!rmChnOutput@{rmChnOutput}}
+\index{rmChnOutput@{rmChnOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{rmChnOutput}]{\setlength{\rightskip}{0pt plus 5cm}int AudioInterface::rmChnOutput (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a1445e17d49590fd352ecc48779bb4b21}
+
+
+Remove the last added Output channel. 
+
+\begin{DoxyReturn}{Returns}
+Total number of Output channels after removal. 
+\end{DoxyReturn}
+
+
+Definition at line 226 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a56eb2962c98bc90da4b3f1fff44c8151}{
+\index{AudioInterface@{AudioInterface}!setCaptureID@{setCaptureID}}
+\index{setCaptureID@{setCaptureID}!AudioInterface@{AudioInterface}}
+\subsubsection[{setCaptureID}]{\setlength{\rightskip}{0pt plus 5cm}QString AudioInterface::setCaptureID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a56eb2962c98bc90da4b3f1fff44c8151}
+
+
+Set the ID associated to a particular Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID to set (in general this will be the Beaming Scene ID). \\
+\hline
+{\em channel} & The channel number to set the ID for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the channel after setting it. 
+\end{DoxyReturn}
+
+
+Definition at line 253 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a1c9136358c468eafadb86b0df52d8585}{
+\index{AudioInterface@{AudioInterface}!setOutputID@{setOutputID}}
+\index{setOutputID@{setOutputID}!AudioInterface@{AudioInterface}}
+\subsubsection[{setOutputID}]{\setlength{\rightskip}{0pt plus 5cm}QString AudioInterface::setOutputID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a1c9136358c468eafadb86b0df52d8585}
+
+
+Set the ID associated to a particular Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID to set (in general this will be the Beaming Scene ID) \\
+\hline
+{\em channel} & The channel number to set the ID for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the channel after setting it. 
+\end{DoxyReturn}
+
+
+Definition at line 277 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_adf47b99cee9fdeb3b843a624dfad2f4e}{
+\index{AudioInterface@{AudioInterface}!writeCapture@{writeCapture}}
+\index{writeCapture@{writeCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{writeCapture}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::writeCapture (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{source, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_adf47b99cee9fdeb3b843a624dfad2f4e}
+
+
+Write to a Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A pointer to an array containing at least {\itshape numel\/} samples of audio. \\
+\hline
+{\em numel} & How many samples should be written to the interface. \\
+\hline
+{\em channel} & Which channel number to write to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually written to interface. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a0216d85b9467eb13b63c77e47b7797ed}{
+\index{AudioInterface@{AudioInterface}!writeCapture@{writeCapture}}
+\index{writeCapture@{writeCapture}!AudioInterface@{AudioInterface}}
+\subsubsection[{writeCapture}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::writeCapture (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{source, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a0216d85b9467eb13b63c77e47b7797ed}
+
+
+Write to a Capture channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A pointer to an array containing at least {\itshape numel\/} samples of audio. \\
+\hline
+{\em numel} & How many samples should be written to the interface. \\
+\hline
+{\em id} & Which channel id to write to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually written to interface 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a09ab6faa8ce907f02a3fbbe6cdea09e1}{
+\index{AudioInterface@{AudioInterface}!writeOutput@{writeOutput}}
+\index{writeOutput@{writeOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{writeOutput}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::writeOutput (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{source, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a09ab6faa8ce907f02a3fbbe6cdea09e1}
+
+
+Write to an Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A pointer to an array containing at least {\itshape numel\/} samples of audio. \\
+\hline
+{\em numel} & How many samples should be written to the interface. \\
+\hline
+{\em id} & Which channel id to write to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually written to interface. 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file audiointerface.cpp.
+
+\hypertarget{class_audio_interface_a7aab1fc9ee96f0b2f30e097b8ba9d271}{
+\index{AudioInterface@{AudioInterface}!writeOutput@{writeOutput}}
+\index{writeOutput@{writeOutput}!AudioInterface@{AudioInterface}}
+\subsubsection[{writeOutput}]{\setlength{\rightskip}{0pt plus 5cm}ring\_\-buffer\_\-size\_\-t AudioInterface::writeOutput (
+\begin{DoxyParamCaption}
+\item[{signed short $\ast$}]{source, }
+\item[{ring\_\-buffer\_\-size\_\-t}]{numel, }
+\item[{int}]{channel = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_audio_interface_a7aab1fc9ee96f0b2f30e097b8ba9d271}
+
+
+Write to an Output channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & A pointer to an array containing at least {\itshape numel\/} samples of audio. \\
+\hline
+{\em numel} & How many samples should be written to the interface. \\
+\hline
+{\em channel} & Which channel number to write to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of samples actually written to interface. 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file audiointerface.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{audiointerface_8h}{audiointerface.h}\item 
+Classes/\hyperlink{audiointerface_8cpp}{audiointerface.cpp}\end{DoxyCompactItemize}

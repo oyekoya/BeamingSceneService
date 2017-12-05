@@ -1,0 +1,406 @@
+\hypertarget{class_scene_interface}{
+\section{SceneInterface Class Reference}
+\label{class_scene_interface}\index{SceneInterface@{SceneInterface}}
+}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_scene_interface_ae89618d6d530ae55f18fa3f4d8cf5f90}{addID} (QString id, bool startProcess=true)
+\begin{DoxyCompactList}\small\item\em add a default set of empty data \item\end{DoxyCompactList}\item 
+void \hyperlink{class_scene_interface_a92285c3aea9e0aa135df93613dfe0bdf}{removeID} (QString id)
+\begin{DoxyCompactList}\small\item\em remove all data related to a particular ID \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_scene_interface_aebe0de9a190095cc5f7fcb6ae9bb0146}{
+void {\bfseries message} (QString text, bool err=0)}
+\label{class_scene_interface_aebe0de9a190095cc5f7fcb6ae9bb0146}
+
+\item 
+\hypertarget{class_scene_interface_af924bed35d76efabdca9e2968f138601}{
+void {\bfseries audioServerFound} (QString address, unsigned short port)}
+\label{class_scene_interface_af924bed35d76efabdca9e2968f138601}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scene_interface_a52b4e22cae0a0eb85223417458fc6a81}{SceneInterface} (QObject $\ast$parent=0)
+\item 
+bool \hyperlink{class_scene_interface_a32a7846a3ad562ec4ba1763e8e809e26}{connectToScene} (QString myID, QString serverAddress, int serverPort)
+\begin{DoxyCompactList}\small\item\em Scene connection functions. \item\end{DoxyCompactList}\item 
+\hypertarget{class_scene_interface_a68fe01e390a379d3d440b398edc9ec8d}{
+void {\bfseries disconnectFromScene} ()}
+\label{class_scene_interface_a68fe01e390a379d3d440b398edc9ec8d}
+
+\item 
+\hypertarget{class_scene_interface_a3db7acd0ef9f10bc937a2c48b54d0992}{
+void {\bfseries setSceneID} (QString myID)}
+\label{class_scene_interface_a3db7acd0ef9f10bc937a2c48b54d0992}
+
+\item 
+\hypertarget{class_scene_interface_a50b68136dc1c20828a41d5c03fcabc21}{
+bool {\bfseries isConnectedToScene} ()}
+\label{class_scene_interface_a50b68136dc1c20828a41d5c03fcabc21}
+
+\item 
+pair$<$ QString, unsigned short $>$ \hyperlink{class_scene_interface_a2c9f50c877cd2ac7bf75bfb6af7fff46}{updateAudioServerInfo} ()
+\begin{DoxyCompactList}\small\item\em obtain information about the audio server from the scene \item\end{DoxyCompactList}\item 
+\hypertarget{class_scene_interface_a38974e9a7e8bcbf71a9acb5f34469d8b}{
+QString {\bfseries audioServerAdress} ()}
+\label{class_scene_interface_a38974e9a7e8bcbf71a9acb5f34469d8b}
+
+\item 
+\hypertarget{class_scene_interface_a52d9b2266857e45e8e51a8a683a99aed}{
+unsigned short {\bfseries audioServerPort} ()}
+\label{class_scene_interface_a52d9b2266857e45e8e51a8a683a99aed}
+
+\item 
+bool \hyperlink{class_scene_interface_aea18e3bfc539d329ee970a066a47fdcd}{exist} (QString id)
+\begin{DoxyCompactList}\small\item\em test if a given ID exist on the scene and whether a processor is attached: \item\end{DoxyCompactList}\item 
+\hypertarget{class_scene_interface_a89b6cd2cccb2a6d6c1279eabed97677e}{
+bool {\bfseries processStarted} (QString id)}
+\label{class_scene_interface_a89b6cd2cccb2a6d6c1279eabed97677e}
+
+\item 
+QList$<$ QString $>$ \hyperlink{class_scene_interface_ac6fca129f77e5673b3d8df5381e01125}{IDs} ()
+\begin{DoxyCompactList}\small\item\em get a list of ID's registered in this class \item\end{DoxyCompactList}\item 
+\hypertarget{class_scene_interface_ae4b498d2a9db4b00bb7a797093227700}{
+QStringList {\bfseries sceneClientsVisible} (bool IDonly=false)}
+\label{class_scene_interface_ae4b498d2a9db4b00bb7a797093227700}
+
+\item 
+bool \hyperlink{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{setInfoData} (QString id, \hyperlink{structt__scene_info_data}{t\_\-sceneInfoData} data)
+\item 
+\hypertarget{class_scene_interface_a353f36b59fe149ef67292496d854923d}{
+\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData} {\bfseries infoData} (QString id)}
+\label{class_scene_interface_a353f36b59fe149ef67292496d854923d}
+
+\item 
+\hypertarget{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}{
+bool {\bfseries setGain} (QString id, double gain)}
+\label{class_scene_interface_a25ee22bf15b8356545895cd4c416f8a8}
+
+\item 
+\hypertarget{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}{
+double {\bfseries gain} (QString id)}
+\label{class_scene_interface_ac7a3201eb5742c16a3f0c92fe1f0db64}
+
+\item 
+\hypertarget{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}{
+bool {\bfseries setDirection} (QString id, double azimuth, double elevation)}
+\label{class_scene_interface_ae198052b63eee052ec4a55b1515120c6}
+
+\item 
+\hypertarget{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}{
+pair$<$ double, double $>$ {\bfseries direction} (QString id)}
+\label{class_scene_interface_ae9b1faef921eb2a51f159ee8072c6bf1}
+
+\item 
+\hypertarget{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}{
+double {\bfseries azimuth} (QString id)}
+\label{class_scene_interface_a415918bc782e5e50b8feff63a78fc432}
+
+\item 
+\hypertarget{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}{
+double {\bfseries elevation} (QString id)}
+\label{class_scene_interface_ae676700dccf220b565bc1b83ecb23258}
+
+\item 
+\hypertarget{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}{
+bool {\bfseries setTranslation} (QString id, CVec3 translation)}
+\label{class_scene_interface_a61ab59240f6afbcd98414e2edb3d9506}
+
+\item 
+\hypertarget{class_scene_interface_a7e2c7d3545e94853a316801b7090075e}{
+bool {\bfseries setTranslation} (QString id, float x, float y, float z)}
+\label{class_scene_interface_a7e2c7d3545e94853a316801b7090075e}
+
+\item 
+\hypertarget{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}{
+CVec3 {\bfseries translation} (QString id)}
+\label{class_scene_interface_ae2a9d009552ce99961cbcfe3f56649f0}
+
+\item 
+\hypertarget{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}{
+float {\bfseries x} (QString id)}
+\label{class_scene_interface_ab5b5906d55a658c22bb6c964cea89981}
+
+\item 
+\hypertarget{class_scene_interface_a503e849fab724be5283318c9821e5bf7}{
+float {\bfseries y} (QString id)}
+\label{class_scene_interface_a503e849fab724be5283318c9821e5bf7}
+
+\item 
+\hypertarget{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}{
+float {\bfseries z} (QString id)}
+\label{class_scene_interface_a57e34610f7bc5ac22ace2ec280c32b10}
+
+\item 
+\hypertarget{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}{
+void {\bfseries setMyTranslation} (CVec3 translation)}
+\label{class_scene_interface_aeb84d07ab93ef8cbace876d731ff9fc0}
+
+\item 
+\hypertarget{class_scene_interface_a224ed0650413c37e695fa481111cb947}{
+void {\bfseries setMyTranslation} (float x, float y, float z)}
+\label{class_scene_interface_a224ed0650413c37e695fa481111cb947}
+
+\item 
+\hypertarget{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}{
+CVec3 {\bfseries myTranslation} ()}
+\label{class_scene_interface_af588ea71f14dcf9246e720c2e31bdefb}
+
+\item 
+\hypertarget{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}{
+float {\bfseries myX} ()}
+\label{class_scene_interface_a823c45130fc803a3d8be71920e857aa3}
+
+\item 
+\hypertarget{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}{
+float {\bfseries myY} ()}
+\label{class_scene_interface_a8f357987bf1c83b6ab9572055d652504}
+
+\item 
+\hypertarget{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}{
+float {\bfseries myZ} ()}
+\label{class_scene_interface_af138d7752ac636869b4a92bc895d2f66}
+
+\item 
+\hypertarget{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}{
+void {\bfseries setMyQuat} (CQuat quat)}
+\label{class_scene_interface_ae207616a7fadd0bb0cea6cf1e3aef176}
+
+\item 
+\hypertarget{class_scene_interface_ab42c961da985fce8cbe290a928f2501a}{
+void {\bfseries setMyQuat} (float qx, float qy, float qz, float qw)}
+\label{class_scene_interface_ab42c961da985fce8cbe290a928f2501a}
+
+\item 
+\hypertarget{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}{
+CQuat {\bfseries myQuat} ()}
+\label{class_scene_interface_a54fb65adf83ff8644a529cd62282c1e9}
+
+\item 
+\hypertarget{class_scene_interface_a1e460424619757422fe39954bab91fbe}{
+float {\bfseries myQx} ()}
+\label{class_scene_interface_a1e460424619757422fe39954bab91fbe}
+
+\item 
+\hypertarget{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}{
+float {\bfseries myQy} ()}
+\label{class_scene_interface_acf833f156d50a62804e6e68d7dec20e6}
+
+\item 
+\hypertarget{class_scene_interface_aefc381908a9033cd054929b73df2d909}{
+float {\bfseries myQz} ()}
+\label{class_scene_interface_aefc381908a9033cd054929b73df2d909}
+
+\item 
+\hypertarget{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}{
+float {\bfseries myQw} ()}
+\label{class_scene_interface_aed278e558de12154532fe2eef37c1bc2}
+
+\item 
+bool \hyperlink{class_scene_interface_a3bfb14f28b5a32f8e28a84b710e5e776}{startProcessing} (QString id)
+\begin{DoxyCompactList}\small\item\em Processing functionality. \item\end{DoxyCompactList}\item 
+\hypertarget{class_scene_interface_a9db192eaee89cb45faa09e998ba8cee4}{
+bool {\bfseries stopProcessing} (QString id)}
+\label{class_scene_interface_a9db192eaee89cb45faa09e998ba8cee4}
+
+\item 
+\hypertarget{class_scene_interface_ab92a58713e8f8b50320b3ee1e5b5b7f3}{
+pair$<$ short, short $>$ {\bfseries process} (QString id, short sample)}
+\label{class_scene_interface_ab92a58713e8f8b50320b3ee1e5b5b7f3}
+
+\item 
+\hypertarget{class_scene_interface_a767870846f423fb32940b2f067881c7e}{
+pair$<$ float, float $>$ {\bfseries process} (QString id, float sample)}
+\label{class_scene_interface_a767870846f423fb32940b2f067881c7e}
+
+\item 
+\hypertarget{class_scene_interface_a106d56a955ac2e3c9d11855c3a8f5736}{
+void {\bfseries process} (QString id, short $\ast$sample, short $\ast$left, short $\ast$right, int len=1)}
+\label{class_scene_interface_a106d56a955ac2e3c9d11855c3a8f5736}
+
+\item 
+\hypertarget{class_scene_interface_a060f1a319636a73b190dc808447912c6}{
+void {\bfseries process} (QString id, float $\ast$sample, float $\ast$left, float $\ast$right, int len=1)}
+\label{class_scene_interface_a060f1a319636a73b190dc808447912c6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 38 of file sceneinterface.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_scene_interface_a52b4e22cae0a0eb85223417458fc6a81}{
+\index{SceneInterface@{SceneInterface}!SceneInterface@{SceneInterface}}
+\index{SceneInterface@{SceneInterface}!SceneInterface@{SceneInterface}}
+\subsubsection[{SceneInterface}]{\setlength{\rightskip}{0pt plus 5cm}SceneInterface::SceneInterface (
+\begin{DoxyParamCaption}
+\item[{QObject $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a52b4e22cae0a0eb85223417458fc6a81}
+Scene interface constructor 
+
+Definition at line 45 of file sceneinterface.cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scene_interface_ae89618d6d530ae55f18fa3f4d8cf5f90}{
+\index{SceneInterface@{SceneInterface}!addID@{addID}}
+\index{addID@{addID}!SceneInterface@{SceneInterface}}
+\subsubsection[{addID}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::addID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{bool}]{startProcess = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_scene_interface_ae89618d6d530ae55f18fa3f4d8cf5f90}
+
+
+add a default set of empty data 
+
+
+
+Definition at line 421 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a32a7846a3ad562ec4ba1763e8e809e26}{
+\index{SceneInterface@{SceneInterface}!connectToScene@{connectToScene}}
+\index{connectToScene@{connectToScene}!SceneInterface@{SceneInterface}}
+\subsubsection[{connectToScene}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::connectToScene (
+\begin{DoxyParamCaption}
+\item[{QString}]{myID, }
+\item[{QString}]{serverAddress, }
+\item[{int}]{serverPort}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a32a7846a3ad562ec4ba1763e8e809e26}
+
+
+Scene connection functions. 
+
+
+
+Definition at line 297 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_aea18e3bfc539d329ee970a066a47fdcd}{
+\index{SceneInterface@{SceneInterface}!exist@{exist}}
+\index{exist@{exist}!SceneInterface@{SceneInterface}}
+\subsubsection[{exist}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::exist (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_aea18e3bfc539d329ee970a066a47fdcd}
+
+
+test if a given ID exist on the scene and whether a processor is attached: 
+
+Various \char`\"{}utility functions\char`\"{}
+\begin{DoxyItemize}
+\item check whether an ID exist
+\item get a list of all registered ID's
+\item remove ID's from the list 
+\end{DoxyItemize}
+
+Definition at line 400 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_ac6fca129f77e5673b3d8df5381e01125}{
+\index{SceneInterface@{SceneInterface}!IDs@{IDs}}
+\index{IDs@{IDs}!SceneInterface@{SceneInterface}}
+\subsubsection[{IDs}]{\setlength{\rightskip}{0pt plus 5cm}QList$<$ QString $>$ SceneInterface::IDs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_ac6fca129f77e5673b3d8df5381e01125}
+
+
+get a list of ID's registered in this class 
+
+
+
+Definition at line 414 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a92285c3aea9e0aa135df93613dfe0bdf}{
+\index{SceneInterface@{SceneInterface}!removeID@{removeID}}
+\index{removeID@{removeID}!SceneInterface@{SceneInterface}}
+\subsubsection[{removeID}]{\setlength{\rightskip}{0pt plus 5cm}void SceneInterface::removeID (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_scene_interface_a92285c3aea9e0aa135df93613dfe0bdf}
+
+
+remove all data related to a particular ID 
+
+
+
+Definition at line 430 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}{
+\index{SceneInterface@{SceneInterface}!setInfoData@{setInfoData}}
+\index{setInfoData@{setInfoData}!SceneInterface@{SceneInterface}}
+\subsubsection[{setInfoData}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::setInfoData (
+\begin{DoxyParamCaption}
+\item[{QString}]{id, }
+\item[{{\bf t\_\-sceneInfoData}}]{idata}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_af2dfd9f8f4a1b231cf372d2e5f861321}
+Setting and accessing data for either a \char`\"{}full set\char`\"{} or partial data will always have the same format. Setting data, the return value indicates whether a new (key, value)-\/pair was created or an existing one was used/overwritten
+
+Access functions for each data type as well as the full struct of scene information 
+
+Definition at line 446 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a3bfb14f28b5a32f8e28a84b710e5e776}{
+\index{SceneInterface@{SceneInterface}!startProcessing@{startProcessing}}
+\index{startProcessing@{startProcessing}!SceneInterface@{SceneInterface}}
+\subsubsection[{startProcessing}]{\setlength{\rightskip}{0pt plus 5cm}bool SceneInterface::startProcessing (
+\begin{DoxyParamCaption}
+\item[{QString}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a3bfb14f28b5a32f8e28a84b710e5e776}
+
+
+Processing functionality. 
+
+Processing functions, wrapping AauBinFilter -\/ and possibly later other processing 
+
+Definition at line 643 of file sceneinterface.cpp.
+
+\hypertarget{class_scene_interface_a2c9f50c877cd2ac7bf75bfb6af7fff46}{
+\index{SceneInterface@{SceneInterface}!updateAudioServerInfo@{updateAudioServerInfo}}
+\index{updateAudioServerInfo@{updateAudioServerInfo}!SceneInterface@{SceneInterface}}
+\subsubsection[{updateAudioServerInfo}]{\setlength{\rightskip}{0pt plus 5cm}pair$<$ QString, unsigned short $>$ SceneInterface::updateAudioServerInfo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_interface_a2c9f50c877cd2ac7bf75bfb6af7fff46}
+
+
+obtain information about the audio server from the scene 
+
+
+
+Definition at line 323 of file sceneinterface.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Classes/sceneinterface.h\item 
+Classes/sceneinterface.cpp\end{DoxyCompactItemize}

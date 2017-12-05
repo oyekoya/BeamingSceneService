@@ -1,0 +1,50 @@
+Notes on changes and resolved issues arising from 2nd Year Review<br />
+--------------------------------------------------------------<br />
+Improvements made to Raknet client-server architecture to allow each client to set packet priority, reliability and auto-update interval. <br />
+See client.h for instructions.<br />
+<br />
+NetServer executable and netClient library (was using 100% CPU) - resolved using RakSleep(1) ==&gt; DONE<br />
+<br />
+ID_LOST_CONNECTIONS and Clients updating only once was caused by the implementation of the 3 optional default parameters - resolved by specifying the optional parameters when calling startclient(...2,1,30) ==&gt; DONE<br />
+<br />
+Startclient function modified to allow clients to specify server port argument (instead of local port argument). Local ports are now automatically assigned ==&gt; DONE<br />
+<br />
+On ID_CONNECTION_LOST, client application attempts reconnection. This should resolve intermittent network disconnections ==&gt; DONE<br />
+<br />
+Int n = getPeersInfo(&amp;pointerto string); returns how many peers are actually connected and the following infos<br />
+{0,"VISITOR", "Luigi", 1, VISITOR, "Paolo", 3, "SPECTATOR", "Eduardo"} where TYPES: VISITOR, PROXY, LOCAL, SPECTATOR, ROBOT, HAPTIC_DEVICE, ... ==&gt; DONE<br />
+<br />
+Returns how many nodes or float N = GetPeerData(INDEX, &amp;pointerto string, &amp;pointerto floats) (an extension of the Fetch function) ==&gt; DONE<br />
+NOTE: Fetch function assumes labels are numbers (0...n). An addtional parameter (pointer to string) in GetPeerData returns the labels\object-id <br />
+<br />
+Returns information about specific nodes float GetPeerSpecificData((INDEX, "label") ==&gt; DONE<br />
+<br />
+Extend Beaming Scene which simply supports AVATAR data mainly: to include shared\replicated objects for Emotion, Facial, Camera, 3D streams, etc. ==&gt; DONE<br />
+<br />
+<u>IMPORTANT</u>: All AVATAR data types should adhere to the Rocketbox standard as agreed during the development of the initial theatre application.<br />
+<br />
+Visitors and Locals should have different client types, eg. &quot;VISITOR&quot; and &quot;LOCAL&quot; instead of just &quot;AVATAR&quot;. This just needs to be agreed by the clients concerned.<br />
+<br />
+When an AVATAR is now added, it is added in the Rocketbox avatar format. Clients also have the ability to add multiple avatars.<br />
+<br />
+Connection to non-raknet clients (e.g IBM SL) - XMPP library<br />
+<br />
+Avatar joints can now be extracted in world-coordinates<br />
+<br />
+Extend Beaming Scene to support GENERIC data types. ==&gt; DONE<br />
+<br />
+<br />
+Technical contacts for netManager integration:<br />
+-------------------------------------------<br />
+UCL (Wole Oyekoya)<br />
+UCL - Client Manager (Will Steptoe)<br />
+TUM (Angelika Peer)<br />
+Starlab (Anton Albais-Eizagirre)<br />
+AAU (Esben Madsen)<br />
+SSSA (Franco Tecchia)<br />
+IBM (Ran Stone)<br />
+IDC (Keren-Or Berkers)<br />
+UB (Xavi Navarro)<br />
+IDIBAPS (Daniel Perez) <br />
+Technion (Tami)<br />
+ETH (Seokhee Jeon) 

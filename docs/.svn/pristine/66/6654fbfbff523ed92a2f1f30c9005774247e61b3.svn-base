@@ -1,0 +1,34 @@
+\label{todo__todo000006}
+\hypertarget{todo__todo000006}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19ca10c640771ca6b67327fd79fd10577c1d}{AUDIO\_\-CUSTOM} ]The rendering of Custom clients is currently not implemented, but the \hyperlink{class_rak_serv}{Server} does support the type properly. 
+\end{DoxyDescription}
+
+\label{todo__todo000003}
+\hypertarget{todo__todo000003}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{class_audio_i_o_a7a501d9f85127219d80c16076ccc287d}{AudioIO::enablePostFilter}(bool doFilt) ]post filtering is not actually used at this time 
+\end{DoxyDescription}
+
+\label{todo__todo000001}
+\hypertarget{todo__todo000001}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{class_audio_i_o_a202e09e054514a17d31c33ce650fc3a8}{AudioIO::isPostFilterEnabled}() ]post filtering is not actually used at this time 
+\end{DoxyDescription}
+
+\label{todo__todo000002}
+\hypertarget{todo__todo000002}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{class_audio_i_o_a4518c227826f7ff33c6da02a7571eead}{AudioIO::isPostFilterLoaded}() ]post filtering is not actually used at this time 
+\end{DoxyDescription}
+
+\label{todo__todo000004}
+\hypertarget{todo__todo000004}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{class_audio_i_o_aca51519b328983b7f3280d52bffaf2db}{AudioIO::loadPostFilter}(QString filename) ]post filtering is not actually used at this time 
+\end{DoxyDescription}

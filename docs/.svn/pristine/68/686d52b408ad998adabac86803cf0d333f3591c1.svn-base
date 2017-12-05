@@ -1,0 +1,27 @@
+\hypertarget{audioio_8cpp}{
+\section{Classes/audioio.cpp File Reference}
+\label{audioio_8cpp}\index{Classes/audioio.cpp@{Classes/audioio.cpp}}
+}
+{\ttfamily \#include \char`\"{}audioio.h\char`\"{}}\par
+{\ttfamily \#include $<$QObject$>$}\par
+{\ttfamily \#include $<$QFile$>$}\par
+{\ttfamily \#include $<$QTextStream$>$}\par
+{\ttfamily \#include $<$QStringList$>$}\par
+{\ttfamily \#include \char`\"{}portaudiocpp/PortAudioCpp.hxx\char`\"{}}\par
+{\ttfamily \#include \char`\"{}audiointerface.h\char`\"{}}\par
+{\ttfamily \#include $<$QString$>$}\par
+{\ttfamily \#include $<$QHash$>$}\par
+{\ttfamily \#include $<$QVector$>$}\par
+{\ttfamily \#include $<$QReadLocker$>$}\par
+{\ttfamily \#include $<$QWriteLocker$>$}\par
+{\ttfamily \#include $<$QThread$>$}\par
+{\ttfamily \#include \char`\"{}aaubinfilter.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}utilMath.h\char`\"{}}\par
+{\ttfamily \#include $<$QDebug$>$}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=83pt]{audioio_8cpp__dep__incl}
+\end{center}
+\end{figure}

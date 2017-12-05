@@ -1,0 +1,268 @@
+/*
+ * Copyright (C) 2008-2011 The QXmpp developers
+ *
+ * Author:
+ *	Manjeet Dahiya
+ *
+ * Source:
+ *	http://code.google.com/p/qxmpp
+ *
+ * This file is a part of QXmpp library.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ */
+
+
+#include "echoClient.h"
+#include "QXmppMessage.h"
+#include "QXmppPresence.h"
+#include <iostream>
+#include "client.h"
+#include "Kbhit.h"
+#include "Getche.h"
+
+echoClient::echoClient(QObject *parent)
+    : QXmppClient(parent)
+{
+    bool check = connect(this, SIGNAL(messageReceived(const QXmppMessage&)),
+        SLOT(messageReceived(const QXmppMessage&)));
+    Q_ASSERT(check);
+    Q_UNUSED(check);
+	check = connect(this, SIGNAL(presenceReceived(const QXmppPresence&)),
+        SLOT(presenceReceived(const QXmppPresence&)));
+    Q_ASSERT(check);
+    Q_UNUSED(check);
+    check = connect(this, SIGNAL(connected()),
+        SLOT(connected()));
+    Q_ASSERT(check);
+    Q_UNUSED(check);
+    check = connect(this, SIGNAL(disconnected()),
+        SLOT(disconnected()));
+    Q_ASSERT(check);
+    Q_UNUSED(check);
+}
+
+echoClient::~echoClient()
+{
+
+}
+
+void echoClient::messageReceived(const QXmppMessage& message)
+{
+    QString from = message.from();
+    QString msg = message.body();
+	QString reply;
+
+	//std::cout << "from " << from.toStdString() << "; msg " << msg.toStdString() << std::endl;
+	ReadText(msg,reply);
+    sendPacket(QXmppMessage("", from, reply)); //from may need to be hard-coded as "bpserver@srv-beaming"
+}
+
+void echoClient::presenceReceived(const QXmppPresence& presence)
+{
+    QString from = presence.from();
+    sendPresence(from);
+	if (presence.type() == QXmppPresence::Available)
+	{
+		sendPacket(QXmppMessage("cmmanager", from, "CM_CLIENT_CONNECTED")); 
+	}
+}
+
+void echoClient::sendPresence(QString msg_from)
+{
+    QString from = msg_from;
+    QXmppPresence available;
+    available.setTo(from);
+	available.setType(QXmppPresence::Available);
+    sendPacket(available);
+}
+
+void echoClient::connected()
+{
+	connected_to_bss = startclient("128.16.7.66", 12050, "IBM CLIENT", "AVATAR", "m016.cfg", false);
+    if (connected_to_bss)	{
+		sendPacket(QXmppMessage("cmmanager", "bpserver@srv-beaming", "CM_CLIENT_CONNECTED"));
+		sendPresence("bpserver@srv-beaming");
+	} else {
+		sendPacket(QXmppMessage("cmmanager", "bpserver@srv-beaming", "CM_CLIENT_NOT_CONNECTED"));
+	}
+	timer = new QTimer(this);
+	bool check = connect(timer, SIGNAL(timeout()), this, SLOT(PositionUpdateTimer()));
+	Q_ASSERT(check);
+	Q_UNUSED(check);
+	timer->start(1000); //one second (1000 millisecond) timer
+}
+
+void echoClient::disconnected()
+{
+    removeAllNodes();
+    stop();
+}
+
+void echoClient::ReadText(QString in_msg, QString& out_msg)
+{
+	char id_cstr[32];
+	QStringList inputList = in_msg.split(",");		//split on ;
+	if (!connected_to_bss) 
+	{
+		sendPacket(QXmppMessage("cmmanager", "bpserver@srv-beaming", "CM_CLIENT_NOT_CONNECTED"));
+		return;
+	} 
+   /**
+     * Format: BP_LOGIN_USER,id={bpid},fname={first name},lname={last name}
+     */
+    if (in_msg.startsWith("BP_LOGIN_USER"))
+    {
+ 		QString bpid = "";
+		bpid = inputList[1].split("=")[1]; //split on = and save the id and send back as cmid
+		sprintf(id_cstr,"%s",bpid.toStdString().c_str()); 
+        if (addRocketBoxAvatar(id_cstr,"m001.cfg"))
+		{
+			 //inform BP of successful login as AVATAR has been added 
+			 //CM_LOGIN_USER_RES,bpid={bpid},cmid={cmid}
+			std::cout << "AVATAR " << id_cstr << " added" << std::endl;
+			out_msg = "CM_LOGIN_USER_RES,bpid=" + bpid + ",cmid=" + bpid;
+		} else
+		{
+			//if xmpp client was unable to connect to Beaming Scene Service, inform BP
+			//CM_LOGIN_USER_FAILURE,id={bpid},fname={first name},lname={last name},error={error}
+            out_msg = "CM_LOGIN_USER_FAILURE,id=" + bpid + ",fname=" + inputList[2].split("=")[1] + ",lname=" + inputList[3].split("=")[1] + ",error=USER_NOT_ADDED";
+		}
+		return;
+    }
+    else if (in_msg.startsWith("BP_LOGOFF_USER"))
+    /*
+     * BP_LOGOFF_USER,id={cmid}
+     */
+    {
+		sprintf(id_cstr,"%s",inputList[1].split("=")[1].toStdString().c_str());
+		deleteRocketBoxAvatar(id_cstr);
+        return;
+    }
+    else if (in_msg.startsWith("BP_USER_POSITION"))
+    /*
+     * BP_USER_POSITION,id={cmid},x={x},y={y},z={z},ax={ax},ay={ay},az={az},aw={aw}
+     */
+    // Pelvis is the only joint currently used as the user's position. 
+    {
+		sprintf(id_cstr,"%s",inputList[1].split("=")[1].toStdString().c_str());
+		//printf("%s\n",id_cstr);
+		//updates root position which is 0 in the Rocketbox Avatar format
+        updateRocketBoxAvatar(id_cstr,"0",inputList[2].split("=")[1].toFloat(),
+			inputList[3].split("=")[1].toFloat(),inputList[4].split("=")[1].toFloat(),
+			inputList[5].split("=")[1].toFloat(),inputList[6].split("=")[1].toFloat(),
+			inputList[7].split("=")[1].toFloat(),inputList[8].split("=")[1].toFloat());
+		printf("%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f\n",inputList[2].split("=")[1].toFloat(),
+			inputList[3].split("=")[1].toFloat(),inputList[4].split("=")[1].toFloat(),
+			inputList[5].split("=")[1].toFloat(),inputList[6].split("=")[1].toFloat(),
+			inputList[7].split("=")[1].toFloat(),inputList[8].split("=")[1].toFloat());
+		return;
+    }
+
+    /*
+     * BP_RESET,id={cmid}
+     */
+    else if (in_msg.startsWith("BP_RESET"))
+    {
+		printf("Removing all created nodes.\n");
+		removeAllNodes();
+		return;
+    }
+
+    //out_msg = "CM_ERROR,error=unknown message";
+}
+
+/*
+ * This function should be executed by timer
+ */
+void echoClient::PositionUpdateTimer()
+{
+	//Reading AVATAR data
+	//get information on all connected clients. 
+	char connectedclients[1024];
+	char *guid, *node, *tmpid;
+	char allnodes[2048], node_info[256];
+	int loop = 0;
+	float data[7] = {0.f};
+	char iddata[128];
+	char ch;
+	char fname[128], lname[128];
+	//regularly check incoming connections, pings, etc
+	check();
+	if (kbhit())
+	{
+		ch=getch();
+		if (ch=='q' || ch=='Q' || ch==27)
+		{
+			sendPacket(QXmppMessage("cmmanager", "bpserver@srv-beaming", "CM_CLIENT_NOT_CONNECTED"));
+			printf("Quitting.\n");
+			removeAllNodes();
+			stop();
+			exit(1);
+		}
+	}
+	//printf("number of connected clients %i\t",getPeersID(connectedclients));
+	getPeersID(connectedclients);
+	//printf("connected clients (getPeersID): %s\n",connectedclients);
+	for (guid = strtok (connectedclients, ";"); guid != NULL;
+	   guid = strtok (guid + strlen (guid) + 1, ";"))
+	{
+		strncpy (iddata, guid, sizeof (iddata));
+		printf ("GUID: %s\n", iddata);
+		//for each connected guid in the database, get the nodes information.
+		//printf("Number of nodes %i\n",getNodesInfo(iddata,allnodes));
+		getNodesInfo(iddata,allnodes);
+		for (node = strtok (allnodes, ";"); node != NULL;
+		   node = strtok (node + strlen (node) + 1, ";"))
+		{
+			strncpy (node_info, node, sizeof (node_info));
+			//printf (" Node: %s\n", node_info);
+			for (tmpid = strtok (node_info, ","); tmpid != NULL;
+			   tmpid = strtok (tmpid + strlen (tmpid) + 1, ","))
+			{
+				static char avid[128];//, fname[128];
+				switch (loop) 
+				{
+				case 0:// first token is the avatar id
+					//printf ("  Avatar id: %s\n", tmpid);
+					strncpy(avid,tmpid,sizeof(avid));
+					break;
+				case 1:// second token is the avatar name
+					//printf ("  Avatar name: %s\n", tmpid);
+					//strncpy(fname,tmpid,sizeof(fname));
+					break;
+				case 2: //third token is the TYPE
+					if (!strcmp(tmpid,"AVATAR")) //only process if type is AVATAR
+					{
+						//get AVATAR root node "0" 
+						if (getAvatarSpecificData(iddata,avid,"0",data))
+						{
+							//printf("   Specific data for 0: %.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f\n",data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
+							///get Avatar Name
+							getAvatarName(iddata,avid,fname,lname);
+							printf("   Avatar Name: %s %s\n",fname,lname);
+							char msg_cstr[128];
+							//sprintf(msg_cstr,"CM_USER_POSITION,id=%s,fname=%s,lname=lastname,x=%.3f,y=%.3f,z=%.3f,ax=%.3f,ay=%.3f,az=%.3f,aw=%.3f",iddata,avid,data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
+							sprintf(msg_cstr,"CM_USER_POSITION,ConnId=%s,id=%s,fname=%s,lname=%s,x=%.3f,y=%.3f,z=%.3f,ax=%.3f,ay=%.3f,az=%.3f,aw=%.3f",iddata,avid,fname,lname,data[0],data[1],data[2],data[3],data[4],data[5],data[6]);
+							std::string msg_stdstr = msg_cstr;
+							sendPacket(QXmppMessage("", "bpserver@srv-beaming", QString::fromStdString(msg_stdstr))); 
+						}
+					} //else 
+						//printf("   %s - Not AVATAR\t",tmpid);
+					break;
+				}
+				loop++;
+			}
+			loop=0;
+		}
+	}
+}

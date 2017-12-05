@@ -1,0 +1,14 @@
+\section{Class List}
+Here are the classes, structs, unions and interfaces with brief descriptions:\begin{DoxyCompactList}
+\item\contentsline{section}{\hyperlink{class_audio_interface}{AudioInterface} (Interface for asynchronous communication between audio modules )}{\pageref{class_audio_interface}}{}
+\item\contentsline{section}{\hyperlink{class_audio_i_o}{AudioIO} (Audio Input/Output class based on portaudio )}{\pageref{class_audio_i_o}}{}
+\item\contentsline{section}{\hyperlink{classcli__printout}{cli\_\-printout} (Very simple helper-\/class to print messages from the various audio clases to the console )}{\pageref{classcli__printout}}{}
+\item\contentsline{section}{\hyperlink{class_rak_cli}{RakCli} (Class containing the overall interface for connecting and identifying to an Audio Server )}{\pageref{class_rak_cli}}{}
+\item\contentsline{section}{\hyperlink{class_rak_serv}{RakServ} (Class containing the Audio Server functionality and interface )}{\pageref{class_rak_serv}}{}
+\item\contentsline{section}{\hyperlink{class_scene_interface}{SceneInterface} (Class for managing connection to the Beaming Scene, obtaining tracking information and directional rendering of audio )}{\pageref{class_scene_interface}}{}
+\item\contentsline{section}{\hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo} (Struct for communication relevant info about the available audio devices )}{\pageref{structt__audio_devinfo}}{}
+\item\contentsline{section}{\hyperlink{structt__process_info}{t\_\-processInfo} (Struct for managing a the directional rendering of a particular stream )}{\pageref{structt__process_info}}{}
+\item\contentsline{section}{\hyperlink{structt__scene_info_data}{t\_\-sceneInfoData} (Struct datatype containing all information about a particular \char`\"{}ID\char`\"{} )}{\pageref{structt__scene_info_data}}{}
+\item\contentsline{section}{\hyperlink{struct_rak_serv_1_1t_client_info}{RakServ::tClientInfo} (Struct used for dealing with the relevant client information )}{\pageref{struct_rak_serv_1_1t_client_info}}{}
+\item\contentsline{section}{\hyperlink{classvrpn2scene}{vrpn2scene} (Class to read tracking data from a VRPN server and convert it to the format required by the Beaming scene )}{\pageref{classvrpn2scene}}{}
+\end{DoxyCompactList}

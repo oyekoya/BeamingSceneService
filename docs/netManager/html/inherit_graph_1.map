@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_beaming_room.html" title="Room Replica (destination)" alt="" coords="5,81,112,108"/>
+<area shape="rect" id="node3" href="$class_beaming_audio_replica.html" title="Audio Replica." alt="" coords="175,5,324,32"/>
+<area shape="rect" id="node5" href="$class_beaming_object_replica.html" title="Object Replica &#45; 3D Models." alt="" coords="172,56,327,83"/>
+<area shape="rect" id="node7" href="$class_beaming_point_cloud_replica.html" title="Point Cloud Replica." alt="" coords="160,107,339,133"/>
+<area shape="rect" id="node9" href="$class_beaming_video_replica.html" title="Video Replica." alt="" coords="175,157,324,184"/>
+</map>

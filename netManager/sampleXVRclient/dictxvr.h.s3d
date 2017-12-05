@@ -1,0 +1,153 @@
+/*
+ * Simple Dictionary for XVR
+ * Emanuele Ruffaldi 2009
+ *
+ * TODO: dynamic
+ *
+ * Initial 2009/07/28
+ *
+ * TODO
+ * - iterators of values and keys
+ */
+#ifndef DICTXVR_H_S3D
+#define DICTXVR_H_S3D
+
+/*
+ * Hashtable implemented as Chain
+ */
+class Hashtable
+{
+	
+	get(key); /// gets key
+	put(key,value); /// put key and value (optional)
+	del(key); /// deletes key
+	contains(key); /// contains key
+	clear(); /// cleanup
+	size(); /// number of elements
+
+	var xdata;   // array of buckets
+	var xsize;   // size
+};
+
+//-----------------------------------------------------
+
+/// polymorphic hash using VOCONG
+function hashstr(x)
+{
+	switch(valtype(x))
+	{
+	case "S":
+		{
+			// vocong 
+			// alternative is DJBX33A starting from 5381 and then (r + (r*32)) + asc(x[i]);
+			var r = 0;
+			for(var i = 0; i < len(x); i++)
+				r = r*0x63c63cd9 + 0x9c39c33d + asc(x[i]);
+			return abs(r);
+		}
+	case "I":
+		return abs(x);
+	case "O":
+		return x.__hash__;
+	default:
+		return 0; // not supported
+	}
+	
+}
+
+/* XVR Hash Table Bucket */
+class HashtableBucket
+{
+	var value;
+	var key;
+	var next;
+};
+
+function Hashtable::Hashtable()
+{
+	xdata = Array(256); 
+	xsize = 0;
+}
+
+function Hashtable::clear()
+{	
+	this.xdata = Array(256);
+	this.xsize = 0;
+}
+
+function Hashtable::get(key)
+{
+	var hid  = hashstr(key);
+	var p = xdata[hid % len(xdata)];
+	while(p != Void)
+	{
+		if(p.key == key)
+			return p.value;
+	}
+	return Void;
+}
+
+function Hashtable::size()
+{
+	return this.xsize;
+}
+
+function Hashtable::contains(key)
+{
+	var hid  = hashstr(key)% len(xdata);
+	var p = xdata[hid];
+	while(p != Void)
+	{
+		if(p.key == key)
+			return true;
+	}
+	return false;
+}
+
+function Hashtable::put(key,value)
+{
+	var hid  = hashstr(key) %len(xdata);
+	var p = xdata[hid];
+	var q = HashtableBucket();
+	q.key = key;
+	q.value = value;
+	xsize++;
+	if(p == Void)
+	{
+		xdata[hid] = q;
+	}
+	else
+	{
+		q.next = p;
+		xdata[hid] = q;
+	}
+	return true;
+}
+
+function Hashtable::del(key)
+{
+	var hid  = hashstr(key) %len(xdata);
+	var p = xdata[hid];
+	if(p == Void)
+		return false;
+	var pre;
+	while(true)
+	{
+		if(p.key == key)
+		{
+			if(pre == Void)
+				xdata[hid] = p.next;
+			else
+				pre.next = p.next;
+			xsize--;
+			return true;
+		}
+		pre = p;
+		p = p.next;
+		if(p == Void)
+			return false;
+	}
+}
+
+
+#endif

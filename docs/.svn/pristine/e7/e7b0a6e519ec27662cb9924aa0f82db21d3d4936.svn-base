@@ -1,0 +1,108 @@
+\hypertarget{audioio_8h}{
+\section{Classes/audioio.h File Reference}
+\label{audioio_8h}\index{Classes/audioio.h@{Classes/audioio.h}}
+}
+
+
+Handles audio input and output through the \hyperlink{class_audio_interface}{AudioInterface}, and also uses the \hyperlink{class_scene_interface}{SceneInterface} to control directional rendering.  
+
+
+{\ttfamily \#include $<$QObject$>$}\par
+{\ttfamily \#include $<$QFile$>$}\par
+{\ttfamily \#include $<$QTextStream$>$}\par
+{\ttfamily \#include $<$QStringList$>$}\par
+{\ttfamily \#include $<$math.h$>$}\par
+{\ttfamily \#include \char`\"{}portaudiocpp/PortAudioCpp.hxx\char`\"{}}\par
+{\ttfamily \#include \char`\"{}audiointerface.h\char`\"{}}\par
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{audioio_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structt__audio_devinfo}{t\_\-audioDevinfo}
+\begin{DoxyCompactList}\small\item\em struct for communication relevant info about the available audio devices \item\end{DoxyCompactList}\item 
+class \hyperlink{class_audio_i_o}{AudioIO}
+\begin{DoxyCompactList}\small\item\em Audio Input/Output class based on portaudio. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{audioio_8h_a02d0a79952653ca74660ad2fe89776d2}{PA\_\-FS}~48000
+\begin{DoxyCompactList}\small\item\em Sample rate to use in portaudio -\/ set to 48 kHz. \item\end{DoxyCompactList}\item 
+\#define \hyperlink{audioio_8h_a32cc90b2d2e2f3e8da20d6b661a06562}{PA\_\-FORMAT}~portaudio::INT16
+\begin{DoxyCompactList}\small\item\em Sample format to use in portaudio -\/ set to 16 bit integer. \item\end{DoxyCompactList}\item 
+\#define \hyperlink{audioio_8h_a8c9b73b246cd9117997d5761720890a4}{PA\_\-BUFLEN}~256
+\begin{DoxyCompactList}\small\item\em Length of the portaudio buffer determines how much audio each callback should request/provide and thus the latency vs. processing power. 256 samples at 48 kHz gives $\sim$5.3 ms latency. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles audio input and output through the \hyperlink{class_audio_interface}{AudioInterface}, and also uses the \hyperlink{class_scene_interface}{SceneInterface} to control directional rendering. \begin{DoxyAuthor}{Author}
+Aalborg University, Esben Madsen
+\end{DoxyAuthor}
+This class makes use of the cross platform library portaudio. Due to this inclusion, the following notice must be included -\/ note that this license {\bfseries only} relates to the parts {\itshape within\/} PortAudio (which are unaltered) and {\bfseries not} any of the code {\itshape using\/} PortAudio: 
+\begin{DoxyVerbInclude}
+This program is distributed with the PortAudio Portable Audio Library.
+For more information see: http://www.portaudio.com
+Copyright (c) 1999-2000 Ross Bencina and Phil Burk
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files
+(the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software,
+and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+\end{DoxyVerbInclude}
+ 
+
+Definition in file \hyperlink{audioio_8h_source}{audioio.h}.
+
+
+
+\subsection{Define Documentation}
+\hypertarget{audioio_8h_a8c9b73b246cd9117997d5761720890a4}{
+\index{audioio.h@{audioio.h}!PA\_\-BUFLEN@{PA\_\-BUFLEN}}
+\index{PA\_\-BUFLEN@{PA\_\-BUFLEN}!audioio.h@{audioio.h}}
+\subsubsection[{PA\_\-BUFLEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define PA\_\-BUFLEN~256}}
+\label{audioio_8h_a8c9b73b246cd9117997d5761720890a4}
+
+
+Length of the portaudio buffer determines how much audio each callback should request/provide and thus the latency vs. processing power. 256 samples at 48 kHz gives $\sim$5.3 ms latency. 
+
+
+
+Definition at line 39 of file audioio.h.
+
+\hypertarget{audioio_8h_a32cc90b2d2e2f3e8da20d6b661a06562}{
+\index{audioio.h@{audioio.h}!PA\_\-FORMAT@{PA\_\-FORMAT}}
+\index{PA\_\-FORMAT@{PA\_\-FORMAT}!audioio.h@{audioio.h}}
+\subsubsection[{PA\_\-FORMAT}]{\setlength{\rightskip}{0pt plus 5cm}\#define PA\_\-FORMAT~portaudio::INT16}}
+\label{audioio_8h_a32cc90b2d2e2f3e8da20d6b661a06562}
+
+
+Sample format to use in portaudio -\/ set to 16 bit integer. 
+
+
+
+Definition at line 35 of file audioio.h.
+
+\hypertarget{audioio_8h_a02d0a79952653ca74660ad2fe89776d2}{
+\index{audioio.h@{audioio.h}!PA\_\-FS@{PA\_\-FS}}
+\index{PA\_\-FS@{PA\_\-FS}!audioio.h@{audioio.h}}
+\subsubsection[{PA\_\-FS}]{\setlength{\rightskip}{0pt plus 5cm}\#define PA\_\-FS~48000}}
+\label{audioio_8h_a02d0a79952653ca74660ad2fe89776d2}
+
+
+Sample rate to use in portaudio -\/ set to 48 kHz. 
+
+
+
+Definition at line 33 of file audioio.h.
+

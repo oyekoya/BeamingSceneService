@@ -1,0 +1,240 @@
+#ifndef COMMON_S3D
+#define COMMON_S3D
+
+var RADTODEG=180/Pi;
+var DEGTORAD=Pi/180;
+
+
+var Time = 0.0;
+var Dt = 0.0;
+var frozen = false;
+
+
+function LoadShader(ShaderName)
+{
+	var Shader = CVmShaderProgram(ShaderName);
+
+	var shaderLog = Shader.GetLinkerLog();  
+	outputln("Loading Shader", ShaderName);
+	outputln(shaderLog); 
+	
+	var index;
+    var name; 
+   	var type;
+    var nameType;
+    var size; 
+
+
+	for (index =0; index<Shader.GetUniformCount(); index++)
+	{
+		Shader.GetUniform( index, &name, &type, &nameType, &size );
+		outputln("Uniform ", index, name, type, nameType, size);
+	}
+	return Shader;
+}
+
+
+// Draws a grid
+function DrawGrid(col, size)
+{
+	/* let's not mess up current OpenGL status */
+	glPushAttrib(GL_LIGHTING_BIT | GL_LINE_BIT | GL_CURRENT_BIT);
+	
+	glLineWidth(1);
+	glDisable(GL_LIGHTING);
+	glColor(col);
+	var max = size / 2.0;
+	var min = -max;	
+	var step = size / 10.0;
+	
+	glBegin(GL_LINES);
+		for (var i = min; i <= max; i += step)
+		{
+			glVertex(i, 0, max);
+			glVertex(i, 0, min);
+			
+			glVertex(max, 0, i);
+			glVertex(min, 0, i);
+		}
+	glEnd();
+	
+	/* polite restoration of previous OpenGL status */
+	glPopAttrib();
+}
+
+function DrawLine(A, B) 
+{
+
+	glBegin(GL_LINES);
+			glVertex(A);
+			glVertex(B);
+	glEnd();
+}
+	
+
+
+function CameraMoveMouse()
+{
+	static var InMouseR = false, InMouseL = false;				
+	static var PrecX = 0, PrecY = 0;		
+	static var prevPos=vector(3);
+	// Change these values to modify the mouse sensitivity
+	var TR_SENSITIVITY  = 0.00001;// * SceneScale;
+	var ROT_SENSITIVITY = 0.001;
+	// Mouse manager
+	if(Mouse.ButtonL && !Mouse.ButtonR)
+	{
+		//====  Left Button: Camera rotation  ====//
+		if (InMouseL)
+		{			
+
+			CameraRotate(( Mouse.X-PrecX)*ROT_SENSITIVITY,0,1,0);
+			CameraRotateABS((Mouse.Y-PrecY)*ROT_SENSITIVITY,1,0,0);		
+		}
+		else
+		{
+
+			PrecX = Mouse.X;
+			PrecY = Mouse.Y;
+		}
+		InMouseL = true;
+		InMouseR = false;
+	}
+	else
+	if(Mouse.ButtonR)
+	{
+	
+		//====  Right Button: Camera translation  ====//
+		if (InMouseR)
+		{
+			var CameraMatrix = CameraGetMatrix();
+			var CameraPos = CameraGetPosition();
+			if (!Mouse.ButtonL)
+			//====  Translation on X and Z axis ====//
+				CameraPos += CameraGetZAxis() * (Mouse.y-PrecY)*TR_SENSITIVITY + CameraGetXAxis() * (Mouse.X- PrecX)*TR_SENSITIVITY;
+			else
+			//====  Right + Left Button: Translation on Y axis ====//
+				CameraPos -= CameraGetYAxis() * (Mouse.y-PrecY)*TR_SENSITIVITY;
+			CameraSetPosition(CameraPos);		
+		}
+		else
+		{
+			PrecX = Mouse.X;
+			PrecY = Mouse.Y;
+		}
+		InMouseR = true;
+		InMouseL = false;
+	}	
+	else
+	{
+		InMouseR = false;
+		InMouseL = false;
+	}
+	
+	var CameraPos = CameraGetPosition();
+	var CameraDir = CameraGetDirection();
+
+/*	HUDprintAt(HUDtopLine(), "Camera @: %f %f %f Direction: %f %f %f\n",
+		CameraPos[0], CameraPos[1],	CameraPos[2], CameraDir[0], CameraDir[1],	CameraDir[2] );
+*/
+	CameraSetPosition(CameraGetPosition()+CameraGetDirection()*(0.001*Mouse.Wheel));
+	var curPos=CameraGetPosition();
+	CameraSetPosition(curPos+0.95*(curPos-prevPos));
+	prevPos=curPos;	
+}
+
+
+function DrawAxis(o, ax){
+	Var axlen=0.1;
+	glBegin(GL_LINES);
+	  glVertex(o);
+      glVertex(o+ax*axlen);
+	glEnd();
+}
+
+function DrawAxes(o,xax,yax,zax){
+	glPushAttrib(GL_LIGHTING|GL_DEPTH_TEST);
+	glDisable(GL_LIGHTING);
+	glDisable(GL_DEPTH_TEST);
+	glLineWidth(3.0);
+	glColor(1.0, 0.0, 0.0,1.0);
+	DrawAxis(o,xAx);
+	glColor(0.0, 1.0, 0.0,1.0);
+	DrawAxis(o,yAx);
+	glColor(0.0, 0.0, 1.0,1.0);
+	DrawAxis(o,zAx);
+	glPopAttrib();
+}
+
+function DrawAAxes(o){
+	DrawAxes(o,[1,0,0],[0,1,0],[0,0,1]);
+}
+
+
+class CVmVec3f
+{
+	var theVec;
+	setValue(vec);
+	setPosition(vec);
+	getPosition();
+	getValue();
+	addValue(x);
+};
+
+function CVmVec3f::CVmVec3f(x,y,z){
+	theVec=[x,y,z];
+}
+
+function CVmVec3f::setValue(vec)
+{
+	theVec=vec;
+}
+function CVmVec3f::getValue()
+{
+	return theVec;
+}
+
+function CVmVec3f::setPosition(vec)
+{
+	theVec=vec;
+}
+function CVmVec3f::getPosition()
+{
+	return theVec;
+}
+
+
+function CVmVec3f::addValue(x){
+	theVec+=x;
+}
+
+
+class CVmFloat
+{
+	var theFloat;
+	setValue(x);
+	getValue();
+	addValue(x);
+};
+
+function CVmFloat::CVmFloat(x){
+	theFloat=x;
+}
+
+function CVmFloat::setValue(x)
+{
+	theFloat=x;
+}
+function CVmFloat::getValue()
+{
+	return theFloat;
+}
+
+function CVmFloat::addValue(x)
+{
+	theFloat+=x;
+}
+
+
+
+#endif //COMMON_S3D

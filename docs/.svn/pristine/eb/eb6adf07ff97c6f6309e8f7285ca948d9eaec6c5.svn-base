@@ -1,0 +1,131 @@
+\hypertarget{kbhit__mod_8h}{
+\section{Classes/kbhit\_\-mod.h File Reference}
+\label{kbhit__mod_8h}\index{Classes/kbhit\_\-mod.h@{Classes/kbhit\_\-mod.h}}
+}
+
+
+Slightly modified version of the Kbhit.h-\/file found in RakNet used for reimplementing the \hyperlink{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}{kbhit()} and \hyperlink{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}{getch()} functions from conio.h on unix.  
+
+
+{\ttfamily \#include $<$sys/time.h$>$}\par
+{\ttfamily \#include $<$termios.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{kbhit__mod_8h_ab6a0eb9d27a9bae96d5e488bcb77b5ed}{cooked} (void)
+\begin{DoxyCompactList}\small\item\em Set terminal to normal \char`\"{}cooked\char`\"{} mode. \item\end{DoxyCompactList}\item 
+static void \hyperlink{kbhit__mod_8h_a91dd97230ebe40e2387a9f9b1eee7258}{raw} (void)
+\begin{DoxyCompactList}\small\item\em Set terminal to raw mode. \item\end{DoxyCompactList}\item 
+static int \hyperlink{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}{kbhit} (void)
+\begin{DoxyCompactList}\small\item\em Test if a key was hit without blocking the terminal. \item\end{DoxyCompactList}\item 
+static int \hyperlink{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}{getch} (void)
+\begin{DoxyCompactList}\small\item\em Get the char value of the key that was hit. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static struct termios \hyperlink{kbhit__mod_8h_a9cb11cfdb0ccedf4d1100363933eaf1a}{g\_\-old\_\-kbd\_\-mode}
+\begin{DoxyCompactList}\small\item\em struct containing the original keyboard mode \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Slightly modified version of the Kbhit.h-\/file found in RakNet used for reimplementing the \hyperlink{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}{kbhit()} and \hyperlink{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}{getch()} functions from conio.h on unix. Modification is required to be able to use stdin normally after invocation 
+
+Definition in file \hyperlink{kbhit__mod_8h_source}{kbhit\_\-mod.h}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{kbhit__mod_8h_ab6a0eb9d27a9bae96d5e488bcb77b5ed}{
+\index{kbhit\_\-mod.h@{kbhit\_\-mod.h}!cooked@{cooked}}
+\index{cooked@{cooked}!kbhit_mod.h@{kbhit\_\-mod.h}}
+\subsubsection[{cooked}]{\setlength{\rightskip}{0pt plus 5cm}static void cooked (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{kbhit__mod_8h_ab6a0eb9d27a9bae96d5e488bcb77b5ed}
+
+
+Set terminal to normal \char`\"{}cooked\char`\"{} mode. 
+
+
+
+Definition at line 32 of file kbhit\_\-mod.h.
+
+\hypertarget{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}{
+\index{kbhit\_\-mod.h@{kbhit\_\-mod.h}!getch@{getch}}
+\index{getch@{getch}!kbhit_mod.h@{kbhit\_\-mod.h}}
+\subsubsection[{getch}]{\setlength{\rightskip}{0pt plus 5cm}static int getch (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{kbhit__mod_8h_a47bde4de4100fb9fb386e345367787ce}
+
+
+Get the char value of the key that was hit. 
+
+\begin{DoxyReturn}{Returns}
+The char value of the key that was hit 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file kbhit\_\-mod.h.
+
+\hypertarget{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}{
+\index{kbhit\_\-mod.h@{kbhit\_\-mod.h}!kbhit@{kbhit}}
+\index{kbhit@{kbhit}!kbhit_mod.h@{kbhit\_\-mod.h}}
+\subsubsection[{kbhit}]{\setlength{\rightskip}{0pt plus 5cm}static int kbhit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{kbhit__mod_8h_a59e3c2bf4365d8cb8b07eae9e6baa905}
+
+
+Test if a key was hit without blocking the terminal. 
+
+\begin{DoxyReturn}{Returns}
+whether a key was hit 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file kbhit\_\-mod.h.
+
+\hypertarget{kbhit__mod_8h_a91dd97230ebe40e2387a9f9b1eee7258}{
+\index{kbhit\_\-mod.h@{kbhit\_\-mod.h}!raw@{raw}}
+\index{raw@{raw}!kbhit_mod.h@{kbhit\_\-mod.h}}
+\subsubsection[{raw}]{\setlength{\rightskip}{0pt plus 5cm}static void raw (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{kbhit__mod_8h_a91dd97230ebe40e2387a9f9b1eee7258}
+
+
+Set terminal to raw mode. 
+
+
+
+Definition at line 39 of file kbhit\_\-mod.h.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{kbhit__mod_8h_a9cb11cfdb0ccedf4d1100363933eaf1a}{
+\index{kbhit\_\-mod.h@{kbhit\_\-mod.h}!g\_\-old\_\-kbd\_\-mode@{g\_\-old\_\-kbd\_\-mode}}
+\index{g\_\-old\_\-kbd\_\-mode@{g\_\-old\_\-kbd\_\-mode}!kbhit_mod.h@{kbhit\_\-mod.h}}
+\subsubsection[{g\_\-old\_\-kbd\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}struct termios {\bf g\_\-old\_\-kbd\_\-mode}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{kbhit__mod_8h_a9cb11cfdb0ccedf4d1100363933eaf1a}
+
+
+struct containing the original keyboard mode 
+
+
+
+Definition at line 28 of file kbhit\_\-mod.h.
+

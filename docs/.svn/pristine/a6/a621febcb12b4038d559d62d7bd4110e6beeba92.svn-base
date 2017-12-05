@@ -1,0 +1,12 @@
+var class_beaming_avatar_joint_replica =
+[
+    [ "BeamingAvatarJointReplica", "class_beaming_avatar_joint_replica.html#ae4f814f07fcd08f94b889266870dc766", null ],
+    [ "~BeamingAvatarJointReplica", "class_beaming_avatar_joint_replica.html#a35cc67aa76797f61816a05432596e2bf", null ],
+    [ "avatarjoint_id", "class_beaming_avatar_joint_replica.html#abc12718b4ca4d0ca44f965824afa2be7", null ],
+    [ "fname", "class_beaming_avatar_joint_replica.html#ac425a90fc443c0bd5f70dc4fcb3d1fdc", null ],
+    [ "lname", "class_beaming_avatar_joint_replica.html#a2ebc6d737dd3493ac79fd70a6c9e5006", null ],
+    [ "orientation", "class_beaming_avatar_joint_replica.html#a25cb84e98ce1492f3c88dbaa364430a1", null ],
+    [ "parentbone", "class_beaming_avatar_joint_replica.html#a47c50e35ab3e9f37c94abcf08af6d074", null ],
+    [ "position", "class_beaming_avatar_joint_replica.html#a4d500806a0a547d392ceb29109d89c65", null ],
+    [ "thisnode", "class_beaming_avatar_joint_replica.html#a73c9b94c7e0c5fa6962d03f8a035e1d8", null ]
+];

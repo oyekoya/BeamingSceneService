@@ -1,0 +1,154 @@
+\hypertarget{classcli__printout}{
+\section{cli\_\-printout Class Reference}
+\label{classcli__printout}\index{cli\_\-printout@{cli\_\-printout}}
+}
+
+
+Very simple helper-\/class to print messages from the various audio clases to the console.  
+
+
+
+
+{\ttfamily \#include $<$cli\_\-printout.h$>$}
+
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcli__printout_ad38dd5c08d1da0ffb030e67ee188443f}{print} (QString msg, bool error=0)
+\begin{DoxyCompactList}\small\item\em Simple printing function utilizing QDebug for CLI output. \item\end{DoxyCompactList}\item 
+void \hyperlink{classcli__printout_ab1498f4f550024a035d4c33e5faf80f9}{printServerClientInfo} (bool connected, int type, QString sceneID, QString guid)
+\begin{DoxyCompactList}\small\item\em Slot for connecting the Audio Server \char`\"{}client information\char`\"{} signal. \item\end{DoxyCompactList}\item 
+void \hyperlink{classcli__printout_ad5c7d27e27577da5efc80a79a46a2f3b}{printClientInfo} (bool connected, int type, QString sceneID)
+\begin{DoxyCompactList}\small\item\em Slot for connecting the Audio Client \char`\"{}client information\char`\"{} signal. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcli__printout_ac6a02d8a24c428e533309765ea180230}{cli\_\-printout} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Very simple helper-\/class to print messages from the various audio clases to the console. To use, create an instance and either use the print function directly or connect the signals of other classes to the slot in this class: 
+\begin{DoxyCode}
+ printout out;
+ out.print("printing a simple message");
+ out.print("printing a warning/error", true);
+ QObject::connect(&otherClass,SIGNAL(message(QString,bool)),&out,SLOT(print(QStri
+      ng,bool))); // print relevant messages from other class
+\end{DoxyCode}
+ 
+
+Definition at line 26 of file cli\_\-printout.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcli__printout_ac6a02d8a24c428e533309765ea180230}{
+\index{cli\_\-printout@{cli\_\-printout}!cli\_\-printout@{cli\_\-printout}}
+\index{cli\_\-printout@{cli\_\-printout}!cli_printout@{cli\_\-printout}}
+\subsubsection[{cli\_\-printout}]{\setlength{\rightskip}{0pt plus 5cm}cli\_\-printout::cli\_\-printout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classcli__printout_ac6a02d8a24c428e533309765ea180230}
+
+
+Constructor. 
+
+
+
+Definition at line 31 of file cli\_\-printout.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcli__printout_ad38dd5c08d1da0ffb030e67ee188443f}{
+\index{cli\_\-printout@{cli\_\-printout}!print@{print}}
+\index{print@{print}!cli_printout@{cli\_\-printout}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void cli\_\-printout::print (
+\begin{DoxyParamCaption}
+\item[{QString}]{msg, }
+\item[{bool}]{error = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, slot\mbox{]}}}}
+\label{classcli__printout_ad38dd5c08d1da0ffb030e67ee188443f}
+
+
+Simple printing function utilizing QDebug for CLI output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The message to print on the command line. \\
+\hline
+{\em error} & Set to {\bfseries true} if the message should be displayed as an error, otherwise leave blank or set to {\bfseries false}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file cli\_\-printout.h.
+
+\hypertarget{classcli__printout_ad5c7d27e27577da5efc80a79a46a2f3b}{
+\index{cli\_\-printout@{cli\_\-printout}!printClientInfo@{printClientInfo}}
+\index{printClientInfo@{printClientInfo}!cli_printout@{cli\_\-printout}}
+\subsubsection[{printClientInfo}]{\setlength{\rightskip}{0pt plus 5cm}void cli\_\-printout::printClientInfo (
+\begin{DoxyParamCaption}
+\item[{bool}]{connected, }
+\item[{int}]{type, }
+\item[{QString}]{sceneID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, slot\mbox{]}}}}
+\label{classcli__printout_ad5c7d27e27577da5efc80a79a46a2f3b}
+
+
+Slot for connecting the Audio Client \char`\"{}client information\char`\"{} signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em connected} & {\bfseries true} if a client has connected {\bfseries false} for disconnect \\
+\hline
+{\em type} & defines the client type according to the \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} enum (an enum cannot be emitted in a signal, so it is cast to int) \\
+\hline
+{\em sceneID} & is the ID which the client has given -\/ this will generally be a Beaming Scene ID, but can be any string \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 68 of file cli\_\-printout.h.
+
+\hypertarget{classcli__printout_ab1498f4f550024a035d4c33e5faf80f9}{
+\index{cli\_\-printout@{cli\_\-printout}!printServerClientInfo@{printServerClientInfo}}
+\index{printServerClientInfo@{printServerClientInfo}!cli_printout@{cli\_\-printout}}
+\subsubsection[{printServerClientInfo}]{\setlength{\rightskip}{0pt plus 5cm}void cli\_\-printout::printServerClientInfo (
+\begin{DoxyParamCaption}
+\item[{bool}]{connected, }
+\item[{int}]{type, }
+\item[{QString}]{sceneID, }
+\item[{QString}]{guid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, slot\mbox{]}}}}
+\label{classcli__printout_ab1498f4f550024a035d4c33e5faf80f9}
+
+
+Slot for connecting the Audio Server \char`\"{}client information\char`\"{} signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em connected} & {\bfseries true} if the client has just connected, {\bfseries false} if the client is no longer connected. \\
+\hline
+{\em type} & defines the client type according to the \hyperlink{rakinfo_8h_a3c17bff6fe46b8320aaff27c1fbac19c}{tClientType} enum (an enum cannot be emitted in a signal, so it is cast to int) \\
+\hline
+{\em sceneID} & is the ID which the client has given -\/ this will generally be a Beaming Scene ID, but can be any string \\
+\hline
+{\em guid} & is the unique identifier for this particular client, that can also be used to kick the client using kickClient(). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file cli\_\-printout.h.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+Classes/\hyperlink{cli__printout_8h}{cli\_\-printout.h}\end{DoxyCompactItemize}
